@@ -1,2 +1,2 @@
 # pic2ascii
-Converts pictures to ascii text.
+Converts pictures to ascii text
