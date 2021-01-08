@@ -17,12 +17,12 @@ def getChar(inputInt):
     return charArray[math.floor(inputInt*interval)]
 
 #text_file = open("Output.txt", "w")
-yourn = input('hello, secavance?')
+y_or_n = str(input('Hi, do tou want to convert many pictures? (y) or (n)?'))
 
-if yourn == 'y':
-    x = int(input('how many (blender)'))
-    filename = 0
-    while filename < x:
+if y_or_n == 'y':
+    howmany = int(input('How many pictures do you have? This must have a number value.'))
+    filename = int(input('Enter the filename of the first picture. This must also be a number. Also make sure to have your pics in .jpg format.'))
+    while filename < howmany:
         filename = filename + 1
         if filename < 10:
             im = Image.open('000' + str(filename) + '.jpg')
@@ -67,7 +67,8 @@ if yourn == 'y':
 
         
 else:
-    im = Image.open("0000.jpg0151.jpg")
+    filename = int(input('Enter the filename of the picture. This value must be a number. Make sure to have your pic in .jpg format.'))
+    im = Image.open(filename)
 
     fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
