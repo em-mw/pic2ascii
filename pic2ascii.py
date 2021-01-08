@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw, ImageFont
 from tqdm import tqdm
 import math
 
-chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
+chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]'''
 # chars = "#Wo- "[::-1]
 charArray = list(chars)
 charLength = len(charArray)
@@ -32,8 +32,7 @@ if y_or_n == 'y':
             im = Image.open('0' + str(filename) + '.jpg')
         else:
             im = Image.open(filename + '.jpg')
-        
-
+            
         fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
         width, height = im.size
@@ -44,7 +43,6 @@ if y_or_n == 'y':
         outputImage = Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
         d = ImageDraw.Draw(outputImage)
 
-     
         for i in tqdm(range(height)):
             for j in range(width):
                 r, g, b = pix[j, i]
@@ -56,16 +54,16 @@ if y_or_n == 'y':
         #text_file.write('\n')
 
         if filename < 10:
-            outputImage.save('000' + str(filename) + '.png')
+            outputImage.save('output' + '000' + str(filename) + '.png')
         elif filename < 100:
-            outputImage.save('00' + str(filename) + '.png')
+            outputImage.save('output' + '00' + str(filename) + '.png')
         elif filename < 1000:
-            outputImage.save('0' + str(filename) + '.png')
+            outputImage.save('output' + '0' + str(filename) + '.png')
         else:
             outputImage.save(str(filename) + '.png')
-        
 
-        
+
+
 else:
     filename = int(input('Enter the filename of the picture. This value must be a number. Make sure to have your pic in .jpg format.'))
     im = Image.open(filename)
@@ -80,7 +78,6 @@ else:
     outputImage = Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
     d = ImageDraw.Draw(outputImage)
 
-                    
     for i in tqdm(range(height)):
         for j in range(width):
             r, g, b = pix[j, i]
