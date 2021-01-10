@@ -17,7 +17,7 @@ def getChar(inputInt):
     return charArray[math.floor(inputInt*interval)]
 
 #text_file = open("Output.txt", "w")
-y_or_n = str(input('Hi, do tou want to convert many pictures? (y) or (n)?'))
+y_or_n = str(input('Hi, do you want to convert many pictures? (y) or (n)?'))
 
 if y_or_n == 'y':
     howmany = int(input('How many pictures do you have? This must have a number value.'))
