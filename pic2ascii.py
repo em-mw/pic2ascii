@@ -17,18 +17,14 @@ def getChar(inputInt):
     return charArray[math.floor(inputInt*interval)]
 
 #text_file = open("Output.txt", "w")
-y_or_n = str(input('Hi, do you want to convert many pictures? (y) or (n)?'))
+y_or_n = str(input('Hi, do tou want to convert many pictures? (y) or (n)?'))
 
 if y_or_n == 'y':
     howmany = int(input('How many pictures do you have? This must have a number value.'))
     filename = int(input('Enter the filename of the first picture. This must also be a number. Also make sure to have your pics in .jpg format.'))
     while filename <= howmany:
-
         if filename < 10:
-            if filename == 1:
-                im = Image.open('0001.jpg')
-            else:
-                im = Image.open('000' + str(filename) + '.jpg')
+            im = Image.open('000' + str(filename) + '.jpg')
         elif filename < 100:
             im = Image.open('00' + str(filename) + '.jpg')
         elif filename < 1000:
@@ -57,21 +53,14 @@ if y_or_n == 'y':
         #text_file.write('\n')
 
         if filename < 10:
-            if filename == 1:
-                outputImage.save('output0001.png')
-                filename = filename + 1
-            else:
-                outputImage.save('output' + '000' + str(filename) + '.png')
-                filename = filename + 1
+            outputImage.save('000' + str(filename) + '.png')
         elif filename < 100:
-            outputImage.save('output' + '00' + str(filename) + '.png')
-            filename = filename + 1
+            outputImage.save('00' + str(filename) + '.png')
         elif filename < 1000:
-            outputImage.save('output' + '0' + str(filename) + '.png')
-            filename = filename + 1
+            outputImage.save('0' + str(filename) + '.png')
         else:
-            outputImage.save(str(filename) + '.png') # this is for 9999.png
-
+            outputImage.save(str(filename) + '.png')
+        filename = filename + 1
 
 
 else:
@@ -98,4 +87,4 @@ else:
 
     #text_file.write('\n')
 
-    outputImage.save('output.png')
+    outputImage.save(filename +'ascii')
