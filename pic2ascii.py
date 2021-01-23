@@ -30,7 +30,7 @@ if y_or_n == 'y':
         elif filename < 1000:
             im = Image.open('0' + str(filename) + '.jpg')
         else:
-            im = Image.open(filename + str(filename) + '.jpg')
+            im = Image.open(str(filename) + '.jpg')
             
         fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
