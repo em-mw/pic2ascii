@@ -1,7 +1,9 @@
-from PIL import Image, ImageDraw, ImageFont
+import PIL
+from PIL import ImageDraw, ImageFont
 from tqdm import tqdm
 import math
-
+from tkinter.filedialog import askopenfilenames
+from tkinter import *
 chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
 # chars = "#Wo- "[::-1]
 charArray = list(chars)
@@ -20,26 +22,25 @@ def getChar(inputInt):
 y_or_n = str(input('Hi, do you want to convert many pictures? (y) or (n)?'))
 
 if y_or_n == 'y':
-    howmany = int(input('How many pictures do you have? This must have a number value.'))
-    filename = int(input('Enter the filename of the first picture. This must also be a number. Also make sure to have your pics in .jpg format.'))
-    while filename <= howmany:
-        if filename < 10:
-            im = Image.open('000' + str(filename) + '.jpg')
-        elif filename < 100:
-            im = Image.open('00' + str(filename) + '.jpg')
-        elif filename < 1000:
-            im = Image.open('0' + str(filename) + '.jpg')
-        else:
-            im = Image.open(str(filename) + '.jpg')
-            
+    fileman = Tk()
+    fileman.wm_state('iconic')
+    file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
+    file_path_list = list(file_path_list)
+
+    x = 0
+    for file in file_path_list:
+        
+        im = PIL.Image.open(file_path_list[x])
+        
+
         fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
         width, height = im.size
-        im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), Image.NEAREST)
+        im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
         width, height = im.size
         pix = im.load()
 
-        outputImage = Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+        outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
         d = ImageDraw.Draw(outputImage)
 
         for i in tqdm(range(height)):
@@ -49,19 +50,18 @@ if y_or_n == 'y':
                 pix[j, i] = (h, h, h)
                 #text_file.write(getChar(h))
                 d.text((j*oneCharWidth, i*oneCharHeight), getChar(h), font = fnt, fill = (r, g, b))
-
+        
+        x += 1
         #text_file.write('\n')
-
-        if filename < 10:
-            outputImage.save('000' + str(filename) + '.png')
-        elif filename < 100:
-            outputImage.save('00' + str(filename) + '.png')
-        elif filename < 1000:
-            outputImage.save('0' + str(filename) + '.png')
+        if x < 10:
+            outputImage.save('000' + str(x) + '.png')
+        elif x < 100:
+            outputImage.save('00' + str(x) + '.png')
+        elif x < 1000:
+            outputImage.save('0' + str(x) + '.png')
         else:
-            outputImage.save(str(filename) + '.png')
-        filename = filename + 1
-
+            outputImage.save(str(x) + '.png')
+        
 
 else:
     filename = int(input('Enter the filename of the picture. This value must be a number. Make sure to have your pic in .jpg format.'))
