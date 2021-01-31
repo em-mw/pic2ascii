@@ -26,7 +26,8 @@ if y_or_n == 'y':
     fileman.wm_state('iconic')
     file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
     file_path_list = list(file_path_list)
-
+    
+    back = str(chr(92))
     x = 0
     for file in file_path_list:
         
@@ -51,16 +52,16 @@ if y_or_n == 'y':
                 #text_file.write(getChar(h))
                 d.text((j*oneCharWidth, i*oneCharHeight), getChar(h), font = fnt, fill = (r, g, b))
         
+        r = file_path_list[x].replace('/', back)
         x += 1
-        #text_file.write('\n')
         if x < 10:
-            outputImage.save('000' + str(x) + '.png')
+            outputImage.save(r.replace('.jpg', '.png'))
         elif x < 100:
-            outputImage.save('00' + str(x) + '.png')
+            outputImage.save(r.replace('.jpg', '.png'))
         elif x < 1000:
-            outputImage.save('0' + str(x) + '.png')
+            outputImage.save(r.replace('.jpg', '.png'))
         else:
-            outputImage.save(str(x) + '.png')
+            outputImage.save(r.replace('.jpg', '.png'))
         
 
 else:
