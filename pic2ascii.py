@@ -30,7 +30,7 @@ else:
         exit()
     else:
         sf = scaleFactor
-        sf = _
+        del sf
 print('select image or image sequance.')
 sleep(.5)
 fileman = Tk()
