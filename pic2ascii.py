@@ -6,7 +6,6 @@ from tkinter.filedialog import askopenfilenames
 from tkinter import *
 from time import sleep
 chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
-# chars = "#Wo- "[::-1]
 charArray = list(chars)
 charLength = len(charArray)
 interval = charLength/256
@@ -61,7 +60,6 @@ for file in file_path_list:
             r, g, b = pix[j, i]
             h = int(r/3 + g/3 + b/3)
             pix[j, i] = (h, h, h)
-            #text_file.write(getChar(h))
             d.text((j*oneCharWidth, i*oneCharHeight), getChar(h), font = fnt, fill = (r, g, b))
         
     r = file_path_list[x].replace('/', back)
