@@ -17,17 +17,17 @@ def getChar(inputInt):
     return charArray[math.floor(inputInt*interval)]
 
 scaleFactor = input('Hello Enter Scale Factor')
-    try:
-        int(scaleFactor)
-    except:
-        print('this does not work')
-        sleep(.2)
-        print('making default')
-        sleep(.5)
-        scaleFactor = 0.05
+try:
+    int(scaleFactor)
+except:
+    print('this does not work')
+    sleep(.2)
+    print('making default')
+    sleep(.5)
+    scaleFactor = 0.4
 print('select image or image sequance.')
 sleep(.5)
-return 'opening window'
+print('opening window')
 sleep(.2)
 fileman = Tk()
 fileman.wm_state('iconic')
@@ -49,7 +49,8 @@ for file in file_path_list:
     width, height = im.size
     pix = im.load()
 
-    outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+    outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (64, 64, 64))
+    #outputImage = im
     d = ImageDraw.Draw(outputImage)
 
     for i in tqdm(range(height)):
