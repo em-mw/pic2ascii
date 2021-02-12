@@ -16,28 +16,25 @@ oneCharHeight = 18
 def getChar(inputInt):
     return charArray[math.floor(inputInt*interval)]
 
-sf = input('Hello Enter Scale Factor or \'d\' for the default scale factor')
-if 'd' in sf:
-    scaleFactor = .05
-else:
+scaleFactor = input('Hello Enter Scale Factor')
     try:
-        int(sf)
+        int(scaleFactor)
     except:
         print('this does not work')
         sleep(.2)
-        print('exiting')
+        print('making default')
         sleep(.5)
-        exit()
-    else:
-        sf = scaleFactor
-        del sf
+        scaleFactor = 0.05
 print('select image or image sequance.')
 sleep(.5)
+return 'opening window'
+sleep(.2)
 fileman = Tk()
 fileman.wm_state('iconic')
 file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
 file_path_list = list(file_path_list)
 
+#backslash
 back = str(chr(92))
 x = 0
 for file in file_path_list:
