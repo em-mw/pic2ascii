@@ -24,13 +24,11 @@ class start:
         try:
             int(scaleFactor)
         except:
-            print('this does not work')
-            sleep(.2)
             print('making default')
-            sleep(.5)
+            sleep(.2)
             scaleFactor = 0.4
         print('select image or image sequance.')
-        sleep(.5)
+        sleep(.3)
         print('opening window')
         sleep(.2)
         fileman = Tk()
