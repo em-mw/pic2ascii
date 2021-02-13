@@ -7,7 +7,7 @@ from tkinter import *
 from time import sleep
 from multiprocessing import Process
 
-chars = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "[::-1]
+chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
 charArray = list(chars)
 charLength = len(charArray)
 interval = charLength/256
