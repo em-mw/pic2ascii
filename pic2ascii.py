@@ -64,7 +64,6 @@ class start:
                 
             r = file_path_list[x].replace('/', '\\')
             x += 1
-            if x < 10:
             outputImage.save(r.replace('.jpg', '.png'))
 #for class
 p = start()
