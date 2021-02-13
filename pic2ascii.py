@@ -60,7 +60,7 @@ class start:
                     r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     pix[j, i] = (h, h, h)
-                    d.text((j*oneCharWidth, i*oneCharHeight), getChar(h), font = fnt, fill = (r, g, b))
+                    d.text((j*oneCharWidth, i*oneCharHeight), p.getChar(h), font = fnt, fill = (r, g, b))
                 
             r = file_path_list[x].replace('/', '\\')
             x += 1
