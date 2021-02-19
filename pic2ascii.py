@@ -31,6 +31,8 @@ class start:
         sleep(.3)
         print('opening window')
         sleep(.2)
+        
+        #grabs fileman from com()
         fileman = Tk()
         fileman.wm_state('iconic')
         file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
@@ -63,9 +65,16 @@ class start:
             r = file_path_list[x].replace('/', '\\')
             x += 1
             outputImage.save(r.replace('.jpg', '.png'))
+class window:
+    def cpp(self):
+        gui = Tk()
+        
+        start = Button(gui, text='Start!', command=lambda:p.main())
+        start.pack()
+        gui.mainloop()
 #for class
 p = start()
-
+window = window()
 # if __name__ == '__main__':
     # p1 = Process(target=p.main)
     # input('yes')
@@ -74,4 +83,4 @@ p = start()
     # p1.join()
     # input('done(enter to exit)')
 
-p.main()
+window.cpp()
