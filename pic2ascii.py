@@ -20,7 +20,7 @@ class start:
         return charArray[math.floor(inputInt*interval)]
 
     def main(self):
-        scaleFactor = input('Hello Enter Scale Factor')
+        scaleFactor = input('Hello Enter Scale Factor or press enter for default')
         try:
             int(scaleFactor)
         except:
