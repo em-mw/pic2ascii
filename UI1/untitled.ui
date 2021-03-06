@@ -155,7 +155,7 @@
        <rect>
         <x>60</x>
         <y>50</y>
-        <width>291</width>
+        <width>331</width>
         <height>41</height>
        </rect>
       </property>
@@ -169,7 +169,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Chose a Tab to begin,</string>
+       <string>Choose Setup to begin,</string>
       </property>
       <property name="openExternalLinks">
        <bool>false</bool>
@@ -178,7 +178,7 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>160</x>
         <y>80</y>
         <width>261</width>
         <height>41</height>
@@ -212,7 +212,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>40</y>
+        <y>10</y>
         <width>181</width>
         <height>20</height>
        </rect>
@@ -226,7 +226,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Input Image/Image Sequance:</string>
+       <string>Input Image/Image Sequence:</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEditInDir">
@@ -236,8 +236,8 @@
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>40</y>
-        <width>511</width>
+        <y>10</y>
+        <width>451</width>
         <height>20</height>
        </rect>
       </property>
@@ -265,9 +265,9 @@
      <widget class="QPushButton" name="pushButtonImageIn">
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>40</y>
-        <width>171</width>
+        <x>750</x>
+        <y>10</y>
+        <width>211</width>
         <height>23</height>
        </rect>
       </property>
@@ -279,7 +279,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>80</y>
+        <y>50</y>
         <width>231</width>
         <height>20</height>
        </rect>
@@ -293,15 +293,15 @@
        </font>
       </property>
       <property name="text">
-       <string>Output Folder Image/Image Sequance:</string>
+       <string>Output Folder Image/Image Sequence:</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEditOutDir">
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>80</y>
-        <width>511</width>
+        <y>50</y>
+        <width>451</width>
         <height>20</height>
        </rect>
       </property>
@@ -312,9 +312,9 @@
      <widget class="QPushButton" name="pushButtonFolderOut">
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>80</y>
-        <width>171</width>
+        <x>750</x>
+        <y>50</y>
+        <width>211</width>
         <height>23</height>
        </rect>
       </property>
@@ -325,8 +325,8 @@
      <widget class="QLabel" name="labelFormatOut">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>260</y>
+        <x>10</x>
+        <y>80</y>
         <width>211</width>
         <height>20</height>
        </rect>
@@ -346,9 +346,9 @@
      <widget class="QComboBox" name="comboBoxFormatOut">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>260</y>
-        <width>91</width>
+        <x>230</x>
+        <y>80</y>
+        <width>111</width>
         <height>22</height>
        </rect>
       </property>
@@ -363,187 +363,69 @@
        </property>
       </item>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tabJobs">
-     <property name="statusTip">
-      <string/>
-     </property>
-     <attribute name="title">
-      <string>Jobs</string>
-     </attribute>
-     <attribute name="toolTip">
-      <string>This is where you start the prosses</string>
-     </attribute>
      <widget class="QProgressBar" name="progressBar">
       <property name="geometry">
        <rect>
-        <x>5</x>
-        <y>370</y>
-        <width>971</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Yu Gothic UI Semilight</family>
-        <weight>50</weight>
-        <bold>false</bold>
-        <stylestrategy>PreferAntialias</stylestrategy>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string>Status bar</string>
-      </property>
-      <property name="toolTipDuration">
-       <number>0</number>
-      </property>
-      <property name="statusTip">
-       <string>Status bar</string>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::RightToLeft</enum>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="value">
-       <number>100</number>
-      </property>
-      <property name="textVisible">
-       <bool>true</bool>
-      </property>
-      <property name="invertedAppearance">
-       <bool>true</bool>
-      </property>
-      <property name="format">
-       <string>%p%</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButtonStart">
-      <property name="geometry">
-       <rect>
-        <x>860</x>
-        <y>330</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>ArrowCursor</cursorShape>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="toolTip">
-       <string>This Starts the operation (Job)</string>
-      </property>
-      <property name="toolTipDuration">
-       <number>0</number>
-      </property>
-      <property name="statusTip">
-       <string>This Starts the operation (Job)</string>
-      </property>
-      <property name="text">
-       <string>Start Job</string>
-      </property>
-      <property name="checkable">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButtonStop">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>330</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="mouseTracking">
-       <bool>false</bool>
-      </property>
-      <property name="toolTip">
-       <string>This Stops the operaton (Job)</string>
-      </property>
-      <property name="toolTipDuration">
-       <number>0</number>
-      </property>
-      <property name="statusTip">
-       <string>This Stops the operaton (Job)</string>
-      </property>
-      <property name="whatsThis">
-       <string/>
-      </property>
-      <property name="accessibleDescription">
-       <string/>
-      </property>
-      <property name="text">
-       <string>Stop Job</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBoxFinnishOpts">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>300</y>
-        <width>171</width>
+        <x>10</x>
+        <y>360</y>
+        <width>961</width>
         <height>21</height>
        </rect>
       </property>
-      <property name="toolTip">
-       <string>Choose what to do when done</string>
+      <property name="value">
+       <number>24</number>
       </property>
-      <property name="toolTipDuration">
-       <number>0</number>
-      </property>
-      <property name="statusTip">
-       <string>Choose what to do when done</string>
-      </property>
-      <property name="editable">
-       <bool>false</bool>
-      </property>
-      <property name="placeholderText">
-       <string/>
-      </property>
-      <property name="duplicatesEnabled">
-       <bool>false</bool>
-      </property>
-      <item>
-       <property name="text">
-        <string>Do nothing when done</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Shutdown when done (Windows only)</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Exit Pic2Ascii when done</string>
-       </property>
-      </item>
      </widget>
-     <widget class="QLabel" name="label_4">
+     <widget class="QPushButton" name="stop">
       <property name="geometry">
        <rect>
-        <x>35</x>
-        <y>55</y>
-        <width>506</width>
-        <height>141</height>
+        <x>10</x>
+        <y>310</y>
+        <width>111</width>
+        <height>31</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>48</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-        <stylestrategy>PreferAntialias</stylestrategy>
-       </font>
+      <property name="text">
+       <string>Stop</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="start">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>310</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
       </property>
       <property name="text">
-       <string>Look in Terminal</string>
+       <string>Start</string>
       </property>
+     </widget>
+     <widget class="QComboBox" name="whatToDo">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>281</y>
+        <width>241</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Do nothing when finished (default)</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Close window when finished</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Shutdown the PC (Windows only) because you are insane</string>
+       </property>
+      </item>
      </widget>
     </widget>
    </widget>
@@ -554,7 +436,7 @@
      <x>0</x>
      <y>0</y>
      <width>985</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
