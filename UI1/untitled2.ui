@@ -88,7 +88,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="iconSize">
      <size>
@@ -238,7 +238,9 @@
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Yu Gothic UI'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt;&quot;&gt;Release Notes&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail and &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;at the moment it only suports the .jpg as an input format and .png as an output format but that may change in the future.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail and &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity's software.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;	--ErMax Team&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="acceptRichText">
        <bool>true</bool>
@@ -473,6 +475,82 @@ p, li { white-space: pre-wrap; }
         <string>Shutdown the PC (Windows only) because you are insane</string>
        </property>
       </item>
+     </widget>
+     <widget class="QDial" name="spinDialScaleFactor">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>240</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+      <property name="notchTarget">
+       <double>6.000000000000000</double>
+      </property>
+      <property name="notchesVisible">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditOutDir_2">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>220</y>
+        <width>51</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>DisValDef (.05)</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>870</x>
+        <y>280</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Yu Gothic UI Semilight</family>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string>Scale Factor</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>961</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
      </widget>
     </widget>
    </widget>
