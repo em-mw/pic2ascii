@@ -31,13 +31,6 @@
     <height>462</height>
    </size>
   </property>
-  <property name="font">
-   <font>
-    <weight>50</weight>
-    <bold>false</bold>
-    <stylestrategy>PreferAntialias</stylestrategy>
-   </font>
-  </property>
   <property name="cursor">
    <cursorShape>ArrowCursor</cursorShape>
   </property>
@@ -74,6 +67,15 @@
       <width>987</width>
       <height>423</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::ClickFocus</enum>
@@ -114,6 +116,8 @@
     <widget class="QWidget" name="tabHome">
      <property name="font">
       <font>
+       <family>Arial</family>
+       <pointsize>8</pointsize>
        <weight>50</weight>
        <bold>false</bold>
        <stylestrategy>PreferAntialias</stylestrategy>
@@ -212,6 +216,7 @@
       <property name="font">
        <font>
         <family>Yu Gothic UI</family>
+        <pointsize>8</pointsize>
         <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -236,10 +241,10 @@
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Yu Gothic UI'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Yu Gothic UI','Arial'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt;&quot;&gt;Release Notes&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail and &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity's software.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Yu Gothic UI'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;	--ErMax Team&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="acceptRichText">
@@ -268,6 +273,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="font">
        <font>
+        <family>Arial</family>
         <pointsize>10</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -286,12 +292,14 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>260</x>
         <y>10</y>
-        <width>451</width>
+        <width>481</width>
         <height>20</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>Arial</family>
+        <pointsize>8</pointsize>
         <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -300,6 +308,9 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="mouseTracking">
        <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>t</string>
       </property>
       <property name="frame">
        <bool>true</bool>
@@ -335,6 +346,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="font">
        <font>
+        <family>Arial</family>
         <pointsize>10</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -350,9 +362,21 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>260</x>
         <y>50</y>
-        <width>451</width>
+        <width>481</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string>t</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -366,6 +390,15 @@ p, li { white-space: pre-wrap; }
         <width>211</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
       </property>
       <property name="text">
        <string>Browse (Folder)</string>
@@ -382,6 +415,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="font">
        <font>
+        <family>Arial</family>
         <pointsize>10</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -479,14 +513,33 @@ p, li { white-space: pre-wrap; }
      <widget class="QDial" name="spinDialScaleFactor">
       <property name="geometry">
        <rect>
-        <x>900</x>
-        <y>240</y>
+        <x>880</x>
+        <y>280</y>
         <width>51</width>
         <height>51</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <strikeout>false</strikeout>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
       <property name="cursor">
        <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="pageStep">
+       <number>10</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
       <property name="invertedAppearance">
        <bool>false</bool>
@@ -498,14 +551,23 @@ p, li { white-space: pre-wrap; }
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEditOutDir_2">
+     <widget class="QLineEdit" name="lineEditSF">
       <property name="geometry">
        <rect>
-        <x>900</x>
-        <y>220</y>
+        <x>880</x>
+        <y>260</y>
         <width>51</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Tahoma</family>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
       </property>
       <property name="text">
        <string>DisValDef (.05)</string>
@@ -514,11 +576,11 @@ p, li { white-space: pre-wrap; }
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="labelSF">
       <property name="geometry">
        <rect>
-        <x>870</x>
-        <y>280</y>
+        <x>850</x>
+        <y>320</y>
         <width>111</width>
         <height>41</height>
        </rect>
@@ -529,6 +591,7 @@ p, li { white-space: pre-wrap; }
         <pointsize>13</pointsize>
         <weight>50</weight>
         <bold>false</bold>
+        <strikeout>false</strikeout>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
       </property>
@@ -550,6 +613,105 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditFont">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>130</y>
+        <width>186</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>t</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButtonFontIn">
+      <property name="geometry">
+       <rect>
+        <x>860</x>
+        <y>130</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Browse File (tiff)</string>
+      </property>
+     </widget>
+     <widget class="QFontComboBox" name="fontComboBox">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>155</y>
+        <width>188</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButtonopt1">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>130</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Yu Gothic Medium</family>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButtonopt2">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>155</y>
+        <width>16</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Fontlabel">
+      <property name="geometry">
+       <rect>
+        <x>535</x>
+        <y>135</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Yu Gothic UI</family>
+        <pointsize>19</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string>Font Style</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>
