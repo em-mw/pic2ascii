@@ -27,6 +27,7 @@
   </property>
   <property name="font">
    <font>
+    <family>Yu Gothic UI Light</family>
     <kerning>true</kerning>
    </font>
   </property>
@@ -37,7 +38,7 @@
    <enum>Qt::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>About ErMax pic2ascii</string>
+   <string>About ErMax-pic2ascii</string>
   </property>
   <property name="statusTip">
    <string/>
@@ -47,9 +48,6 @@
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
-  </property>
-  <property name="styleSheet">
-   <string notr="true"/>
   </property>
   <property name="documentMode">
    <bool>true</bool>
@@ -65,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>-80</x>
-      <y>-25</y>
+      <y>0</y>
       <width>296</width>
       <height>161</height>
      </rect>
@@ -112,7 +110,7 @@
     <property name="geometry">
      <rect>
       <x>125</x>
-      <y>-5</y>
+      <y>20</y>
       <width>106</width>
       <height>76</height>
      </rect>
@@ -134,7 +132,7 @@
     <property name="geometry">
      <rect>
       <x>135</x>
-      <y>45</y>
+      <y>70</y>
       <width>116</width>
       <height>21</height>
      </rect>
@@ -152,23 +150,51 @@
      <string>Software at its finest</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>268</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
+   <widget class="QLabel" name="about">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>5</y>
+      <width>141</width>
+      <height>26</height>
+     </rect>
     </property>
-    <addaction name="actionExit"/>
+    <property name="font">
+     <font>
+      <family>Yu Gothic UI</family>
+      <pointsize>15</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>About pic2ascii:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
-   <addaction name="menuFile"/>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>226</width>
+      <height>226</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail (or no detail) and &lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity's software.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
   </widget>
   <action name="actionExit">
    <property name="text">
