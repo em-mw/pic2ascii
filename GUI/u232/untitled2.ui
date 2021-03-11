@@ -878,7 +878,7 @@ p, li { white-space: pre-wrap; }
   </action>
   <action name="actionAbout_Pic2Ascii">
    <property name="text">
-    <string>About Pic2Ascii/Licence</string>
+    <string>About Pic2Ascii</string>
    </property>
   </action>
   <action name="actionContact">
