@@ -19,8 +19,7 @@ class start:
     def getChar(self, inputInt):
         return charArray[math.floor(inputInt*interval)]
 
-    def main(self):
-        #os = 
+    def main(self): 
         scaleFactor = input('Hello Enter Scale Factor or press enter for default (L for licence)')
         try:
             scaleFactor = int(scaleFactor)
