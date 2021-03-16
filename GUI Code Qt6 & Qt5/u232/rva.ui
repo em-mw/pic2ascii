@@ -1221,10 +1221,11 @@ p, li { white-space: pre-wrap; }
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0.21, stop:0 rgba(70, 70, 0, 255), stop:0.278409 rgba(106, 106, 106, 255), stop:1 rgba(255, 255, 255, 255));</string>
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0.21, stop:0 rgba(70, 70, 0, 255), stop:0.278409 rgba(106, 106, 106, 255), stop:1 rgba(255, 255, 255, 255));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0.21, stop:0 rgba(153, 153, 153, 255), stop:0.278409 rgba(210, 210, 210, 255), stop:1 rgba(255, 255, 255, 255));</string>
    </property>
    <property name="sizeGripEnabled">
     <bool>false</bool>
