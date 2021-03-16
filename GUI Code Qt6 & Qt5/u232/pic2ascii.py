@@ -701,13 +701,17 @@ import PIL
 from PIL import ImageDraw, ImageFont
 #!#from tqdm import tqdm
 import math
-from tkinter.filedialog import askopenfilenames
-from tkinter import *
 from time import sleep
 from multiprocessing import Process
 
 #all (fine imports)
 from platform import platform as os
+
+#atrib (fine imports)
+from tkinter.filedialog import askdirectory as askdir
+from tkinter.filedialog import askopenfilenames
+from tkinter import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -868,6 +872,7 @@ class Ui_MainWindow(object):
         self.pushButtonImageIn.setGeometry(QtCore.QRect(750, 10, 211, 23))
         self.pushButtonImageIn.setToolTipDuration(0)
         self.pushButtonImageIn.setObjectName("pushButtonImageIn")
+        self.pushButtonImageIn.clicked.connect(lambda:atrib.InputFileLoc())
         self.labelOutDesk = QtWidgets.QLabel(self.tabSetup)
         self.labelOutDesk.setGeometry(QtCore.QRect(10, 45, 231, 20))
         font = QtGui.QFont()
@@ -902,6 +907,7 @@ class Ui_MainWindow(object):
         self.pushButtonFolderOut.setFont(font)
         self.pushButtonFolderOut.setToolTipDuration(0)
         self.pushButtonFolderOut.setObjectName("pushButtonFolderOut")
+        self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
         self.labelFormatOut = QtWidgets.QLabel(self.tabSetup)
         self.labelFormatOut.setGeometry(QtCore.QRect(10, 80, 211, 20))
         font = QtGui.QFont()
@@ -1281,32 +1287,36 @@ class Ui_MainWindow(object):
         self.actionReport_an_Erorr.setText(_translate("MainWindow", "Report an Erorr!"))
         self.actionRequest_a_Feature.setText(_translate("MainWindow", "Request a Feature"))
         self.actionLicence.setText(_translate("MainWindow", "Licence"))
-
-class atrib:
-    def InputFileLoc():
-        winyorn = str(os()).lower().find('windows')
-        if winyorn != int(-1):
-            slash = str('\\')
-        elif winyorn == int(-1):
-            slash = str('/')
+class atrib(Ui_MainWindow):
+    def InputFileLoc(self):
         fileman = Tk()
         #fileman.wm_state('iconic')
         fileman.attributes('-alpha', 0)
         global file_path_list
-        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir=slash, title='Select All Pictures to Ascii.')
-        file_path_list = list(file_path_list)
+        try:
+            file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), title='Select All Pictures to Ascii.')
+            file_path_list = list(file_path_list)
+            flp_disp = file_path_list[0]
+            if len(file_path_list) < int(10):
+                amount = str('1 out of few')
+            else:
+                amount = str('1 of many')
+            ui.lineEditInDir.setText(str(flp_disp + '    ' + '(' + amount + ')'))
+        except:
+            #also put an msgbox here
+            fileman.destroy()
     
-    def OutImgFolder():
-        floderman = Tk()
+    def OutImgFolder(self):
+        folderman = Tk()
         #folderman.wm_state('iconic')
-        folderman.attributes('-alpha', 1)
-        winyorn = str(os()).lower().find('windows')
-        if winyorn != int(-1):
-            slash = str('\\')
-        elif winyorn == int(-1):
-            slash = str('/')
+        folderman.attributes('-alpha', 0)
         global folder_out_path
-        #folder_out_path = 
+        #(initialdir='/')
+        folder_out_path = askdir(title='Select Ascii Image Output Folder')
+        try:
+            ui.lineEditOutDir.setText(str(folder_out_path))
+        except:
+            folderman.destroy()
         
 
 
@@ -1370,8 +1380,8 @@ class pta:
 
 #class debunks
 pta = pta()
-
-if __name__ == "__makin__":
+atrib = atrib()
+if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
