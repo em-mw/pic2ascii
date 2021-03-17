@@ -1,0 +1,3 @@
+adft help
+
+line 1 is the variable for the background color
