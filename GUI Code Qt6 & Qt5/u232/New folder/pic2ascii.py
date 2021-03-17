@@ -715,11 +715,11 @@ from multiprocessing import Process
 #all (fine imports)
 from platform import platform as os
 
-#atrib (fine imports)
+#atrib and error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
 from tkinter.filedialog import askopenfilenames
 from tkinter import *
-
+from tkinter import messagebox
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -976,11 +976,13 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.setToolTipDuration(0)
         self.spinDialScaleFactor.setStyleSheet("")
         self.spinDialScaleFactor.setMaximum(100)
+        self.spinDialScaleFactor.setMinimum(1)
         self.spinDialScaleFactor.setPageStep(10)
         self.spinDialScaleFactor.setOrientation(QtCore.Qt.Orientations.Horizontal)
         self.spinDialScaleFactor.setInvertedAppearance(False)
         self.spinDialScaleFactor.setNotchTarget(6.0)
         self.spinDialScaleFactor.setNotchesVisible(True)
+        self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.spinDialScaleFactor.setObjectName("spinDialScaleFactor")
         self.lineEditSF = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEditSF.setGeometry(QtCore.QRect(840, 250, 51, 26))
@@ -1296,6 +1298,22 @@ class Ui_MainWindow(object):
         self.actionReport_an_Erorr.setText(_translate("MainWindow", "Report an Erorr!"))
         self.actionRequest_a_Feature.setText(_translate("MainWindow", "Request a Feature"))
         self.actionLicence.setText(_translate("MainWindow", "Licence"))
+
+#delete class once done
+class dtet():
+    def test_msg(self):
+        root = Tk()
+        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
+        root.withdraw()
+        root.attributes('-alpha', 0)
+
+        messagebox.showinfo('worked', str('it worked'))
+
+        root.deiconify()
+        root.destroy()
+        root.quit()
+        del root
+
 class atrib(Ui_MainWindow):
     def InputFileLoc(self):
         fileman = Tk()
@@ -1303,7 +1321,7 @@ class atrib(Ui_MainWindow):
         fileman.attributes('-alpha', 0)
         global file_path_list
         try:
-            file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), title='Select All Pictures to Ascii.')
+            file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg")), title='Select All Pictures to Ascii.')
             file_path_list = list(file_path_list)
             flp_disp = file_path_list[0]
             if len(file_path_list) == int(1):
@@ -1336,17 +1354,8 @@ class atrib(Ui_MainWindow):
         else:
             folderman.destroy()
     
-    def invalid_dir(x):
-        root = Tk()
-        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
-        root.withdraw()
-        root.attributes('-alpha', 0)
-
-        messagebox.showerror('Invalid Directory', str('The Directory \'%s\' is invalid' % x))
-
-        root.deiconify()
-        root.destroy()
-        root.quit()
+    def dialSF(self):
+        dtet.test_msg()
 
 class pta:
     #declaring all of the variables in adft first
@@ -1392,8 +1401,12 @@ class pta:
             try:    
                 im = PIL.Image.open(file_path_list[x])
             except:
-                invalid_dir(x)
-                #add the stop func here
+                error.invalid_dir(x)
+                #add the stopbtn func here
+            else:
+                if str(im).find('jpeg') != int(-1) or str(im).find('jpg') != int(-1):
+                    error.invalid_img_type()
+                    pass
             fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
             width, height = im.size
@@ -1417,13 +1430,41 @@ class pta:
             r = file_path_list[x].replace('/', '\\')
             x += 1
             outputImage.save(r.replace('.jpg', '.png'))
+
 class error:
-    def adft_bad():
+    def invalid_dir(x):
+        root = Tk()
+        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
+        root.withdraw()
+        root.attributes('-alpha', 0)
+
+        messagebox.showerror('Invalid Directory', str('The Directory \'%s\' is invalid' % x))
+
+        root.deiconify()
+        root.destroy()
+        root.quit()
+        del root
+    
+    def invalid_img_type():
+        root = Tk()
+        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
+        root.withdraw()
+        root.attributes('-alpha', 0)
+
+        messagebox.showerror('Not suppored Image type', str('This image type is not valid!\nThe only valid image types are .jpg and .jpeg'))
+
+        root.deiconify()
+        root.destroy()
+        root.quit()
+        del root
+    
+    def invalid_fnt_dir():
         pass
 #class debunks
 pta = pta()
 atrib = atrib()
-
+error = error()
+dtet = dtet()
 
 if __name__ == "__main__":
     import sys
