@@ -720,6 +720,7 @@ from tkinter.filedialog import askdirectory as askdir
 from tkinter.filedialog import askopenfilenames
 from tkinter import *
 from tkinter import messagebox
+from platform import platform
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1324,6 +1325,8 @@ class atrib(Ui_MainWindow):
         
         file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"),), title='Select All Pictures to Ascii.')
         file_path_list = list(file_path_list)
+        if platform().lower().find('windows'):
+            file_path_list[0].replace('/', '\\')
         if len(file_path_list) == int(1):
             amount = str('Only 1 Picture')
         elif len(file_path_list) <= int(10) and len(file_path_list) > int(0):
@@ -1337,7 +1340,7 @@ class atrib(Ui_MainWindow):
         else:
             pass
         try:
-            ui.lineEditInDir.setText(str(file_path_list[0]))
+            ui.lineEditInDir.setText(str(file_path_list[0] + '\t(' + amount + ')'))
             
         except:
             fileman.destroy()
@@ -1349,7 +1352,7 @@ class atrib(Ui_MainWindow):
         folderman.attributes('-alpha', 0)
         global folder_out_path
         #(initialdir='/')
-        folder_out_path = askdir(title='Select Ascii Image Output Folder')
+        folder_out_path = askdir(multipule=True, title='Select Ascii Image Output Folder')
         try:
             ui.lineEditOutDir.setText(str(folder_out_path))
         except:
