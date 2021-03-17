@@ -1342,9 +1342,9 @@ class pta:
     #declaring all of the variables in adft first
     
     #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-    charArray = list(chars)
-    charLength = len(charArray)
-    interval = charLength/256
+    #charArray = list(chars)
+    #charLength = len(charArray)
+    #interval = charLength/256
 
     #oneCharWidth = 10
     #oneCharHeight = 18
