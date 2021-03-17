@@ -1216,6 +1216,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+        #global __translate
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ErMax.Inc-Pic2Ascii"))
         self.label.setText(_translate("MainWindow", "Welcome!"))
@@ -1320,26 +1321,28 @@ class atrib(Ui_MainWindow):
         fileman.withdraw()
         fileman.attributes('-alpha', 0)
         global file_path_list
+        
+        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"),), title='Select All Pictures to Ascii.')
+        file_path_list = list(file_path_list)
+        if len(file_path_list) == int(1):
+            amount = str('Only 1 Picture')
+        elif len(file_path_list) <= int(10) and len(file_path_list) > int(0):
+            amount = str('1 Out of' + len(file_path_list) + 'Pictures')
+            
+        elif len(file_path_list) <= int(20) and len(file_path_list) > int(10):
+            amount = str('1 Out of Few Pictures')
+            
+        elif len(file_path_list) > int(20):
+            amount = str('1 of many pictures')
+        else:
+            pass
         try:
-            file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg")), title='Select All Pictures to Ascii.')
-            file_path_list = list(file_path_list)
-            flp_disp = file_path_list[0]
-            if len(file_path_list) == int(1):
-                amount = str('Only 1 Picture')
-            elif len(file_path_list) <= int(10):
-                amount = str('1 Out of' + len(file_path_list) + 'Pictures')
+            ui.lineEditInDir.setText(str(file_path_list[0]))
             
-            elif len(file_path_list) <= int(20) and len(file_path_list) > int(10):
-                amount = str('1 Out of Few Pictures')
-            
-            else:
-                amount = str('1 of many pictures')
-            ui.lineEditInDir.setText(str(flp_disp + '    ' + '(' + amount + ')'))
         except:
             fileman.destroy()
-        else:
-            fileman.destroy()
-    
+
+
     def OutImgFolder(self):
         folderman = Tk()
         folderman.withdraw()
@@ -1432,7 +1435,7 @@ class pta:
             outputImage.save(r.replace('.jpg', '.png'))
 
 class error:
-    def invalid_dir(x):
+    def invalid_dir(self, x):
         root = Tk()
         root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
         root.withdraw()
@@ -1445,7 +1448,7 @@ class error:
         root.quit()
         del root
     
-    def invalid_img_type():
+    def invalid_img_type(self):
         root = Tk()
         root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
         root.withdraw()
@@ -1458,7 +1461,7 @@ class error:
         root.quit()
         del root
     
-    def invalid_fnt_dir():
+    def invalid_fnt_dir(self):
         pass
 #class debunks
 pta = pta()
