@@ -1299,7 +1299,8 @@ class Ui_MainWindow(object):
 class atrib(Ui_MainWindow):
     def InputFileLoc(self):
         fileman = Tk()
-        fileman.attributes('-alpha', 0)
+        fileman.withdraw()
+        #fileman.attributes('-alpha', 0)
         global file_path_list
         try:
             file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), title='Select All Pictures to Ascii.')
@@ -1323,7 +1324,8 @@ class atrib(Ui_MainWindow):
             fileman.destroy()
     def OutImgFolder(self):
         folderman = Tk()
-        folderman.attributes('-alpha', 0)
+        folderman.withdraw()
+        #folderman.attributes('-alpha', 0)
         global folder_out_path
         #(initialdir='/')
         folder_out_path = askdir(title='Select Ascii Image Output Folder')
@@ -1337,22 +1339,39 @@ class atrib(Ui_MainWindow):
 
 
 class pta:
-    chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+    #declaring all of the variables in adft first
+    
+    #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
     charArray = list(chars)
     charLength = len(charArray)
     interval = charLength/256
 
-    oneCharWidth = 10
-    oneCharHeight = 18
+    #oneCharWidth = 10
+    #oneCharHeight = 18
     
     def getChar(self, inputInt):
+        with open('adft.txt' , 'r') as vars:
+            chars = str(vars.readlines()[1])
+            oneCharWidth = int(vars.readlines()[2])
+            oneCharHeight = int(vars.readlines()[3])
+        
+        charArray = list(chars)
+        charLength = len(charArray)
+        interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
 
     
     def main(self):
-        #declaring all of the variables in adft
         with open('adft.txt', 'r') as vars:
+            chars = str(vars.readlines()[1])
+            oneCharWidth = int(vars.readlines()[2])
+            oneCharHeight = int(vars.readlines()[3])
             bg_color = str(vars.readlines()[0])
+            costom_color_yorn = bool(vars.readlines()[4])
+        
+        charArray = list(chars)
+        charLength = len(charArray)
+        interval = charLength/256
         try:
             int(scaleFactor)
         except:
@@ -1380,12 +1399,16 @@ class pta:
                     r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     pix[j, i] = (h, h, h)
+                    if costom_color_yorn == bool(True):
+                        pass
                     d.text((j*oneCharWidth, i*oneCharHeight), p.getChar(h), font = fnt, fill = (r, g, b))
                 
             r = file_path_list[x].replace('/', '\\')
             x += 1
             outputImage.save(r.replace('.jpg', '.png'))
-
+class error:
+    def adft_bad():
+        pass
 #class debunks
 pta = pta()
 atrib = atrib()
