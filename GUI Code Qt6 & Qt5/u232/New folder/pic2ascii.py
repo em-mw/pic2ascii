@@ -1300,7 +1300,7 @@ class atrib(Ui_MainWindow):
     def InputFileLoc(self):
         fileman = Tk()
         fileman.withdraw()
-        #fileman.attributes('-alpha', 0)
+        fileman.attributes('-alpha', 0)
         global file_path_list
         try:
             file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), title='Select All Pictures to Ascii.')
@@ -1318,25 +1318,35 @@ class atrib(Ui_MainWindow):
                 amount = str('1 of many pictures')
             ui.lineEditInDir.setText(str(flp_disp + '    ' + '(' + amount + ')'))
         except:
-            #also put an msgbox here
             fileman.destroy()
         else:
             fileman.destroy()
+    
     def OutImgFolder(self):
         folderman = Tk()
         folderman.withdraw()
-        #folderman.attributes('-alpha', 0)
+        folderman.attributes('-alpha', 0)
         global folder_out_path
         #(initialdir='/')
         folder_out_path = askdir(title='Select Ascii Image Output Folder')
         try:
             ui.lineEditOutDir.setText(str(folder_out_path))
         except:
-            #also put an msgbox here
             folderman.destroy()
         else:
             folderman.destroy()
+    
+    def invalid_dir(x):
+        root = Tk()
+        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
+        root.withdraw()
+        root.attributes('-alpha', 0)
 
+        messagebox.showerror('Invalid Directory', str('The Directory \'%s\' is invalid' % x))
+
+        root.deiconify()
+        root.destroy()
+        root.quit()
 
 class pta:
     #declaring all of the variables in adft first
@@ -1379,10 +1389,11 @@ class pta:
         
         x = 0
         for file in file_path_list:
-                
-            im = PIL.Image.open(file_path_list[x])
-                
-
+            try:    
+                im = PIL.Image.open(file_path_list[x])
+            except:
+                invalid_dir(x)
+                #add the stop func here
             fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
             width, height = im.size
