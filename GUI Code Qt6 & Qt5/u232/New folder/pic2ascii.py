@@ -713,14 +713,14 @@ from time import sleep
 from multiprocessing import Process
 
 #all (fine imports)
-from platform import platform as os
+from platform import platform
+import os
 
 #atrib and error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
 from tkinter.filedialog import askopenfilenames
 from tkinter import *
 from tkinter import messagebox
-from platform import platform
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -881,7 +881,7 @@ class Ui_MainWindow(object):
         self.pushButtonImageIn.setGeometry(QtCore.QRect(750, 10, 211, 23))
         self.pushButtonImageIn.setToolTipDuration(0)
         self.pushButtonImageIn.setObjectName("pushButtonImageIn")
-        self.pushButtonImageIn.clicked.connect(lambda:atrib.InputFileLoc())
+        #self.pushButtonImageIn.clicked.connect(lambda:atrib.InputFileLoc())
         self.labelOutDesk = QtWidgets.QLabel(self.tabSetup)
         self.labelOutDesk.setGeometry(QtCore.QRect(10, 45, 231, 20))
         font = QtGui.QFont()
@@ -916,7 +916,7 @@ class Ui_MainWindow(object):
         self.pushButtonFolderOut.setFont(font)
         self.pushButtonFolderOut.setToolTipDuration(0)
         self.pushButtonFolderOut.setObjectName("pushButtonFolderOut")
-        self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
+        #self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
         self.labelFormatOut = QtWidgets.QLabel(self.tabSetup)
         self.labelFormatOut.setGeometry(QtCore.QRect(10, 80, 211, 20))
         font = QtGui.QFont()
@@ -1300,6 +1300,12 @@ class Ui_MainWindow(object):
         self.actionReport_an_Erorr.setText(_translate("MainWindow", "Report an Erorr!"))
         self.actionRequest_a_Feature.setText(_translate("MainWindow", "Request a Feature"))
         self.actionLicence.setText(_translate("MainWindow", "Licence"))
+        
+
+        #Edits ##we put this here to help us later when biulding a later version
+        self.pushButtonImageIn.clicked.connect(lambda:atrib.InputFileLoc())
+        self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
+
 
 #delete class once done
 class dtet():
@@ -1325,8 +1331,15 @@ class atrib(Ui_MainWindow):
         
         file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"),), title='Select All Pictures to Ascii.')
         file_path_list = list(file_path_list)
-        if platform().lower().find('windows'):
-            file_path_list[0].replace('/', '\\')
+
+        if int(platform().lower().find('windows')) != int(-1) and int(os.name.lower().find('nt')) != int(-1):
+            fplr = str(file_path_list[0].replace('/','\\'))
+        elif platform().lower.find('linux') != int(-1) or platform().lower.find('mac') != int(-1):
+            fplr = str(file_path_list[0])
+        else:
+            fplr = str(file_path_list[0].replace('/',''))
+        
+        
         if len(file_path_list) == int(1):
             amount = str('Only 1 Picture')
         elif len(file_path_list) <= int(10) and len(file_path_list) > int(0):
@@ -1340,7 +1353,7 @@ class atrib(Ui_MainWindow):
         else:
             pass
         try:
-            ui.lineEditInDir.setText(str(file_path_list[0] + '\t(' + amount + ')'))
+            ui.lineEditInDir.setText(str(fplr + '\t(' + amount + ')'))
             
         except:
             fileman.destroy()
@@ -1351,12 +1364,14 @@ class atrib(Ui_MainWindow):
         folderman.withdraw()
         folderman.attributes('-alpha', 0)
         global folder_out_path
-        #(initialdir='/')
-        folder_out_path = askdir(multipule=True, title='Select Ascii Image Output Folder')
+        #initialdir='/'
+        folder_out_path = askdir(title='Select Ascii Image Output Folder')
         try:
             ui.lineEditOutDir.setText(str(folder_out_path))
         except:
+            folderman.deiconify()
             folderman.destroy()
+            folderman.quit()
         else:
             folderman.destroy()
     
@@ -1398,7 +1413,7 @@ class pta:
         charLength = len(charArray)
         interval = charLength/256
         try:
-            int(scaleFactor)
+            float(scaleFactor)
         except:
             scaleFactor = 0.4        
         
@@ -1410,7 +1425,7 @@ class pta:
                 error.invalid_dir(x)
                 #add the stopbtn func here
             else:
-                if str(im).find('jpeg') != int(-1) or str(im).find('jpg') != int(-1):
+                if str(im).find('jpeg') == int(-1) or str(im).find('jpg') == int(-1):
                     error.invalid_img_type()
                     pass
             fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
@@ -1444,7 +1459,7 @@ class error:
         root.withdraw()
         root.attributes('-alpha', 0)
 
-        messagebox.showerror('Invalid Directory', str('The Directory \'%s\' is invalid' % x))
+        messagebox.showerror('Invalid Directory', str('For Some Reason The Directory \'%s\' is invalid' % x))
 
         root.deiconify()
         root.destroy()
