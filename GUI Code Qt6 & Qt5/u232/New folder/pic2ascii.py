@@ -1332,13 +1332,21 @@ class atrib(Ui_MainWindow):
         file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"),), title='Select All Pictures to Ascii.')
         file_path_list = list(file_path_list)
 
-        if int(platform().lower().find('windows')) != int(-1) and int(os.name.lower().find('nt')) != int(-1):
-            fplr = str(file_path_list[0].replace('/','\\'))
-        elif platform().lower.find('linux') != int(-1) or platform().lower.find('mac') != int(-1):
-            fplr = str(file_path_list[0])
+        if int(os.name.lower().find('nt')) != int(-1):
+            try:
+                fplr = str(file_path_list[0].replace('/','\\'))
+            except:
+                pass
+        elif int(platform().lower.find('linux')) != int(-1) or platform().lower.find('mac') != int(-1):
+            try:
+                fplr = str(file_path_list[0])
+            except:
+                pass
         else:
-            fplr = str(file_path_list[0].replace('/',''))
-        
+            try:
+                fplr = str(file_path_list[0].replace('/',''))
+            except:
+                pass
         
         if len(file_path_list) == int(1):
             amount = str('Only 1 Picture')
@@ -1356,9 +1364,16 @@ class atrib(Ui_MainWindow):
             ui.lineEditInDir.setText(str(fplr + '\t(' + amount + ')'))
             
         except:
+            fileman.deiconify()
             fileman.destroy()
-
-
+            fileman.quit()
+        else:
+            fileman.deiconify()
+            fileman.destroy()
+            fileman.quit()
+    
+    
+            
     def OutImgFolder(self):
         folderman = Tk()
         folderman.withdraw()
@@ -1375,6 +1390,19 @@ class atrib(Ui_MainWindow):
         else:
             folderman.destroy()
     
+
+    def fnt_loc():
+        fntman = Tk()
+        fntman.withdraw()
+        fntman.attributes('-alpha', 0)
+        global fnt_path
+        if int(os.name.lower().find('nt')) != int(-1):
+            windir = str('C:\\Windows\\Fonts')
+        try:
+            ImageFont.truetype(fnt_path, 15)
+        except:
+            error.invalid_dir(fnt_path)
+
     def dialSF(self):
         dtet.test_msg()
 
@@ -1481,6 +1509,7 @@ class error:
     
     def invalid_fnt_dir(self):
         pass
+
 #class debunks
 pta = pta()
 atrib = atrib()
