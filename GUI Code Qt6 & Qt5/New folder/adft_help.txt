@@ -1,0 +1,8 @@
+adft help
+
+line 1 is the variable for the background color
+line 2 is showing all the charaters avalable to use in the final image.
+line 3 is showing the final width of each character
+line 4 is showing the final hight of each character
+line 5 is showing if the correct color is being used or if it is using your costom color (more on the next line)
+line 6 is displaying the costom color of the image in rgb (red val, blue val, green val) format if True is anabled ubove it (Note The Max Value Per Color is 255 Ex (255,30,90)). You will have this color in different shades in the final image.

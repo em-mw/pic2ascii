@@ -1,0 +1,6 @@
+(0,0,0)
+'''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+10
+18
+False
+(r,g,b)
