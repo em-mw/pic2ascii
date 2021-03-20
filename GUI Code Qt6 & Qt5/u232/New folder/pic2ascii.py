@@ -694,7 +694,7 @@ Public License instead of this License.  But first, please read
 adft (the ultra advanced user settings) help is stored in the adft_help.txt flie
 '''
 
-
+#THE FINE IMPORTS
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 
@@ -718,9 +718,18 @@ import os
 
 #atrib and error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
-from tkinter.filedialog import askopenfilenames
+from tkinter.filedialog import askopenfilenames, askopenfilename
 from tkinter import *
 from tkinter import messagebox
+
+#global sys var
+
+#def winslash():
+#    if int(os.name.lower().find('nt')) != int(-1):
+#        fwinslash = str('\\')
+#    else:
+#        fwinslash = str('/')
+#    return fwinslash
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1305,10 +1314,11 @@ class Ui_MainWindow(object):
         #Edits ##we put this here to help us later when biulding a later version
         self.pushButtonImageIn.clicked.connect(lambda:atrib.InputFileLoc())
         self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
+        self.pushButtonFontIn.clicked.connect(lambda:atrib.fnt_loc())
+        self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
 
-
-#delete class once done
 class dtet():
+    #delete func once done
     def test_msg(self):
         root = Tk()
         root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
@@ -1324,6 +1334,12 @@ class dtet():
 
 class atrib(Ui_MainWindow):
     def InputFileLoc(self):
+        
+        if int(os.name.lower().find('nt')) != int(-1):
+            winslash = str('\\')
+        else:
+            winslash = str('/')
+
         fileman = Tk()
         fileman.withdraw()
         fileman.attributes('-alpha', 0)
@@ -1344,7 +1360,7 @@ class atrib(Ui_MainWindow):
                 pass
         else:
             try:
-                fplr = str(file_path_list[0].replace('/',''))
+                fplr = str(file_path_list[0])
             except:
                 pass
         
@@ -1375,36 +1391,70 @@ class atrib(Ui_MainWindow):
     
             
     def OutImgFolder(self):
+        if int(os.name.lower().find('nt')) != int(-1):
+            winslash = str('\\')
+        else:
+            winslash = str('/')
+
         folderman = Tk()
         folderman.withdraw()
         folderman.attributes('-alpha', 0)
         global folder_out_path
         #initialdir='/'
-        folder_out_path = askdir(title='Select Ascii Image Output Folder')
-        try:
-            ui.lineEditOutDir.setText(str(folder_out_path))
-        except:
+        folder_out_path = askdir(title='Select Ascii Image Output Folder',)
+
+        if int(folder_out_path.find('/')) != int(-1):
+            try:
+                ui.lineEditOutDir.setText(str(folder_out_path.replace('/', str(winslash))))
+            except:
+                error.invalid_img_type()
+            else:
+                folderman.deiconify()
+                folderman.destroy()
+                folderman.quit()
+        elif int(folder_out_path.find('/')) == int(-1):
             folderman.deiconify()
             folderman.destroy()
             folderman.quit()
-        else:
-            folderman.destroy()
     
 
-    def fnt_loc():
+    def fnt_loc(self):
+        
+        if int(os.name.lower().find('nt')) != int(-1):
+            winslash = str('\\')
+        else:
+            winslash = str('/')
+        
         fntman = Tk()
         fntman.withdraw()
         fntman.attributes('-alpha', 0)
         global fnt_path
-        if int(os.name.lower().find('nt')) != int(-1):
-            windir = str('C:\\Windows\\Fonts')
-        try:
-            ImageFont.truetype(fnt_path, 15)
-        except:
-            error.invalid_dir(fnt_path)
-
+        fini = str(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        fnt_path = askopenfilename(filetypes=(("ttf Font files","*.*"),), initialdir=str(fini + winslash + 'fnts'), title='Choose Your Ascii Font')
+        error.invalid_dir(str('(false error)' + fnt_path))
+        if int(fnt_path.find('/')) != int(-1):
+            try:
+                ui.lineEditFont.setText(str(fnt_path))
+            except:
+                fntman.deiconify()
+                fntman.destroy()
+                fntman.quit()
+                error.invalid_dir(fnt_path)
+            else:
+                try:
+                    im = ImageFont.truetype(str(fnt_path), 15)
+                except:
+                    fntman.deiconify()
+                    fntman.destroy()
+                    fntman.quit()
+                    error.invalid_dir(fnt_path)
+        else:
+            fntman.deiconify()
+            fntman.destroy()
+            fntman.quit()
     def dialSF(self):
-        dtet.test_msg()
+        #ui.spinDialScaleFactor.value
+        pass
 
 class pta:
     #declaring all of the variables in adft first
@@ -1474,7 +1524,7 @@ class pta:
                     pix[j, i] = (h, h, h)
                     if costom_color_yorn == bool(True):
                         pass
-                    d.text((j*oneCharWidth, i*oneCharHeight), p.getChar(h), font = fnt, fill = (r, g, b))
+                    d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
                 
             r = file_path_list[x].replace('/', '\\')
             x += 1
