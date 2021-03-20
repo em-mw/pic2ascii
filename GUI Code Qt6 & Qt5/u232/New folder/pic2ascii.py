@@ -1453,9 +1453,13 @@ class atrib(Ui_MainWindow):
             fntman.destroy()
             fntman.quit()
     def dialSF(self):
-        #ui.spinDialScaleFactor.value
+        sfd_val = int(ui.spinDialScaleFactor.value() / 100)
+        #add the edit widget and change it's value to sfd_val
+    def editSF(self):
         pass
-
+        #get the value of the edit widget
+        #and change the dial
+        #ui.spinDialScaleFactor
 class pta:
     #declaring all of the variables in adft first
     
