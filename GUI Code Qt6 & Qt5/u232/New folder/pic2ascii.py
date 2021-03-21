@@ -992,7 +992,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.setInvertedAppearance(False)
         self.spinDialScaleFactor.setNotchTarget(6.0)
         self.spinDialScaleFactor.setNotchesVisible(True)
-        self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
+        #self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.spinDialScaleFactor.setObjectName("spinDialScaleFactor")
         self.lineEditSF = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEditSF.setGeometry(QtCore.QRect(840, 250, 51, 26))
@@ -1316,7 +1316,7 @@ class Ui_MainWindow(object):
         self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
         self.pushButtonFontIn.clicked.connect(lambda:atrib.fnt_loc())
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
-
+        self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
 class dtet():
     #delete func once done
     def test_msg(self):
@@ -1452,11 +1452,19 @@ class atrib(Ui_MainWindow):
             fntman.deiconify()
             fntman.destroy()
             fntman.quit()
+    
+            
     def dialSF(self):
-        sfd_val = int(ui.spinDialScaleFactor.value() / 100)
-        #add the edit widget and change it's value to sfd_val
+        sfd_val = float(ui.spinDialScaleFactor.value() / 100)
+        ui.lineEditSF.setText(str(sfd_val))
+        #print(ui.lineEditSF.text())
     def editSF(self):
-        pass
+        try:
+            float(ui.lineEditSF.text())
+        except:
+            ui.lineEditSF.backspace()
+        else:
+            sfd_val = float(ui.lineEditSF.text())
         #get the value of the edit widget
         #and change the dial
         #ui.spinDialScaleFactor
