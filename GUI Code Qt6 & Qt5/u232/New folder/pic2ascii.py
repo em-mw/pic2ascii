@@ -1465,7 +1465,8 @@ class atrib(Ui_MainWindow):
         except:
             ui.lineEditSF.backspace()
         else:
-            sfd_val = float(ui.lineEditSF.text())
+            sfd_val = float(ui.lineEditSF.text()) * 1000
+            ui.spinDialScaleFactor.setValue(int(sfd_val))
         #get the value of the edit widget
         #and change the dial
         #ui.spinDialScaleFactor
