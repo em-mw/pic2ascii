@@ -28,6 +28,7 @@
   <ItemGroup>
     <Content Include="adft.txt" />
     <Content Include="adft_help.txt" />
+    <Content Include="ErMax Plain.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

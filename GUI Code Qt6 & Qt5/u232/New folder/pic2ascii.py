@@ -1068,7 +1068,7 @@ class Ui_MainWindow(object):
         self.ImageDisplay.setGeometry(QtCore.QRect(275, 145, 321, 201))
         self.ImageDisplay.setToolTipDuration(0)
         self.ImageDisplay.setText("")
-        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Desktop\\ErMax Plain.png"))
+        self.ImageDisplay.setPixmap(QtGui.QPixmap("ErMax Plain.png")) #synt=C:\\users\\junk there.png (ext)
         self.ImageDisplay.setScaledContents(True)
         self.ImageDisplay.setObjectName("ImageDisplay")
         self.labelAdvanced = QtWidgets.QLabel(self.tabSetup)
@@ -1431,8 +1431,7 @@ class atrib(Ui_MainWindow):
         fntman.attributes('-alpha', 0)
         global fnt_path
         fini = str(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        fnt_path = askopenfilename(filetypes=(("ttf Font files","*.*"),), initialdir=str(fini + winslash + 'fnts'), title='Choose Your Ascii Font')
-        error.invalid_dir(str('(false error)' + fnt_path))
+        fnt_path = askopenfilename(filetypes=(("ttf Font files","*.ttf"),), initialdir=str(fini + winslash + 'fnts'), title='Choose Your Ascii Font')
         if int(fnt_path.find('/')) != int(-1):
             try:
                 ui.lineEditFont.setText(str(fnt_path))
@@ -1470,6 +1469,24 @@ class atrib(Ui_MainWindow):
         #get the value of the edit widget
         #and change the dial
         #ui.spinDialScaleFactor
+
+
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+#########################################################################################################
+
+
+
+
 class pta:
     #declaring all of the variables in adft first
     
@@ -1536,6 +1553,7 @@ class pta:
                     r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     pix[j, i] = (h, h, h)
+                    #if the option is .txt open a txt.
                     if costom_color_yorn == bool(True):
                         pass
                     d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
@@ -1543,6 +1561,12 @@ class pta:
             r = file_path_list[x].replace('/', '\\')
             x += 1
             outputImage.save(r.replace('.jpg', '.png'))
+
+
+
+#############################################################################################################################################
+
+
 
 class error:
     def invalid_dir(self, x):
@@ -1570,9 +1594,6 @@ class error:
         root.destroy()
         root.quit()
         del root
-    
-    def invalid_fnt_dir(self):
-        pass
 
 #class debunks
 pta = pta()
