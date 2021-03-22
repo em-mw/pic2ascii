@@ -985,13 +985,14 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.CrossCursor))
         self.spinDialScaleFactor.setToolTipDuration(0)
         self.spinDialScaleFactor.setStyleSheet("")
-        self.spinDialScaleFactor.setMaximum(100)
+        self.spinDialScaleFactor.setMaximum(1000)
         self.spinDialScaleFactor.setMinimum(1)
+        self.spinDialScaleFactor.setValue(50)
         self.spinDialScaleFactor.setPageStep(10)
         self.spinDialScaleFactor.setOrientation(QtCore.Qt.Orientations.Horizontal)
         self.spinDialScaleFactor.setInvertedAppearance(False)
-        self.spinDialScaleFactor.setNotchTarget(6.0)
-        self.spinDialScaleFactor.setNotchesVisible(True)
+        self.spinDialScaleFactor.setNotchTarget(100.0)
+        self.spinDialScaleFactor.setNotchesVisible(False)
         #self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.spinDialScaleFactor.setObjectName("spinDialScaleFactor")
         self.lineEditSF = QtWidgets.QLineEdit(self.tabSetup)
@@ -1271,7 +1272,7 @@ class Ui_MainWindow(object):
         self.whatToDo.setItemText(1, _translate("MainWindow", "Close Window When Finished"))
         self.whatToDo.setItemText(2, _translate("MainWindow", "Shutdown PC (Windows only)"))
         self.spinDialScaleFactor.setToolTip(_translate("MainWindow", "Dial"))
-        self.lineEditSF.setText(_translate("MainWindow", "DisValDef (.05)"))
+        self.lineEditSF.setText(_translate("MainWindow", "0.05"))
         self.labelSF.setText(_translate("MainWindow", "ASCII Character Scale Factor"))
         self.lineEditFont.setToolTip(_translate("MainWindow", "The Font of The Ascii Charaters"))
         self.lineEditFont.setStatusTip(_translate("MainWindow", "The Font of The Ascii Charaters"))
@@ -1455,7 +1456,7 @@ class atrib(Ui_MainWindow):
     
             
     def dialSF(self):
-        sfd_val = float(ui.spinDialScaleFactor.value() / 100)
+        sfd_val = float(ui.spinDialScaleFactor.value() / 1000)
         ui.lineEditSF.setText(str(sfd_val))
         #print(ui.lineEditSF.text())
     def editSF(self):
