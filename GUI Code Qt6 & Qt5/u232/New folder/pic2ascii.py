@@ -11,7 +11,7 @@
 
 #The License GNU (GPL) v3.0
 def License():
-    li = '''
+    return '''
                     GNU GENERAL PUBLIC LICENSE
                         Version 3, 29 June 2007
 
