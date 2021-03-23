@@ -1614,7 +1614,7 @@ class error:
         root.withdraw()
         root.attributes('-alpha', 0)
 
-        messagebox.showerror('Web Browser Options', str('Where would you like to report the error \n(we will respond to github faster but you will need an acount)'))
+        messagebox.askyesno('Web Browser Options', str('would you like to report the error in github \n(we will respond to github faster but you will need an acount)\n if you select no then it will take you to a form'))
 
         root.deiconify()
         root.destroy()
