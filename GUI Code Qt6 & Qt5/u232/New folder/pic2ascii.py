@@ -697,7 +697,8 @@ adft (the ultra advanced user settings) help is stored in the adft_help.txt flie
 #THE FINE IMPORTS
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+import webbrowser
+import sys
 #pta class imports (fine imports)
 
 #NOTE: You are responcible for installing all of the depencancies if you want this to work
@@ -1311,12 +1312,15 @@ class Ui_MainWindow(object):
         self.actionLicence.setText(_translate("MainWindow", "Licence"))
 
 
-        #Edits ##we put this here to help us later when biulding a later version
+        #Edits ##we put this here to help us later when biulding a later GUI version
         self.pushButtonImageIn.clicked.connect(lambda:atrib.InputFileLoc())
         self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
         self.pushButtonFontIn.clicked.connect(lambda:atrib.fnt_loc())
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
+        self.actionReport_an_Erorr.triggered.connect(lambda:actions.help_reportAnError())
+
+
 class dtet():
     #delete func once done
     def test_msg(self):
@@ -1331,6 +1335,15 @@ class dtet():
         root.destroy()
         root.quit()
         del root
+
+class actions:
+    def help_reportAnError(self):
+        #also add a tkinter msgbox saying what to do on the page and if they want to use github or msforms
+        try:
+            webbrowser.open('https://github.com/ErMax-Inc/pic2ascii/issues/new')
+        except:
+            #pass for now
+            pass
 
 class atrib(Ui_MainWindow):
     def InputFileLoc(self):
@@ -1599,9 +1612,9 @@ pta = pta()
 atrib = atrib()
 error = error()
 dtet = dtet()
+actions = actions()
 
 if __name__ == "__main__":
-    import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
