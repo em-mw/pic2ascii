@@ -1339,6 +1339,7 @@ class dtet():
 class actions:
     def help_reportAnError(self):
         #also add a tkinter msgbox saying what to do on the page and if they want to use github or msforms
+        error.report()
         try:
             webbrowser.open('https://github.com/ErMax-Inc/pic2ascii/issues/new')
         except:
@@ -1606,6 +1607,20 @@ class error:
         root.destroy()
         root.quit()
         del root
+
+    def report(self):
+        root = Tk()
+        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
+        root.withdraw()
+        root.attributes('-alpha', 0)
+
+        messagebox.showerror('Web Browser Options', str('Where would you like to report the error \n(we will respond to github faster but you will need an acount)'))
+
+        root.deiconify()
+        root.destroy()
+        root.quit()
+        del root
+
 
 #class debunks
 pta = pta()
