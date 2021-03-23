@@ -43,6 +43,10 @@
   <property name="windowTitle">
    <string>ErMax.Inc-Pic2Ascii</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Untitled.png</normaloff>Untitled.png</iconset>
+  </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>
@@ -63,9 +67,6 @@
   </property>
   <property name="dockNestingEnabled">
    <bool>false</bool>
-  </property>
-  <property name="dockOptions">
-   <set>QMainWindow::AllowTabbedDocks</set>
   </property>
   <widget class="QWidget" name="widgetMain">
    <widget class="QTabWidget" name="tabWidget">
@@ -573,6 +574,11 @@ p, li { white-space: pre-wrap; }
         <string>JPG</string>
        </property>
       </item>
+      <item>
+       <property name="text">
+        <string>TXT (Text File)</string>
+       </property>
+      </item>
      </widget>
      <widget class="QProgressBar" name="progressBar">
       <property name="geometry">
@@ -706,10 +712,16 @@ p, li { white-space: pre-wrap; }
        <string notr="true"/>
       </property>
       <property name="maximum">
-       <number>100</number>
+       <number>1000</number>
       </property>
       <property name="pageStep">
        <number>10</number>
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="sliderPosition">
+       <number>50</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -718,7 +730,7 @@ p, li { white-space: pre-wrap; }
        <bool>false</bool>
       </property>
       <property name="notchTarget">
-       <double>6.000000000000000</double>
+       <double>25.000000000000000</double>
       </property>
       <property name="notchesVisible">
        <bool>true</bool>
@@ -743,7 +755,7 @@ p, li { white-space: pre-wrap; }
        </font>
       </property>
       <property name="text">
-       <string>DisValDef (.05)</string>
+       <string>0.05</string>
       </property>
       <property name="readOnly">
        <bool>false</bool>
