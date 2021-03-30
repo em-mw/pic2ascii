@@ -1313,20 +1313,40 @@ class Ui_MainWindow(object):
         self.actionLicence.setText(_translate("MainWindow", "Licence"))
 
 
+
+
+
+
+
+
+
+
         #Edits ##we put this here to help us later when biulding a later GUI version
         self.pushButtonImageIn.clicked.connect(lambda:atrib.InputFileLoc())
         self.pushButtonFolderOut.clicked.connect(lambda:atrib.OutImgFolder())
         self.pushButtonFontIn.clicked.connect(lambda:atrib.fnt_loc())
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
-        self.actionReport_an_Erorr.triggered.connect(lambda:actions.help_reportAnError())
+        self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
+
+
+
+#############################################################################################################
+#window (from fine imports)
+#############################################################################################################
+
+
+
 
     def win_browser(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = reis.Ui_ReportWindow()
         self.ui.setupUi(self.window)
         self.window.show()
+        
+        #button linking
 
+        self.ui.pushButtonGitHub.clicked.connect(lambda:actions.GitHub())
 
 class dtet():
     #delete func once done
@@ -1344,6 +1364,8 @@ class dtet():
         del root
 
 class actions:
+    def GitHub(self):
+        print('dat right')
     def help_reportAnError(self):
         ui.win_browser()
         try:

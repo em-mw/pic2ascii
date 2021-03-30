@@ -21,6 +21,7 @@
   <ItemGroup>
     <Compile Include="msgbox_tmp.py" />
     <Compile Include="pic2ascii.py" />
+    <Compile Include="reis.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.9" />
