@@ -10,7 +10,8 @@ class Ui_ReportWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         ReportWindow.setFont(font)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\ALARM! (don\'t touch) Note to self plz del affter done\\11954229571856793418warning_naught101_01.svg.med.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("11954229571856793418warning_naught101_01.svg.med.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        #C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\ALARM! (don\'t touch) Note to self plz del affter done\\
         ReportWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(ReportWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -29,7 +30,8 @@ class Ui_ReportWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.pushButtonGitHub.setFont(font)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\ALARM! (don\'t touch) Note to self plz del affter done\\github.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("github.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        #C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\ALARM! (don\'t touch) Note to self plz del affter done\\
         self.pushButtonGitHub.setIcon(icon1)
         self.pushButtonGitHub.setIconSize(QtCore.QSize(30, 30))
         self.pushButtonGitHub.setCheckable(False)
@@ -45,7 +47,8 @@ class Ui_ReportWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.pushButtonMsForms.setFont(font)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\ALARM! (don\'t touch) Note to self plz del affter done\\microsoft-infopath-3.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("microsoft-infopath-3.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        #C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\ALARM! (don\'t touch) Note to self plz del affter done\\
         self.pushButtonMsForms.setIcon(icon2)
         self.pushButtonMsForms.setIconSize(QtCore.QSize(44, 25))
         self.pushButtonMsForms.setObjectName("pushButtonMsForms")
@@ -73,11 +76,13 @@ class Ui_ReportWindow(object):
         self.pushButtonMsForms.setText(_translate("ReportWindow", "MS Form"))
         self.Explain.setText(_translate("ReportWindow", "To report an error click one of these buttons. If you choose GitHub issuses the responce to fix a bug will be much faster (along with adtional feedback) but you will need an acount. If you choose the MS Form then you will be anonymous but it will take more time for us to see it."))
 
+        self.pushButtonCancel.clicked.connect(lambda:ReportWindow.close())
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     ReportWindow = QtWidgets.QMainWindow()
-    sdui = Ui_ReportWindow()
-    sdui.setupUi(ReportWindow)
+    ui = Ui_ReportWindow()
+    ui.setupUi(ReportWindow)
     ReportWindow.show()
     sys.exit(app.exec())

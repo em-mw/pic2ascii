@@ -699,6 +699,7 @@ adft (the ultra advanced user settings) help is stored in the adft_help.txt flie
 from PyQt6 import QtCore, QtGui, QtWidgets
 import webbrowser
 import sys
+import reis
 #pta class imports (fine imports)
 
 #NOTE: You are responcible for installing all of the depencancies if you want this to work
@@ -1320,6 +1321,12 @@ class Ui_MainWindow(object):
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:actions.help_reportAnError())
 
+    def win_browser(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = reis.Ui_ReportWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
 
 class dtet():
     #delete func once done
@@ -1338,8 +1345,7 @@ class dtet():
 
 class actions:
     def help_reportAnError(self):
-        #also add a tkinter msgbox saying what to do on the page and if they want to use github or msforms
-        error.report()
+        ui.win_browser()
         try:
             webbrowser.open('https://github.com/ErMax-Inc/pic2ascii/issues/new')
         except:
