@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'C:\Users\Legion\Desktop\rva.ui'
+# Form implementation generated from reading ui file 'rva.ui'
 #
 # Created by: PyQt6 UI code generator 6.0.3
 #
@@ -749,7 +749,8 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        #C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
