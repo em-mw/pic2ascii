@@ -1,7 +1,7 @@
 from multiprocessing import Process
-from tkinter import *
+#from tkinter import *
 def tar():
-    Tk()
+    print('hello')
 
 if __name__ == '__main__': 
     p1 = Process(target=tar)
