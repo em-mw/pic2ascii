@@ -1661,7 +1661,7 @@ class error:
         root.withdraw()
         root.attributes('-alpha', 0)
 
-        messagebox.askquestion(title='Web Browser Error', message=str('For some reason the website could not load'))
+        messagebox.askquestion(title='Web Browser Error', message=str('For some reason the website could not load!'))
 
         root.deiconify()
         root.destroy()
