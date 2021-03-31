@@ -1381,7 +1381,7 @@ class actions:
         except:
             #pass for now
             pass
-        self.window.close()
+        ui.window.close()
     
         
     def MsForms(self):
@@ -1390,7 +1390,7 @@ class actions:
         except:
             #pass for now
             pass
-        self.window.close()
+        ui.window.close()
 
 class atrib(Ui_MainWindow):
     def InputFileLoc(self):
