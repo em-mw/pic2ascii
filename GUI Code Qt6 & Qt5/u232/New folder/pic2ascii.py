@@ -1654,14 +1654,14 @@ class error:
         root.quit()
         del root
 
-    def report(self):
+    def report_error(self):
         #fix this later
         root = Tk()
         root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
         root.withdraw()
         root.attributes('-alpha', 0)
 
-        messagebox.askquestion(title='Web Browser Options', message=str('would you like to report the error in github \n(we will respond to github faster but you will need an acount)\n if you select no then it will take you to a form'))
+        messagebox.askquestion(title='Web Browser Error', message=str('For some reason the website could not load'))
 
         root.deiconify()
         root.destroy()
