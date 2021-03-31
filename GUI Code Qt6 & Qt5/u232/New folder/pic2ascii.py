@@ -1357,6 +1357,7 @@ class Ui_MainWindow(object):
         #button linking
 
         self.ui.pushButtonGitHub.clicked.connect(lambda:actions.GitHub())
+        self.ui.pushButtonMsForms.clicked.connect(lambda:actions.MsForms())
 
 class dtet():
     #delete func once done
@@ -1375,14 +1376,21 @@ class dtet():
 
 class actions:
     def GitHub(self):
-        print('dat right')
-    def help_reportAnError(self):
-        ui.win_browser()
         try:
             webbrowser.open('https://github.com/ErMax-Inc/pic2ascii/issues/new')
         except:
             #pass for now
             pass
+        self.window.close()
+    
+        
+    def MsForms(self):
+        try:
+            webbrowser.open('https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZAAP6tCSRUOEJOMDczWjlJMURGME8wNTBIMEtTQ0ZSSi4u')
+        except:
+            #pass for now
+            pass
+        self.window.close()
 
 class atrib(Ui_MainWindow):
     def InputFileLoc(self):
