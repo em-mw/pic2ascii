@@ -734,8 +734,10 @@ from tkinter import messagebox
 #        fwinslash = str('/')
 #    return fwinslash
 
+
+#to prevent the worst, app is here insted of the if statment
 app = QtWidgets.QApplication(sys.argv)
-class Ui_MainWindow(QWidget, object):
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.WindowModality.NonModal)
@@ -1229,8 +1231,6 @@ class Ui_MainWindow(QWidget, object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
-        def closeEvent(self, event):
-            print('yas')
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
     
     def retranslateUi(self, MainWindow):
