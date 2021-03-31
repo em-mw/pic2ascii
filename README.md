@@ -1,3 +1,4 @@
+#__WARNING THIS IS THE GUI BRANCH NOT THE MAIN BRANCH__
 # pic2ascii
 Converts pictures to ascii text
 
