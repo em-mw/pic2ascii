@@ -1682,6 +1682,21 @@ actions = actions()
 pta_mlt2 = pta_mlt2()
 
 if __name__ == "__main__":
+    def mtrest():       
+        MainWindow.show()
+        try:
+            sys.exit(app.exec())
+        except SystemExit:
+            print('ok doke')
+            the_other_one()
+    def the_other_one():
+        MainWindow.show()
+        try:
+            sys.exit(app.exec())
+        except SystemExit:
+            print('ok doke')
+            mtrest()
+            
     #app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
@@ -1690,7 +1705,8 @@ if __name__ == "__main__":
     try:
         sys.exit(app.exec())
     except SystemExit:
-        print('ok doke')
-        input()
-        MainWindow.show()
-        sys.exit(app.exec())
+       print('ok doke')
+       mtrest()
+            
+
+ 
