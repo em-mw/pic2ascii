@@ -1379,8 +1379,7 @@ class actions:
         try:
             webbrowser.open('https://github.com/ErMax-Inc/pic2ascii/issues/new')
         except:
-            #pass for now
-            pass
+            error.report_error()
         ui.window.close()
     
         
@@ -1388,8 +1387,7 @@ class actions:
         try:
             webbrowser.open('https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZAAP6tCSRUOEJOMDczWjlJMURGME8wNTBIMEtTQ0ZSSi4u')
         except:
-            #pass for now
-            pass
+            error.report_error()
         ui.window.close()
 
 class atrib(Ui_MainWindow):
@@ -1661,7 +1659,7 @@ class error:
         root.withdraw()
         root.attributes('-alpha', 0)
 
-        messagebox.askquestion(title='Web Browser Error', message=str('For some reason, the website could not load!'))
+        messagebox.askquestion(title='Web Browser Error', message=str('For some reason your web browser could not load!'))
 
         root.deiconify()
         root.destroy()
