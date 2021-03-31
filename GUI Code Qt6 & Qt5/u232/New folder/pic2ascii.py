@@ -1359,6 +1359,9 @@ class Ui_MainWindow(QWidget, object):
 
         self.ui.pushButtonGitHub.clicked.connect(lambda:actions.GitHub())
         self.ui.pushButtonMsForms.clicked.connect(lambda:actions.MsForms())
+class the(QWidget):
+    def closeEvent(self, event):
+        print('thes')
 
 class dtet():
     #delete func once done
@@ -1684,4 +1687,10 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec())
+    try:
+        sys.exit(app.exec())
+    except SystemExit:
+        print('ok doke')
+        input()
+        MainWindow.show()
+        sys.exit(app.exec())
