@@ -697,6 +697,7 @@ adft (the ultra advanced user settings) help is stored in the adft_help.txt flie
 #THE FINE IMPORTS
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtWidgets import QWidget, QApplication
 import webbrowser
 import sys
 import reis
@@ -733,7 +734,8 @@ from tkinter import messagebox
 #        fwinslash = str('/')
 #    return fwinslash
 
-class Ui_MainWindow(object):
+app = QtWidgets.QApplication(sys.argv)
+class Ui_MainWindow(QWidget, object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.WindowModality.NonModal)
@@ -1227,8 +1229,10 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
+        def closeEvent(self, event):
+            print('yas')
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+    
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ErMax.Inc-Pic2Ascii"))
@@ -1326,9 +1330,7 @@ class Ui_MainWindow(object):
 #############################################################################################################
 #############################################################################################################
 
-
-
-
+   
 
 
         #Edits ##we put this here to help us later when biulding a later GUI version
@@ -1338,8 +1340,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
-
-
+    
 
 #############################################################################################################
 #window (from fine imports)
@@ -1678,7 +1679,7 @@ actions = actions()
 pta_mlt2 = pta_mlt2()
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    #app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
