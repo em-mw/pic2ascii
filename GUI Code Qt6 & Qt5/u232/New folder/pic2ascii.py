@@ -1707,6 +1707,3 @@ if __name__ == "__main__":
     except SystemExit:
        print('ok doke')
        mtrest()
-            
-
- 
