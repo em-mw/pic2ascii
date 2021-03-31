@@ -1610,7 +1610,7 @@ class pta:
                     r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     pix[j, i] = (h, h, h)
-                    #if the option is .txt open a txt.
+                    #make if the option is .txt open a txt.
                     if costom_color_yorn == bool(True):
                         pass
                     d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
@@ -1623,7 +1623,9 @@ class pta:
 
 #############################################################################################################################################
 
-
+class pta_mlt2:
+    def process():
+        pass
 
 class error:
     def invalid_dir(self, x):
@@ -1673,6 +1675,7 @@ atrib = atrib()
 error = error()
 dtet = dtet()
 actions = actions()
+pta_mlt2 = pta_mlt2()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
