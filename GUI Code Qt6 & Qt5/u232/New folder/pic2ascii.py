@@ -1699,9 +1699,10 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    playsound(os.getcwd() + '/Sounds/Start.mp3', False)
     MainWindow.show()
     #please don't set arg val to true as it will skrew things up
-    playsound(os.getcwd() + '/Sounds/Start.mp3', False)
+    
     try:
         sys.exit(app.exec())
     except SystemExit:
