@@ -698,6 +698,7 @@ adft (the ultra advanced user settings) help is stored in the adft_help.txt flie
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QWidget, QApplication
+from playsound import playsound
 import webbrowser
 import sys
 import reis
@@ -1321,7 +1322,6 @@ class Ui_MainWindow(object):
 
 
 
-
 #############################################################################################################
 #############################################################################################################
 #############################################################################################################
@@ -1359,9 +1359,6 @@ class Ui_MainWindow(object):
 
         self.ui.pushButtonGitHub.clicked.connect(lambda:actions.GitHub())
         self.ui.pushButtonMsForms.clicked.connect(lambda:actions.MsForms())
-class the(QWidget):
-    def closeEvent(self, event):
-        print('thes')
 
 class dtet():
     #delete func once done
@@ -1681,6 +1678,7 @@ dtet = dtet()
 actions = actions()
 pta_mlt2 = pta_mlt2()
 
+
 if __name__ == "__main__":
     def mtrest():       
         MainWindow.show()
@@ -1696,12 +1694,14 @@ if __name__ == "__main__":
         except SystemExit:
             print('ok doke')
             mtrest()
-            
     #app = QtWidgets.QApplication(sys.argv)
+    
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+    #please don't set arg val to true as it will skrew things up
+    playsound(os.getcwd() + '/Sounds/Start.mp3', False)
     try:
         sys.exit(app.exec())
     except SystemExit:
