@@ -1340,7 +1340,8 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
-    
+        
+        #self.start.clicked.connect(lambda:pta.main())
 
 #############################################################################################################
 #window (from fine imports)
@@ -1569,6 +1570,8 @@ class pta:
 
     
     def main(self):
+        #make/include var names
+        #scaleFactor, file_path_list
         with open('adft.txt', 'r') as vars:
             chars = str(vars.readlines()[1])
             oneCharWidth = int(vars.readlines()[2])
@@ -1579,6 +1582,7 @@ class pta:
         charArray = list(chars)
         charLength = len(charArray)
         interval = charLength/256
+        
         try:
             float(scaleFactor)
         except:
