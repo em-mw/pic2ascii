@@ -712,7 +712,7 @@ p, li { white-space: pre-wrap; }
        <string notr="true"/>
       </property>
       <property name="maximum">
-       <number>1000</number>
+       <number>100</number>
       </property>
       <property name="pageStep">
        <number>10</number>
@@ -730,10 +730,10 @@ p, li { white-space: pre-wrap; }
        <bool>false</bool>
       </property>
       <property name="notchTarget">
-       <double>25.000000000000000</double>
+       <double>5.000000000000000</double>
       </property>
       <property name="notchesVisible">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEditSF">

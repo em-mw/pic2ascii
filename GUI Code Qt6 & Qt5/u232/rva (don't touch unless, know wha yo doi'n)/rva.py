@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'C:\Users\Legion\Documents\GitHub\pic2ascii\GUI Code Qt6 & Qt5\u232\rva.ui'
+# Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
 #
 # Created by: PyQt6 UI code generator 6.0.3
 #
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\giti\\pic2ascii-GUI\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
@@ -264,14 +264,14 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.CrossCursor))
         self.spinDialScaleFactor.setToolTipDuration(0)
         self.spinDialScaleFactor.setStyleSheet("")
-        self.spinDialScaleFactor.setMaximum(1000)
+        self.spinDialScaleFactor.setMaximum(100)
         self.spinDialScaleFactor.setPageStep(10)
         self.spinDialScaleFactor.setProperty("value", 50)
         self.spinDialScaleFactor.setSliderPosition(50)
         self.spinDialScaleFactor.setOrientation(QtCore.Qt.Orientations.Horizontal)
         self.spinDialScaleFactor.setInvertedAppearance(False)
-        self.spinDialScaleFactor.setNotchTarget(25.0)
-        self.spinDialScaleFactor.setNotchesVisible(True)
+        self.spinDialScaleFactor.setNotchTarget(5.0)
+        self.spinDialScaleFactor.setNotchesVisible(False)
         self.spinDialScaleFactor.setObjectName("spinDialScaleFactor")
         self.lineEditSF = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEditSF.setGeometry(QtCore.QRect(840, 250, 51, 26))
@@ -346,7 +346,7 @@ class Ui_MainWindow(object):
         self.ImageDisplay.setGeometry(QtCore.QRect(275, 145, 321, 201))
         self.ImageDisplay.setToolTipDuration(0)
         self.ImageDisplay.setText("")
-        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\GitHub\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\ErMax Plain.png"))
+        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\giti\\pic2ascii-GUI\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\ErMax Plain.png"))
         self.ImageDisplay.setScaledContents(True)
         self.ImageDisplay.setObjectName("ImageDisplay")
         self.labelAdvanced = QtWidgets.QLabel(self.tabSetup)
