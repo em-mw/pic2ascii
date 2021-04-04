@@ -72,9 +72,9 @@ class Ui_ReportWindow(object):
         _translate = QtCore.QCoreApplication.translate
         ReportWindow.setWindowTitle(_translate("ReportWindow", "Report an Error!"))
         self.pushButtonCancel.setText(_translate("ReportWindow", "Cancel"))
-        self.pushButtonGitHub.setText(_translate("ReportWindow", "GitHub Issues"))
+        self.pushButtonGitHub.setText(_translate("ReportWindow", "GitLab Issues"))
         self.pushButtonMsForms.setText(_translate("ReportWindow", "MS Form"))
-        self.Explain.setText(_translate("ReportWindow", "To report an error click one of these buttons. If you choose GitHub issuses the responce to fix a bug will be much faster (along with adtional feedback) but you will need an acount. If you choose the MS Form then you will be anonymous but it will take more time for us to see it."))
+        self.Explain.setText(_translate("ReportWindow", "To report an error click one of these buttons. If you choose GitLab issuses the responce to fix a bug will be much faster (along with adtional feedback) but you will need an acount. If you choose the MS Form then you will be anonymous but it will take more time for us to see it."))
 
         self.pushButtonCancel.clicked.connect(lambda:ReportWindow.close())
 

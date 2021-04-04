@@ -698,7 +698,6 @@ adft (the ultra advanced user settings) help is stored in the adft_help.txt flie
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QWidget, QApplication
-from playsound import playsound
 import webbrowser
 import sys
 import reis
@@ -1340,8 +1339,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
-        
-        #self.start.clicked.connect(lambda:pta.main())
+        self.start.clicked.connect(lambda:pta.main())
 
 #############################################################################################################
 #window (from fine imports)
@@ -1379,7 +1377,7 @@ class dtet():
 class actions:
     def GitHub(self):
         try:
-            webbrowser.open('https://github.com/ErMax-Inc/pic2ascii/issues/new')
+            webbrowser.open('https://gitlab.com/ermax-inc/pic2ascii/-/issues/new')
         except:
             error.report_error()
         ui.window.close()
@@ -1489,8 +1487,7 @@ class atrib(Ui_MainWindow):
         fntman.withdraw()
         fntman.attributes('-alpha', 0)
         global fnt_path
-        fini = str(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        fnt_path = askopenfilename(filetypes=(("ttf Font files","*.ttf"),), initialdir=str(fini + winslash + 'fnts'), title='Choose Your Ascii Font')
+        fnt_path = askopenfilename(filetypes=(("ttf Font files","*.ttf"),), initialdir=str(os.getcwd() + winslash + 'fnts'), title='Choose Your Ascii Font')
         if int(fnt_path.find('/')) != int(-1):
             try:
                 ui.lineEditFont.setText(str(fnt_path))
@@ -1558,10 +1555,11 @@ class pta:
     #oneCharHeight = 18
     
     def getChar(self, inputInt):
-        with open('adft.txt' , 'r') as vars:
-            chars = str(vars.readlines()[1])
-            oneCharWidth = int(vars.readlines()[2])
-            oneCharHeight = int(vars.readlines()[3])
+        with open('adft.txt' , 'r') as adft:
+            vars = list(adft.readlines())
+        chars = str(vars[1])
+        oneCharWidth = int(vars[2])
+        oneCharHeight = int(vars[3])
         
         charArray = list(chars)
         charLength = len(charArray)
@@ -1572,22 +1570,25 @@ class pta:
     def main(self):
         #make/include var names
         #scaleFactor, file_path_list
-        with open('adft.txt', 'r') as vars:
-            chars = str(vars.readlines()[1])
-            oneCharWidth = int(vars.readlines()[2])
-            oneCharHeight = int(vars.readlines()[3])
-            bg_color = str(vars.readlines()[0])
-            costom_color_yorn = bool(vars.readlines()[4])
+        with open('adft.txt', 'r') as adft:
+            vars = list(adft.readlines())
+            
+        chars = str(vars[1])
+        oneCharWidth = int(vars[2])
+        oneCharHeight = int(vars[3])
+        bg_color = str(vars[0])
+        costom_color_yorn = bool(vars[4])
         
         charArray = list(chars)
         charLength = len(charArray)
         interval = charLength/256
-        
+        global file_path_list, fnt_path, folder_out_path
+
         try:
             float(scaleFactor)
         except:
             scaleFactor = 0.4        
-        
+        print('yas yeet')
         x = 0
         for file in file_path_list:
             try:    
@@ -1599,7 +1600,8 @@ class pta:
                 if str(im).find('jpeg') == int(-1) or str(im).find('jpg') == int(-1):
                     error.invalid_img_type()
                     pass
-            fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
+                'C:\\Windows\\Fonts\\lucon.ttf'
+            fnt = ImageFont.truetype(str(fnt_path), 15)
 
             width, height = im.size
             im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
@@ -1622,7 +1624,7 @@ class pta:
                 
             r = file_path_list[x].replace('/', '\\')
             x += 1
-            outputImage.save(r.replace('.jpg', '.png'))
+            outputImage.save(folder_out_path.replace('.jpg', '.png'))
 
 
 
@@ -1703,7 +1705,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    playsound(os.getcwd() + '/Sounds/Start.mp3', False)
     MainWindow.show()
     #please don't set arg val to true as it will skrew things up
     
