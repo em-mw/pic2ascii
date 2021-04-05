@@ -1371,7 +1371,7 @@ class Ui_MainWindow(object):
         self.ui.pushButtonMsForms.clicked.connect(lambda:actions.MsForms())
 
 class dtet():
-    #delete func once done
+    #delete func once done with program
     def test_msg(self):
         root = Tk()
         root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
@@ -1582,7 +1582,7 @@ class pta:
         charLength = len(charArray)
         interval = charLength/256
         
-        global scaleFactor, file_path_list, folder_out_path
+        global scaleFactor, file_path_list, folder_out_path, fnt_path
         print('hallo')
         try:
             int(scaleFactor)
@@ -1604,8 +1604,10 @@ class pta:
                 
             im = PIL.Image.open(file_path_list[x])
                 
-
-            fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
+            try:
+                fnt = ImageFont.truetype(fnt_path, 15)
+            except:
+                fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
             width, height = im.size
             im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
@@ -1622,15 +1624,30 @@ class pta:
                     h = int(r/3 + g/3 + b/3)
                     pix[j, i] = (h, h, h)
                     d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
+            
             if os.name == 'nt':    
                 r = folder_out_path.replace('/', '\\')
             else:
                 r = folder_out_path
             x += 1
             if os.name == 'nt':
-                outputImage.save(str(r + '\\' + x + '.png'))
+                if int(x) > 9:
+                    outputImage.save(str(r + '\\000' + str(x) + '.png'))
+                elif int(x) > 99:
+                    outputImage.save(str(r + '\\00' + str(x) + '.png'))
+                elif int(x) > 999:
+                    outputImage.save(str(r + '\\0' + str(x) + '.png'))
+                else:
+                    outputImage.save(str(r + '\\' + str(x) + '.png'))
             else:
-                outputImage.save(str(r + '/' + x + '.png'))
+                if int(x) > 9:
+                    outputImage.save(str(r + '/000' + str(x) + '.png'))
+                elif int(x) > 99:
+                    outputImage.save(str(r + '/00' + str(x) + '.png'))
+                elif int(x) > 999:
+                    outputImage.save(str(r + '/0' + str(x) + '.png'))
+                else:
+                    outputImage.save(str(r + '/' + str(x) + '.png'))
 #for class
 
 
