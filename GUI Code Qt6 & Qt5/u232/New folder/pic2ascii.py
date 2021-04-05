@@ -1552,91 +1552,6 @@ class atrib(Ui_MainWindow):
 #########################################################################################################
 
 
-
-
-#class pta:
-#    #declaring all of the variables in adft first
-    
-#    #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-#    #charArray = list(chars)
-#    #charLength = len(charArray)
-#    #interval = charLength/256
-
-#    #oneCharWidth = 10
-#    #oneCharHeight = 18
-    
-#    def getChar(self, inputInt):
-#        with open('adft.txt' , 'r') as adft:
-#            vars = list(adft.readlines())
-#        chars = str(vars[1])
-#        oneCharWidth = int(vars[2])
-#        oneCharHeight = int(vars[3])
-        
-#        charArray = list(chars)
-#        charLength = len(charArray)
-#        interval = charLength/256
-#        return charArray[math.floor(inputInt*interval)]
-
-    
-#    def main(self):
-#        #make/include var names
-#        #scaleFactor, file_path_list
-#        with open('adft.txt', 'r') as adft:
-#            vars = list(adft.readlines())
-            
-#        chars = str(vars[1])
-#        oneCharWidth = int(vars[2])
-#        oneCharHeight = int(vars[3])
-#        bg_color = str(vars[0])
-#        costom_color_yorn = bool(vars[4])
-        
-#        charArray = list(chars)
-#        charLength = len(charArray)
-#        interval = charLength/256
-#        global file_path_list, fnt_path, folder_out_path
-
-#        try:
-#            float(scaleFactor)
-#        except:
-#            scaleFactor = 0.4        
-#        print('yas yeet')
-#        x = 0
-#        for file in file_path_list:
-#            try:    
-#                im = PIL.Image.open(file_path_list[x])
-#            except:
-#                error.invalid_dir(x)
-#                #add the stopbtn func here
-#            else:
-#                if str(im).find('jpeg') == int(-1) or str(im).find('jpg') == int(-1):
-#                    error.invalid_img_type()
-#                    pass
-#                'C:\\Windows\\Fonts\\lucon.ttf'
-#            fnt = ImageFont.truetype(str(fnt_path), 15)
-
-#            width, height = im.size
-#            im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
-#            width, height = im.size
-#            pix = im.load()
-
-#            outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (bg_color))
-#            #outputImage = im
-#            d = ImageDraw.Draw(outputImage)
-
-#            for i in tqdm(range(height)):
-#                for j in range(width):
-#                    r, g, b = pix[j, i]
-#                    h = int(r/3 + g/3 + b/3)
-#                    pix[j, i] = (h, h, h)
-#                    #make if the option is .txt open a txt.
-#                    if costom_color_yorn == bool(True):
-#                        pass
-#                    d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
-                
-#            r = file_path_list[x].replace('/', '\\')
-#            x += 1
-#            outputImage.save(folder_out_path.replace('.jpg', '.png'))
-
 class pta:
     def getChar(self, inputInt):
         with open('adft.txt' , 'r') as adft:
@@ -1667,7 +1582,7 @@ class pta:
         charLength = len(charArray)
         interval = charLength/256
         
-        global scaleFactor, file_path_list
+        global scaleFactor, file_path_list, folder_out_path
         print('hallo')
         try:
             int(scaleFactor)
@@ -1708,11 +1623,14 @@ class pta:
                     pix[j, i] = (h, h, h)
                     d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
             if os.name == 'nt':    
-                r = file_path_list[x].replace('/', '\\')
+                r = folder_out_path.replace('/', '\\')
             else:
-                r = file_path_list[x]
+                r = folder_out_path
             x += 1
-            outputImage.save(r.replace('.jpg', '.png'))
+            if os.name == 'nt':
+                outputImage.save(str(r + '\\' + x + '.png'))
+            else:
+                outputImage.save(str(r + '/' + x + '.png'))
 #for class
 
 
