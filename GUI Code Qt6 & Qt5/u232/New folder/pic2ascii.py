@@ -1583,31 +1583,14 @@ class pta:
         interval = charLength/256
         
         global scaleFactor, file_path_list, folder_out_path, fnt_path
-        print('hallo')
-        try:
-            int(scaleFactor)
-        except:
-            print('making default')
-            sleep(.2)
-            scaleFactor = 0.4
-        #print('select image or image sequance.')
-        #sleep(.3)
-        #print('opening window')
-        #sleep(.2)
-        #fileman = Tk()
-        #fileman.wm_state('iconic')
-        #file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
-        #file_path_list = list(file_path_list)
+
         
         x = 0
         for file in file_path_list:
-                
-            im = PIL.Image.open(file_path_list[x])
-                
-            try:
-                fnt = ImageFont.truetype(fnt_path, 15)
-            except:
-                fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
+
+            im = PIL.Image.open(file_path_list[int(x)])
+
+            fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
             width, height = im.size
             im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
@@ -1615,7 +1598,6 @@ class pta:
             pix = im.load()
 
             outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
-            #outputImage = im
             d = ImageDraw.Draw(outputImage)
 
             for i in tqdm(range(height)):
@@ -1623,31 +1605,11 @@ class pta:
                     r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     pix[j, i] = (h, h, h)
+                    text_file.write(self.getChar(h))
                     d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
-            
-            if os.name == 'nt':    
-                r = folder_out_path.replace('/', '\\')
-            else:
-                r = folder_out_path
-            x += 1
-            if os.name == 'nt':
-                if int(x) > 9:
-                    outputImage.save(str(r + '\\000' + str(x) + '.png'))
-                elif int(x) > 99:
-                    outputImage.save(str(r + '\\00' + str(x) + '.png'))
-                elif int(x) > 999:
-                    outputImage.save(str(r + '\\0' + str(x) + '.png'))
-                else:
-                    outputImage.save(str(r + '\\' + str(x) + '.png'))
-            else:
-                if int(x) > 9:
-                    outputImage.save(str(r + '/000' + str(x) + '.png'))
-                elif int(x) > 99:
-                    outputImage.save(str(r + '/00' + str(x) + '.png'))
-                elif int(x) > 999:
-                    outputImage.save(str(r + '/0' + str(x) + '.png'))
-                else:
-                    outputImage.save(str(r + '/' + str(x) + '.png'))
+                outputImage.save('output' + str(x) + '.png')
+                text_file.write('\n')
+            text_file.close()
 #for class
 
 
