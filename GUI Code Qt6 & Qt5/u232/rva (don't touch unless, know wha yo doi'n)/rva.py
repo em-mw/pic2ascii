@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
+# Form implementation generated from reading ui file 'C:\Users\LidiaAcer.000\Documents\pic2ascii\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
 #
 # Created by: PyQt6 UI code generator 6.0.3
 #
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\giti\\pic2ascii-GUI\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Documents\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
@@ -162,6 +162,7 @@ class Ui_MainWindow(object):
         self.lineEditInDir.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.IBeamCursor))
         self.lineEditInDir.setMouseTracking(False)
         self.lineEditInDir.setToolTipDuration(0)
+        self.lineEditInDir.setText("")
         self.lineEditInDir.setFrame(True)
         self.lineEditInDir.setReadOnly(True)
         self.lineEditInDir.setClearButtonEnabled(False)
@@ -191,6 +192,7 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditOutDir.setFont(font)
         self.lineEditOutDir.setToolTipDuration(0)
+        self.lineEditOutDir.setText("")
         self.lineEditOutDir.setReadOnly(True)
         self.lineEditOutDir.setObjectName("lineEditOutDir")
         self.pushButtonFolderOut = QtWidgets.QPushButton(self.tabSetup)
@@ -346,7 +348,7 @@ class Ui_MainWindow(object):
         self.ImageDisplay.setGeometry(QtCore.QRect(275, 145, 321, 201))
         self.ImageDisplay.setToolTipDuration(0)
         self.ImageDisplay.setText("")
-        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\giti\\pic2ascii-GUI\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\ErMax Plain.png"))
+        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Documents\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\ErMax Plain.png"))
         self.ImageDisplay.setScaledContents(True)
         self.ImageDisplay.setObjectName("ImageDisplay")
         self.labelAdvanced = QtWidgets.QLabel(self.tabSetup)
@@ -525,7 +527,6 @@ class Ui_MainWindow(object):
         self.labelinDesk.setText(_translate("MainWindow", "Input Image/Image Sequence:"))
         self.lineEditInDir.setToolTip(_translate("MainWindow", "Where Your Original Image is Located"))
         self.lineEditInDir.setStatusTip(_translate("MainWindow", "Where Your Original Image is Located"))
-        self.lineEditInDir.setText(_translate("MainWindow", "t"))
         self.pushButtonImageIn.setToolTip(_translate("MainWindow", "The dir of Where Your Original Image is Located"))
         self.pushButtonImageIn.setStatusTip(_translate("MainWindow", "The dir of Where Your Original Image is Located"))
         self.pushButtonImageIn.setText(_translate("MainWindow", "Browse (Image/Image Sequance)"))
@@ -534,7 +535,6 @@ class Ui_MainWindow(object):
         self.labelOutDesk.setText(_translate("MainWindow", "Output Folder Image/Image Sequence:"))
         self.lineEditOutDir.setToolTip(_translate("MainWindow", "Where your Output Image is Located"))
         self.lineEditOutDir.setStatusTip(_translate("MainWindow", "Where your Output Image is Located"))
-        self.lineEditOutDir.setText(_translate("MainWindow", "t"))
         self.pushButtonFolderOut.setToolTip(_translate("MainWindow", "The dir of Where your Output Image is Located"))
         self.pushButtonFolderOut.setStatusTip(_translate("MainWindow", "The dir of Where your Output Image is Located"))
         self.pushButtonFolderOut.setText(_translate("MainWindow", "Browse (Folder)"))

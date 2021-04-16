@@ -403,7 +403,7 @@ p, li { white-space: pre-wrap; }
        <string>Where Your Original Image is Located</string>
       </property>
       <property name="text">
-       <string>t</string>
+       <string/>
       </property>
       <property name="frame">
        <bool>true</bool>
@@ -496,7 +496,7 @@ p, li { white-space: pre-wrap; }
        <string>Where your Output Image is Located</string>
       </property>
       <property name="text">
-       <string>t</string>
+       <string/>
       </property>
       <property name="readOnly">
        <bool>true</bool>

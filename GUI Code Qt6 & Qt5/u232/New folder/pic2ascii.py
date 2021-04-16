@@ -765,7 +765,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\giti\\pic2ascii-GUI\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Documents\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
@@ -902,6 +902,7 @@ class Ui_MainWindow(object):
         self.lineEditInDir.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.IBeamCursor))
         self.lineEditInDir.setMouseTracking(False)
         self.lineEditInDir.setToolTipDuration(0)
+        self.lineEditInDir.setText("")
         self.lineEditInDir.setFrame(True)
         self.lineEditInDir.setReadOnly(True)
         self.lineEditInDir.setClearButtonEnabled(False)
@@ -931,6 +932,7 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditOutDir.setFont(font)
         self.lineEditOutDir.setToolTipDuration(0)
+        self.lineEditOutDir.setText("")
         self.lineEditOutDir.setReadOnly(True)
         self.lineEditOutDir.setObjectName("lineEditOutDir")
         self.pushButtonFolderOut = QtWidgets.QPushButton(self.tabSetup)
@@ -1086,7 +1088,7 @@ class Ui_MainWindow(object):
         self.ImageDisplay.setGeometry(QtCore.QRect(275, 145, 321, 201))
         self.ImageDisplay.setToolTipDuration(0)
         self.ImageDisplay.setText("")
-        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Documents\\giti\\pic2ascii-GUI\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\ErMax Plain.png"))
+        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Documents\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\ErMax Plain.png"))
         self.ImageDisplay.setScaledContents(True)
         self.ImageDisplay.setObjectName("ImageDisplay")
         self.labelAdvanced = QtWidgets.QLabel(self.tabSetup)
@@ -1265,7 +1267,6 @@ class Ui_MainWindow(object):
         self.labelinDesk.setText(_translate("MainWindow", "Input Image/Image Sequence:"))
         self.lineEditInDir.setToolTip(_translate("MainWindow", "Where Your Original Image is Located"))
         self.lineEditInDir.setStatusTip(_translate("MainWindow", "Where Your Original Image is Located"))
-        self.lineEditInDir.setText(_translate("MainWindow", "t"))
         self.pushButtonImageIn.setToolTip(_translate("MainWindow", "The dir of Where Your Original Image is Located"))
         self.pushButtonImageIn.setStatusTip(_translate("MainWindow", "The dir of Where Your Original Image is Located"))
         self.pushButtonImageIn.setText(_translate("MainWindow", "Browse (Image/Image Sequance)"))
@@ -1274,7 +1275,6 @@ class Ui_MainWindow(object):
         self.labelOutDesk.setText(_translate("MainWindow", "Output Folder Image/Image Sequence:"))
         self.lineEditOutDir.setToolTip(_translate("MainWindow", "Where your Output Image is Located"))
         self.lineEditOutDir.setStatusTip(_translate("MainWindow", "Where your Output Image is Located"))
-        self.lineEditOutDir.setText(_translate("MainWindow", "t"))
         self.pushButtonFolderOut.setToolTip(_translate("MainWindow", "The dir of Where your Output Image is Located"))
         self.pushButtonFolderOut.setStatusTip(_translate("MainWindow", "The dir of Where your Output Image is Located"))
         self.pushButtonFolderOut.setText(_translate("MainWindow", "Browse (Folder)"))
@@ -1583,14 +1583,31 @@ class pta:
         interval = charLength/256
         
         global scaleFactor, file_path_list, folder_out_path, fnt_path
-
+        print('hallo')
+        try:
+            int(scaleFactor)
+        except:
+            print('making default')
+            sleep(.2)
+            scaleFactor = 0.4
+        #print('select image or image sequance.')
+        #sleep(.3)
+        #print('opening window')
+        #sleep(.2)
+        #fileman = Tk()
+        #fileman.wm_state('iconic')
+        #file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
+        #file_path_list = list(file_path_list)
         
         x = 0
         for file in file_path_list:
-
-            im = PIL.Image.open(file_path_list[int(x)])
-
-            fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
+                
+            im = PIL.Image.open(file_path_list[x])
+                
+            try:
+                fnt = ImageFont.truetype(fnt_path, 15)
+            except:
+                fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
             width, height = im.size
             im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
@@ -1598,6 +1615,7 @@ class pta:
             pix = im.load()
 
             outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+            #outputImage = im
             d = ImageDraw.Draw(outputImage)
 
             for i in tqdm(range(height)):
@@ -1605,11 +1623,31 @@ class pta:
                     r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     pix[j, i] = (h, h, h)
-                    text_file.write(self.getChar(h))
                     d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
-                outputImage.save('output' + str(x) + '.png')
-                text_file.write('\n')
-            text_file.close()
+            
+            if os.name == 'nt':    
+                r = folder_out_path.replace('/', '\\')
+            else:
+                r = folder_out_path
+            x += 1
+            if os.name == 'nt':
+                if int(x) > 9:
+                    outputImage.save(str(r + '\\000' + str(x) + '.png'))
+                elif int(x) > 99:
+                    outputImage.save(str(r + '\\00' + str(x) + '.png'))
+                elif int(x) > 999:
+                    outputImage.save(str(r + '\\0' + str(x) + '.png'))
+                else:
+                    outputImage.save(str(r + '\\' + str(x) + '.png'))
+            else:
+                if int(x) > 9:
+                    outputImage.save(str(r + '/000' + str(x) + '.png'))
+                elif int(x) > 99:
+                    outputImage.save(str(r + '/00' + str(x) + '.png'))
+                elif int(x) > 999:
+                    outputImage.save(str(r + '/0' + str(x) + '.png'))
+                else:
+                    outputImage.save(str(r + '/' + str(x) + '.png'))
 #for class
 
 
@@ -1669,6 +1707,34 @@ class error:
         root.quit()
         del root
 
+class exiting:
+    def message(self):
+        root = Tk()
+        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
+        root.withdraw()
+        root.attributes('-alpha', 0)
+
+        exitprompt = messagebox.askyesno(title='Exit?', message='Are You Want to Exit?')
+        if int(exitprompt) == 1:
+            root.deiconify()
+            root.destroy()
+            root.quit()
+            del exitprompt
+            del root
+            return True
+        elif int(exitprompt) == 0:
+            root.deiconify()
+            root.destroy()
+            root.quit()
+            del exitprompt
+            del root
+            return False
+
+
+        #root.deiconify()
+        #root.destroy()
+        #root.quit()
+        #del root
 
 #class debunks
 pta = pta()
@@ -1677,7 +1743,7 @@ error = error()
 dtet = dtet()
 actions = actions()
 pta_mlt2 = pta_mlt2()
-
+exiting = exiting()
 
 if __name__ == "__main__":
     def mtrest():       
@@ -1685,15 +1751,27 @@ if __name__ == "__main__":
         try:
             sys.exit(app.exec())
         except SystemExit:
-            print('ok doke')
-            the_other_one()
+            estsx = exiting.message()
+            if estsx == bool(True):
+                MainWindow.close()
+            elif estsx == bool(False):
+                the_other_one()
+            else:
+                pass
+            
     def the_other_one():
         MainWindow.show()
         try:
             sys.exit(app.exec())
         except SystemExit:
-            print('ok doke')
-            mtrest()
+            estsx = exiting.message()
+            if estsx == bool(True):
+                MainWindow.close()
+            elif estsx == bool(False):
+                estsx = None
+                mtrest()
+            else:
+                pass
     #app = QtWidgets.QApplication(sys.argv)
     
     MainWindow = QtWidgets.QMainWindow()
@@ -1701,9 +1779,15 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     #please don't set arg val to true as it will skrew things up
-    
+
     try:
         sys.exit(app.exec())
     except SystemExit:
-       print('ok doke')
-       mtrest()
+        estsx = exiting.message()
+        if estsx == bool(True):
+           MainWindow.close()
+        elif estsx == bool(False):
+            estsx = None
+            mtrest()
+        else:
+            pass
