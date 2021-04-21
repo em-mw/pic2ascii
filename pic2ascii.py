@@ -22,7 +22,7 @@ class start:
     def main(self):
         oneCharWidth = 10
         oneCharHeight = 18
-        text_file = open("Output.txt", "w")
+        
         
         scaleFactor = 0.03
 
@@ -31,6 +31,7 @@ class start:
         file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
         file_path_list = list(file_path_list)
 
+        #this variable is a preuse of the while loop. We will keep this variable for future purposes
         x = 0
         for file in file_path_list:
 
@@ -46,6 +47,7 @@ class start:
             outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
             d = ImageDraw.Draw(outputImage)
 
+            text_file = open("Output.txt", "w")
             for i in tqdm(range(height)):
                 for j in range(width):
                     r, g, b = pix[j, i]
