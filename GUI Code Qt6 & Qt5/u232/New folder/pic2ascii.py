@@ -1417,48 +1417,13 @@ class atrib(Ui_MainWindow):
         file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"),), title='Select All Pictures to Ascii.')
         file_path_list = list(file_path_list)
 
-        if int(os.name.lower().find('nt')) != int(-1):
-            try:
-                fplr = str(file_path_list[0].replace('/','\\'))
-            except:
-                pass
-        elif int(platform().lower.find('linux')) != int(-1) or platform().lower.find('mac') != int(-1):
-            try:
-                fplr = str(file_path_list[0])
-            except:
-                pass
-        else:
-            try:
-                fplr = str(file_path_list[0])
-            except:
-                pass
-        
-        if len(file_path_list) == int(1):
-            amount = str('Only 1 Picture')
-        elif len(file_path_list) <= int(10) and len(file_path_list) > int(0):
-            amount = str('1 Out of' + len(file_path_list) + 'Pictures')
-            
-        elif len(file_path_list) <= int(20) and len(file_path_list) > int(10):
-            amount = str('1 Out of Few Pictures')
-            
-        elif len(file_path_list) > int(20):
-            amount = str('1 of many pictures')
-        else:
-            pass
-        try:
-            ui.lineEditInDir.setText(str(fplr + '\t(' + amount + ')'))
-            
-        except:
-            fileman.deiconify()
-            fileman.destroy()
-            fileman.quit()
-        else:
-            fileman.deiconify()
-            fileman.destroy()
-            fileman.quit()
-    
-    
-            
+        if file_path_list:
+            ui.lineEditInDir.setText(str(file_path_list[0].replace('/', str(winslash))))
+
+        fileman.deiconify()
+        fileman.destroy()
+        fileman.quit()
+
     def OutImgFolder(self):
         if int(os.name.lower().find('nt')) != int(-1):
             winslash = str('\\')
@@ -1472,7 +1437,7 @@ class atrib(Ui_MainWindow):
         #initialdir='/'
         folder_out_path = askdir(title='Select Ascii Image Output Folder',)
 
-        if int(folder_out_path.find('/')) != int(-1):
+        if folder_out_path:
             try:
                 ui.lineEditOutDir.setText(str(folder_out_path.replace('/', str(winslash))))
             except:
@@ -1481,10 +1446,6 @@ class atrib(Ui_MainWindow):
                 folderman.deiconify()
                 folderman.destroy()
                 folderman.quit()
-        elif int(folder_out_path.find('/')) == int(-1):
-            folderman.deiconify()
-            folderman.destroy()
-            folderman.quit()
     
 
     def fnt_loc(self):
@@ -1499,32 +1460,19 @@ class atrib(Ui_MainWindow):
         fntman.attributes('-alpha', 0)
         global fnt_path
         fnt_path = askopenfilename(filetypes=(("ttf Font files","*.ttf"),), initialdir=str(os.getcwd() + winslash + 'fnts'), title='Choose Your Ascii Font')
-        if int(fnt_path.find('/')) != int(-1):
-            try:
-                ui.lineEditFont.setText(str(fnt_path))
-            except:
-                fntman.deiconify()
-                fntman.destroy()
-                fntman.quit()
-                error.invalid_dir(fnt_path)
-            else:
-                try:
-                    im = ImageFont.truetype(str(fnt_path), 15)
-                except:
-                    fntman.deiconify()
-                    fntman.destroy()
-                    fntman.quit()
-                    error.invalid_dir(fnt_path)
-        else:
-            fntman.deiconify()
-            fntman.destroy()
-            fntman.quit()
+        if fnt_path:
+            ui.lineEditFont.setText(str(fnt_path))
+        fntman.deiconify()
+        fntman.destroy()
+        fntman.quit()
     
             
     def dialSF(self):
         sfd_val = float(ui.spinDialScaleFactor.value() / 100)
         ui.lineEditSF.setText(str(sfd_val))
         #print(ui.lineEditSF.text())
+    
+        
     def editSF(self):
         try:
             float(ui.lineEditSF.text())
