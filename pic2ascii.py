@@ -27,7 +27,7 @@ class start:
         oneCharHeight = 18
         
         
-        scaleFactor = 0.03
+        scaleFactor = 0.09
 
         fileman = Tk()
         fileman.wm_state('iconic')
@@ -75,11 +75,11 @@ class start:
                         text_file.write(self.getChar(h))
                         d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
                         print(charArray[math.floor(h*interval)], end='')
-                    x += int(1)
-                    outputImage.save(str(os.getcwd()) + str(dirslash) + 'PictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
                     text_file.write('\n')
                     print()
                 text_file.close()
+                x += int(1)
+                outputImage.save(str(os.getcwd()) + str(dirslash) + 'PictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
                 if int(len(file_path_list)) >= int(x):
                     print(f'\n\nImage {x} is done, going to next image\n\n')
                 
