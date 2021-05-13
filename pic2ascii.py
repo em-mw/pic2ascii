@@ -12,7 +12,7 @@ from PIL import ImageDraw, ImageFont
 
 #if you want the normal loading screen you have to uncomment the import and add the function to the first for loop like this [for i in tqdm(range(height)):]
 #from tqdm import tqdm
-#os.system("color")
+os.system("")
 
 chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
 
@@ -76,7 +76,7 @@ class start:
                         h = int(r/3 + g/3 + b/3)
                         pix[j, i] = (h, h, h)
                         text_file.write(self.getChar(h))
-                        d.text((int(j)*int(oneCharWidth), int(i)*int(oneCharHeight)).cel(), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
+                        d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
                         try:
                             print(fg(r, g, b) + str(charArray[math.floor(h*interval)]), end='') #please don't put fg.rs into the code or it will slow down a lot
                         except:
