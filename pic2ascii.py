@@ -12,7 +12,7 @@ from PIL import ImageDraw, ImageFont
 
 #if you want the normal loading screen you have to uncomment the import and add the function to the first for loop like this [for i in tqdm(range(height)):]
 #from tqdm import tqdm
-os.system("")
+#os.system("color")
 
 chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
 
@@ -69,23 +69,26 @@ class start:
                 if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
 
-                text_file = open(str(os.getcwd()) + str(dirslash) + 'TextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
+                text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
                 for i in range(height):
                     for j in range(width):
                         r, g, b = pix[j, i]
                         h = int(r/3 + g/3 + b/3)
                         pix[j, i] = (h, h, h)
                         text_file.write(self.getChar(h))
-                        d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
+                        d.text((int(j)*int(oneCharWidth), int(i)*int(oneCharHeight)).cel(), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
                         try:
-                            print(fg(r, g, b) + str(charArray[math.floor(h*interval)]) + fg.rs, end='')
+                            print(fg(r, g, b) + str(charArray[math.floor(h*interval)]), end='') #please don't put fg.rs into the code or it will slow down a lot
                         except:
-                            print(charArray[math.floor(h*interval)] + fg.rs, end='')
+                            try:
+                                print(charArray[math.floor(h*interval)], end='')
+                            except:
+                                print('?', end='')
                     text_file.write('\n')
                     print()
                 text_file.close()
                 x += int(1)
-                outputImage.save(str(os.getcwd()) + str(dirslash) + 'PictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
+                outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
                 if int(len(file_path_list)) >= int(x + 1):
                     print(f'\n\nImage {x} is done, going to next image\n\n')
                 
@@ -101,4 +104,4 @@ p = start()
     # input('done(enter to exit)')
 
 p.main()
-input('\n\nall done! Press enter to exit!')
+input(fg.rs + '\n\nall done! Press enter to exit!')
