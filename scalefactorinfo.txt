@@ -1,0 +1,8 @@
+if you want your image to look good you should keep your image around 300-400px after conversion (width)
+
+Ex: 1920x1080  scale_factor= 0.18  final_image: 345x194 (width is in between the range)
+
+
+tips(you probobly know already):
+you can find the scale factor by dividing the number between 300 and 400 and the width of your image
+you can multiply the scale factor by the width to get the final width number

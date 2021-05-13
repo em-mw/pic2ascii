@@ -5,14 +5,17 @@ from tkinter import *
 from tkinter.filedialog import askopenfilenames
 from os import getcwd
 import os
+from sty import fg, rs
 
 import PIL
 from PIL import ImageDraw, ImageFont
 
 #if you want the normal loading screen you have to uncomment the import and add the function to the first for loop like this [for i in tqdm(range(height)):]
 #from tqdm import tqdm
+os.system('color')
 
 chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+
 charArray = list(chars)
 charLength = len(charArray)
 interval = charLength/256
@@ -31,7 +34,7 @@ class start:
 
         fileman = Tk()
         fileman.wm_state('iconic')
-        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
+        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
         #fileman.mainloop()
         file_path_list = list(file_path_list)
         if not file_path_list:
@@ -61,10 +64,10 @@ class start:
                 outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
                 d = ImageDraw.Draw(outputImage)
                 
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'TextFiles') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'TextFiles')
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'PictureFiles') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'PictureFiles')
+                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
+                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
+                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
+                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
 
                 text_file = open(str(os.getcwd()) + str(dirslash) + 'TextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
                 for i in range(height):
@@ -74,13 +77,16 @@ class start:
                         pix[j, i] = (h, h, h)
                         text_file.write(self.getChar(h))
                         d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
-                        print(charArray[math.floor(h*interval)], end='')
+                        try:
+                            print(fg(r, g, b) + str(charArray[math.floor(h*interval)]) + fg.rs, end='')
+                        except:
+                            print(charArray[math.floor(h*interval)] + fg.rs, end='')
                     text_file.write('\n')
                     print()
                 text_file.close()
                 x += int(1)
                 outputImage.save(str(os.getcwd()) + str(dirslash) + 'PictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
-                if int(len(file_path_list)) >= int(x):
+                if int(len(file_path_list)) >= int(x + 1):
                     print(f'\n\nImage {x} is done, going to next image\n\n')
                 
 #for class
