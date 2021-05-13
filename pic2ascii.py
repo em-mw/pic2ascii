@@ -12,7 +12,7 @@ from PIL import ImageDraw, ImageFont
 
 #if you want the normal loading screen you have to uncomment the import and add the function to the first for loop like this [for i in tqdm(range(height)):]
 #from tqdm import tqdm
-os.system('color')
+os.system("")
 
 chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
 
