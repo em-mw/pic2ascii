@@ -34,12 +34,14 @@ class start:
 
         fileman = Tk()
         fileman.wm_state('iconic')
-        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
+        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("PNG files (in beta)", "*.png"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
         #fileman.mainloop()
         file_path_list = list(file_path_list)
         if not file_path_list:
             print('you have no files selected')
-            sleep(1)
+            sleep(.5)
+            print('exiting')
+            sleep(.2)
             exit()
         else:
             #this variable (x) is a preuse of the while loop. We will keep this variable for future purposes
@@ -53,16 +55,18 @@ class start:
             for file in file_path_list:
                 
                 im = PIL.Image.open(file_path_list[int(x)])
-
+                if file_path_list[int(x)][-4] == '.' and file_path_list[int(x)][-3] == 'p' and file_path_list[int(x)][-2] == 'n' and file_path_list[int(x)][-1] == 'g':
+                    format = 'RGBA'
+                else:
+                    format = 'RGB'
                 fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
                 width, height = im.size
                 im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
                 width, height = im.size
-                pix = im.convert('RGB')
+                pix = im.convert(str(format))
 
-                try:outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
-                except:outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+                outputImage = PIL.Image.new(str(format), (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
 
                 d = ImageDraw.Draw(outputImage)
                 
@@ -74,12 +78,18 @@ class start:
                 text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
                 for i in range(height):
                     for j in range(width):
-                        r, g, b = pix.getpixel((j, i))
+                        if format == 'RGBA':
+                            r, g, b, a = pix.getpixel((j, i))
+                        elif format == 'RGB':
+                            r, g, b = pix.getpixel((j, i))
                         #r, g, b = pix[j, i]
                         h = int(r/3 + g/3 + b/3)
                         #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
                         text_file.write(self.getChar(h))
-                        d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
+                        if format == 'RGBA':
+                            d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
+                        elif format == 'RGB':
+                            d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
                         try:
                             print(fg(r, g, b) + str(self.getChar(h)), end='') #please don't put fg.rs into the code or it will slow down a lot
                         except:
