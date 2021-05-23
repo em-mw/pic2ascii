@@ -59,9 +59,11 @@ class start:
                 width, height = im.size
                 im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
                 width, height = im.size
-                pix = im.load()
+                pix = im.convert('RGB')
 
-                outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+                try:outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+                except:outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+
                 d = ImageDraw.Draw(outputImage)
                 
                 if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
@@ -72,16 +74,17 @@ class start:
                 text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
                 for i in range(height):
                     for j in range(width):
-                        r, g, b = pix[j, i]
+                        r, g, b = pix.getpixel((j, i))
+                        #r, g, b = pix[j, i]
                         h = int(r/3 + g/3 + b/3)
-                        pix[j, i] = (h, h, h)
+                        #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
                         text_file.write(self.getChar(h))
                         d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
                         try:
-                            print(fg(r, g, b) + str(charArray[math.floor(h*interval)]), end='') #please don't put fg.rs into the code or it will slow down a lot
+                            print(fg(r, g, b) + str(self.getChar(h)), end='') #please don't put fg.rs into the code or it will slow down a lot
                         except:
                             try:
-                                print(charArray[math.floor(h*interval)], end='')
+                                print(str(self.getChar(h)), end='')
                             except:
                                 print('?', end='')
                     text_file.write('\n')
@@ -104,4 +107,5 @@ p = start()
     # input('done(enter to exit)')
 
 p.main()
-input(fg.rs + '\n\nall done! Press enter to exit!')
+try:input(fg.rs + '\n\nall done! Press enter to exit!')
+except:input('\n\nall done! Press enter to exit!')
