@@ -1593,6 +1593,8 @@ class pta:
             outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'\n\nImage {x} is done, going to next image\n\n')
+            try:print(fg.rs + '\n\nall done!')
+            except:print('\n\nall done!')
 #for class
 
 
