@@ -707,11 +707,9 @@ from tqdm import tqdm
 #NOTE: You are responcible for installing all of the depencancies if you want this to work
     #PIL is the new Pillow Library
 
-#!# Not So Sure Imports
-
+from sty import fg, rs
 import PIL
 from PIL import ImageDraw, ImageFont
-#!#from tqdm import tqdm
 import math
 from time import sleep
 from multiprocessing import Process
@@ -738,6 +736,8 @@ from tkinter import messagebox
 
 #to prevent the worst, app is here insted of the if statment
 app = QtWidgets.QApplication(sys.argv)
+
+os.system("")
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
 #
 # Created by: PyQt6 UI code generator 6.0.3
@@ -1502,100 +1502,97 @@ class atrib(Ui_MainWindow):
 
 class pta:
     def getChar(self, inputInt):
-        with open('adft.txt' , 'r') as adft:
-            vars = list(adft.readlines())
-        chars = str(vars[1])
-        oneCharWidth = int(vars[2])
-        oneCharHeight = int(vars[3])
-        
+        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+
         charArray = list(chars)
         charLength = len(charArray)
         interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
-
-
+    
     def main(self):
-        #make/include var names
-        #scaleFactor, file_path_list
-        with open('adft.txt', 'r') as adft:
-            vars = list(adft.readlines())
-            
-        chars = str(vars[1])
-        oneCharWidth = int(vars[2])
-        oneCharHeight = int(vars[3])
-        bg_color = str(vars[0])
-        costom_color_yorn = bool(vars[4])
-        
+        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+
         charArray = list(chars)
         charLength = len(charArray)
         interval = charLength/256
+        oneCharWidth = 10
+        oneCharHeight = 18
         
-        global scaleFactor, file_path_list, folder_out_path, fnt_path
-        print('hallo')
-        try:
-            int(scaleFactor)
-        except:
-            print('making default')
-            sleep(.2)
-            scaleFactor = 0.4
-        #print('select image or image sequance.')
-        #sleep(.3)
-        #print('opening window')
-        #sleep(.2)
+        
+        scaleFactor = 0.09
+
         #fileman = Tk()
         #fileman.wm_state('iconic')
-        #file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("Any file", "*")), initialdir="/", title='Select pictures.')
+        #file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("PNG files (in beta)", "*.png"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
+        ##fileman.mainloop()
         #file_path_list = list(file_path_list)
-        
+        #if not file_path_list:
+        #    print('you have no files selected')
+        #    sleep(.5)
+        #    print('exiting')
+        #    sleep(.2)
+        #    exit()
+        #else:
+        #this variable (x) is a preuse of the while loop. We will keep this variable for future purposes
         x = 0
+        if str(os.name) == 'nt':
+            dirslash = '\\'
+        else:
+            dirslash = '/'
+            
+        print('starting...', end='\n\n')
         for file in file_path_list:
                 
-            im = PIL.Image.open(file_path_list[x])
-                
-            try:
-                fnt = ImageFont.truetype(fnt_path, 15)
-            except:
-                fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
+            im = PIL.Image.open(file_path_list[int(x)])
+            if file_path_list[int(x)][-4] == '.' and file_path_list[int(x)][-3] == 'p' and file_path_list[int(x)][-2] == 'n' and file_path_list[int(x)][-1] == 'g':
+                format = 'RGBA'
+            else:
+                format = 'RGB'
+            fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
 
             width, height = im.size
             im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
             width, height = im.size
-            pix = im.load()
+            pix = im.convert(str(format))
 
-            outputImage = PIL.Image.new('RGB', (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
-            #outputImage = im
+            outputImage = PIL.Image.new(str(format), (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+
             d = ImageDraw.Draw(outputImage)
+                
+            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
+                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
+            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
+                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
 
-            for i in tqdm(range(height)):
+            text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
+            for i in range(height):
                 for j in range(width):
-                    r, g, b = pix[j, i]
+                    if format == 'RGBA':
+                        r, g, b, a = pix.getpixel((j, i))
+                    elif format == 'RGB':
+                        r, g, b = pix.getpixel((j, i))
+                    #r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
-                    pix[j, i] = (h, h, h)
-                    d.text((j*oneCharWidth, i*oneCharHeight), self.getChar(h), font = fnt, fill = (r, g, b))
-            
-            if os.name == 'nt':    
-                r = folder_out_path.replace('/', '\\')
-            else:
-                r = folder_out_path
-            x += 1
-            if os.name == 'nt':
-                if int(x) > 9:
-                    outputImage.save(str(r + '\\000' + str(x) + '.png'))
-                elif int(x) > 99:
-                    outputImage.save(str(r + '\\00' + str(x) + '.png'))
-                elif int(x) > 999:
-                    outputImage.save(str(r + '\\0' + str(x) + '.png'))
-                else:
-                    outputImage.save(str(r + '\\' + str(x) + '.png'))
-            else:
-                if int(x) > 9:
-                    outputImage.save(str(r + '/000' + str(x) + '.png'))
-                elif int(x) > 99:
-                    outputImage.save(str(r + '/00' + str(x) + '.png'))
-                elif int(x) > 999:
-                    outputImage.save(str(r + '/0' + str(x) + '.png'))
-                else:
-                    outputImage.save(str(r + '/' + str(x) + '.png'))
+                    #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
+                    text_file.write(self.getChar(h))
+                    if format == 'RGBA':
+                        d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
+                    elif format == 'RGB':
+                        d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
+                    try:
+                        print(fg(r, g, b) + str(self.getChar(h)), end='') #please don't put fg.rs into the code or it will slow down a lot
+                    except:
+                        try:
+                            print(str(self.getChar(h)), end='')
+                        except:
+                            print('?', end='')
+                text_file.write('\n')
+                print()
+            text_file.close()
+            x += int(1)
+            outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
+            if int(len(file_path_list)) >= int(x + 1):
+                print(f'\n\nImage {x} is done, going to next image\n\n')
 #for class
 
 
@@ -1610,9 +1607,6 @@ class pta:
 
 #############################################################################################################################################
 
-class pta_mlt2:
-    def process():
-        pass
 
 class error:
     def invalid_dir(self, x):
@@ -1690,7 +1684,6 @@ atrib = atrib()
 error = error()
 dtet = dtet()
 actions = actions()
-pta_mlt2 = pta_mlt2()
 exiting = exiting()
 
 if __name__ == "__main__":
