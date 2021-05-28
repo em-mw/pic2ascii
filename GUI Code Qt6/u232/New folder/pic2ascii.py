@@ -1350,7 +1350,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
-        self.start.clicked.connect(lambda:pta.main())
+        self.start.clicked.connect(lambda:pta.main(float(ui.lineEditSF.text())))
 
 #############################################################################################################
 #window (from fine imports)
@@ -1479,8 +1479,7 @@ class atrib(Ui_MainWindow):
         except:
             ui.lineEditSF.backspace()
         else:
-            sfd_val = float(ui.lineEditSF.text()) * 100
-            ui.spinDialScaleFactor.setValue(int(sfd_val))
+            ui.spinDialScaleFactor.setValue(int(float(ui.lineEditSF.text()) * 100))
         #get the value of the edit widget
         #and change the dial
         #ui.spinDialScaleFactor
@@ -1509,7 +1508,7 @@ class pta:
         interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
     
-    def main(self):
+    def main(self, scaleFactor):
         chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
 
         charArray = list(chars)
@@ -1519,7 +1518,7 @@ class pta:
         oneCharHeight = 18
         
         
-        scaleFactor = 0.09
+        #scaleFactor = 0.09
 
         #fileman = Tk()
         #fileman.wm_state('iconic')
