@@ -5,7 +5,7 @@ from tkinter import *
 from tkinter.filedialog import askopenfilenames
 from os import getcwd
 import os
-from sty import fg, rs
+from sty import fg
 
 import PIL
 from PIL import ImageDraw, ImageFont
@@ -29,6 +29,7 @@ class start:
         oneCharWidth = 10
         oneCharHeight = 18
         
+        #tfFPS = int(30)
         
         scaleFactor = 0.09
 
@@ -74,7 +75,10 @@ class start:
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
                 if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
+                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
+                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
 
+                tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
                 text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
                 for i in range(height):
                     for j in range(width):
@@ -86,6 +90,7 @@ class start:
                         h = int(r/3 + g/3 + b/3)
                         #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
                         text_file.write(self.getChar(h))
+                        tf.write(str(fg(r, g, b)) + str(self.getChar(h)))
                         if format == 'RGBA':
                             d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
                         elif format == 'RGB':
@@ -97,13 +102,15 @@ class start:
                                 print(str(self.getChar(h)), end='')
                             except:
                                 print('?', end='')
+                    tf.write('\n')
                     text_file.write('\n')
                     print()
                 text_file.close()
+                tf.close()
                 x += int(1)
                 outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
                 if int(len(file_path_list)) >= int(x + 1):
-                    print(f'\n\nImage {x} is done, going to next image\n\n')
+                    print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 
 #for class
 p = start()
