@@ -1,18 +1,20 @@
-## If you are just interested in the source code for the Terminal version source code is in the ```Terminal``` branch
-## If you are just interested in the source code for the GUI version source code is in the ```GUI``` branch
-# Welcome
-## About Repo
-The pic2ascii (mostly coded in '''Python''') program converts any .JPG or .JPEG image and converts it in to text characters (aka ascii).
-Right now we are still in development but we got most of the low level stuff down so you can use the program. We are curently working on features like adding about menus and and adding "Report a bug" features. 
+> NOTE: If you are interested for the Terminal version source code, it is in the ```Terminal``` branch. Else, if you looking for the GUI version source code, it is  in the ```GUI``` branch.
 
-The Terminal edition is closer to being done so we recomend you use that for now, but you can still use the GUI version if you hate the Terminal.
+# pic2ascii
 
+### About Repo
+The `pic2ascii` (mostly coded in `Python 3`) program converts any JPEG image and converts it in to text characters (A.K.A ASCII).
+Right now we are still in development but we got most of the low level stuff down so you can use the program. We are curently working on features like adding 'About' menus and adding features like 'Report a bug'. 
 
-
-
-#Example of the ART (Genarated by pic2ascii Terminal-commit 91189c7c)
+The Terminal edition is closer to being done, so we recomend you use that for now, but you can still use the GUI version if you prefer it over the Terminal.
 
 
+
+
+### An example (Genarated by pic2ascii Terminal-commit 91189c7c)
+
+
+Plain ASCII Text (Genarated from .txt output file):
 ```
 $$$$$$$$$$$$$$$$$$$$$$$$$$m0Uujtfx$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$wMOj[>I,,I~1$$$$$$$$$$$$$$$$$$$$$$$
@@ -53,5 +55,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ```
 
 
+ASCII with color (only in picture format):
 
 ![](ext-files/output0.png)
