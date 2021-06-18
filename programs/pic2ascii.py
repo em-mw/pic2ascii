@@ -6,6 +6,7 @@ from tkinter.filedialog import askopenfilenames
 from os import getcwd
 import os
 from sty import fg
+import shutil
 
 import PIL
 from PIL import ImageDraw, ImageFont
@@ -29,9 +30,11 @@ class start:
         oneCharWidth = 10
         oneCharHeight = 18
         
-        #tfFPS = int(30)
+        
         
         scaleFactor = 0.09
+        properseq = int(3)
+
 
         fileman = Tk()
         fileman.wm_state('iconic')
@@ -53,6 +56,44 @@ class start:
                 dirslash = '/'
             
             print('starting...', end='\n\n')
+
+            
+            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
+                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
+            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
+                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
+            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
+                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
+            
+            for zink in range(properseq):
+                try:shutil.rmtree(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(zink + 1)))
+                except:os.mkdir((str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(zink + 1))))
+                else:os.mkdir((str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(zink + 1))))
+            del zink
+
+            for thing in range(properseq):
+                tmp = open(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'tmp' + str(int(thing + 1)) + '.tmp', 'w')
+                tmp.write('[')
+                tmp.write(str(file_path_list[int(thing)]) + ', ')
+                try:int(int(len(file_path_list)) / int(properseq))
+                except:pass
+                else:
+                    add = int(int(len(list(file_path_list))) / int(properseq))
+                    add -= 1
+                    add2 = properseq
+                    for omla in range(add):
+                        tmp.write(str(file_path_list[int(int(add2) + int(thing))]))
+                        add2 = add2 + properseq
+                        if int(omla + 1) != add:
+                            tmp.write(', ')
+                tmp.write(']')
+                tmp.close()
+            del thing
+            del omla
+            del add
+            
+
+
             for file in file_path_list:
                 
                 im = PIL.Image.open(file_path_list[int(x)])
@@ -71,13 +112,8 @@ class start:
 
                 d = ImageDraw.Draw(outputImage)
                 
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
 
+                
                 tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
                 text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
                 for i in range(height):
