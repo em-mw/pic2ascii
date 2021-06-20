@@ -37,41 +37,60 @@ else:
     print('starting...', end='\n\n')
 
     
-    if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
-        os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
-    if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
-        os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
-    if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
-        os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
+
     
     for zink in range(properseq):
-        try:shutil.rmtree(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(zink + 1)))
-        except:os.mkdir((str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(zink + 1))))
-        else:os.mkdir((str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(zink + 1))))
+        try:shutil.rmtree(str(os.getcwd()) + str(dirslash) + str(int(zink + 1)))
+        except:os.mkdir((str(os.getcwd()) + str(dirslash) + str(int(zink + 1))))
+        else:os.mkdir((str(os.getcwd()) + str(dirslash) + str(int(zink + 1))))
+        
+        if os.path.isdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputTextFiles') == bool(False):
+            os.mkdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputTextFiles')
+        if os.path.isdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputPictureFiles') == bool(False):
+            os.mkdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputPictureFiles')
+        if os.path.isdir(str(os.getcwd()) + str(dirslash) + str(int(zink + 1)) + str(dirslash) + 'outputTF') == bool(False):
+            os.mkdir(str(os.getcwd()) + str(dirslash) + str(int(zink + 1)) + str(dirslash) + 'outputTF')
     del zink
 
+    round = int(0)
     for thing in range(properseq):
-        var = open(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'var' + '.tmp', 'w')
-        var.write(str(oneCharWidth = 10) + ' ' + str(oneCharHeight = 18) + ' ' + str(scaleFactor = 0.09))
+        var = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'var' + '.tmp', 'w')
+        var.write(str('oneCharWidth = 10') + '\n' + str('oneCharHeight = 18') + '\n' + str('scaleFactor = 0.09'))
         var.close()
-        tmp = open(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'tmp' + '.tmp', 'w')
+        tmp = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'tmp' + '.tmp', 'w')
         tmp.write('[')
-        tmp.write(str(file_path_list[int(thing)]) + ', ')
+        tmp.write(str(file_path_list[int(thing)]))
+        if len(file_path_list) == int(properseq):
+            tmp.write(']')
+        else:
+            tmp.write(', ')
         try:int(int(len(file_path_list)) / int(properseq))
-        except:pass
+        except:
+            modproc = math.floor(int(len(file_path_list)) / int(properseq))
+            extproc = int(len(file_path_list)) // int(properseq)
+            add2 = modproc
+            for hallo in range(int(modproc)):
+                tmp.write(str(list(file_path_list)[int(hallo + add2)]))
+                add2 = add2 + properseq
+            if round > modproc:
+                #finnish up round and modproc right here
+                round += int(1)
+                pass
+            del add2
         else:
             add = int(int(len(list(file_path_list))) / int(properseq))
             add -= 1
             add2 = properseq
-            for omla in range(add):
+            for hello in range(add):
                 tmp.write(str(file_path_list[int(int(add2) + int(thing))]))
                 add2 = add2 + properseq
-                if int(omla + 1) != add:
+                if int(hello + 1) != add:
                     tmp.write(', ')
-                else:
+                elif int(hello + 1) == add:
                     tmp.write(']')
-        
+            try:del hello
+            except:pass
+            del thing
+            del add
+            del add2
         tmp.close()
-    del thing
-    del omla
-    del add
