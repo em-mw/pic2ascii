@@ -74,7 +74,14 @@ else:
     
     for zink in range(properseq):
         try:shutil.rmtree(str(os.getcwd()) + str(dirslash) + str(int(zink + 1)))
-        except:os.mkdir((str(os.getcwd()) + str(dirslash) + str(int(zink + 1))))
+        except:
+            try:os.mkdir((str(os.getcwd()) + str(dirslash) + str(int(zink + 1))))
+            except:
+                print('You have a file open or being acsessed in:\n\n' + str(os.getcwd()) + str(dirslash) + str(int(zink + 1)) + '\n\nplease close the program that is acsessing this folder and try again.')
+                sleep(1)
+                print('exiting')
+                sleep(.3)
+                exit()
         else:os.mkdir((str(os.getcwd()) + str(dirslash) + str(int(zink + 1))))
         
         if os.path.isdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputTextFiles') == bool(False):
@@ -92,10 +99,10 @@ else:
     del tmp
 
     for thing in range(properseq):
-        var = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'var' + str(int(thing + 1)) + '.tmp', 'w')
+        var = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'var' + '.tmp', 'w')
         var.write(str('oneCharWidth = 10') + '\n' + str('oneCharHeight = 18') + '\n' + str('scaleFactor = 0.09'))
         var.close()
-        tmp = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'tmp' + str(int(thing + 1)) + '.tmp', 'w')
+        tmp = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'tmp' + '.tmp', 'w')
         tmp.write('[')
         tmp.write(str(file_path_list[int(thing)]))
         extitems[thing] = True
@@ -132,14 +139,16 @@ else:
                 del add
                 del add2
         tmp.close()
-    truncate_utf8_chars(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp1.tmp', 1)
-    with open(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp1.tmp', 'a') as tmpaft:
-        tmpaft.write(', ')
-        for lol in range(len(extitems)):
-            if extitems[lol]:
-                del extitems[lol]
-        del lol
-        extitems = list(extitems.keys())
-        for keytorun in range(len(extitems)):
-            tmpaft.write(str(list(file_path_list)[extitems[keytorun]]))
+    if isinstance(int(len(file_path_list)) / int(properseq), float):
+        truncate_utf8_chars(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp.tmp', 1)
+        with open(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp.tmp', 'a') as tmpaft:
+            tmpaft.write(', ')
+            for lol in range(len(extitems)):
+                if extitems[lol]:
+                    del extitems[lol]
+            del lol
+            extitems = list(extitems.keys())
+            for keytorun in range(len(extitems)):
+                tmpaft.write(str(list(file_path_list)[extitems[keytorun]]))
+            tmpaft.write(']')
     input('done! (press enter to exit)')
