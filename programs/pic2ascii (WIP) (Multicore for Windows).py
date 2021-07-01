@@ -86,15 +86,19 @@ else:
     del zink
 
     round = int(0)
+    extitems = {}
+    for tmp in range(len(list(file_path_list))):
+        extitems[tmp] = False
+    del tmp
+
     for thing in range(properseq):
-        extitems = list(file_path_list)
         var = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'var' + str(int(thing + 1)) + '.tmp', 'w')
         var.write(str('oneCharWidth = 10') + '\n' + str('oneCharHeight = 18') + '\n' + str('scaleFactor = 0.09'))
         var.close()
         tmp = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'tmp' + str(int(thing + 1)) + '.tmp', 'w')
         tmp.write('[')
         tmp.write(str(file_path_list[int(thing)]))
-        del extitems[int(0)]
+        extitems[thing] = True
         if len(file_path_list) == int(properseq):
             tmp.write(']')
         else:
@@ -105,7 +109,7 @@ else:
                 add2 = properseq
                 for hello in range(int(evenproc - 1)):
                     tmp.write(str(list(file_path_list)[int(int(add2) + int(thing))]))
-                    del extitems[int(int(add2) + int(thing))]
+                    extitems[int(int(add2) + int(thing))] = True
                     add2 = add2 + properseq
                     if int(hello + 1) != int(evenproc - 1):
                         tmp.write(', ')
@@ -131,9 +135,11 @@ else:
     truncate_utf8_chars(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp1.tmp', 1)
     with open(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp1.tmp', 'a') as tmpaft:
         tmpaft.write(', ')
-        for items in range(int(len(extitems) - 1)):
-            #print(extitems)
-            tmpaft.write(str(list(extitems[int(items)])))
-            if items != int(range(int(len(extitems) -1))[int(-1)]):
-                tmpaft.write(', ')
-        tmpaft.write(']')
+        for lol in range(len(extitems)):
+            if extitems[lol]:
+                del extitems[lol]
+        del lol
+        extitems = list(extitems.keys())
+        for keytorun in range(len(extitems)):
+            tmpaft.write(str(list(file_path_list)[extitems[keytorun]]))
+    input('done! (press enter to exit)')
