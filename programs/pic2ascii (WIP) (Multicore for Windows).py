@@ -138,6 +138,7 @@ else:
                 del thing
                 del add
                 del add2
+            #shutil.copy(str(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.engine.cmd')), str(os.getcwd() + str(dirslash) + str(int(thing + 1)))
         tmp.close()
     if isinstance(int(len(file_path_list)) / int(properseq), float):
         truncate_utf8_chars(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp.tmp', 1)
