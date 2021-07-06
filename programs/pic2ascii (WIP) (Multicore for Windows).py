@@ -133,12 +133,11 @@ else:
                         tmp.write(', ')
                     elif int(hello + 1) == add:
                         tmp.write(']')
-                try:del hello
-                except:pass
-                del thing
-                del add
-                del add2
-            #shutil.copy(str(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.engine.cmd')), str(os.getcwd() + str(dirslash) + str(int(thing + 1)))
+            if str(os.name) == 'nt':
+                shutil.copy(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.win.cmd'), str(os.getcwd() + str(dirslash) + str(int(thing + 1))))
+            else:
+                shutil.copy(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.nix.sh'), str(os.getcwd() + str(dirslash) + str(int(thing + 1))))
+            shutil.copy(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'mps.engine.py'), str(os.getcwd() + str(dirslash) + str(int(thing + 1))))
         tmp.close()
     if isinstance(int(len(file_path_list)) / int(properseq), float):
         truncate_utf8_chars(os.getcwd() + str(dirslash) + '1' + str(dirslash) + 'tmp.tmp', 1)
@@ -152,4 +151,8 @@ else:
             for keytorun in range(len(extitems)):
                 tmpaft.write(str(list(file_path_list)[extitems[keytorun]]))
             tmpaft.write(']')
+    if str(os.name) == 'nt':
+        os.system(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.win.cmd'))
+    else:
+       os.system(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.nix.sh'))
     input('done! (press enter to exit)')

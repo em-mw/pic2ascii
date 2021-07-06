@@ -1,1 +1,4 @@
-start mps.engine.py
+@echo off
+:: start mps.engine.py
+start cmd
+:: pause
