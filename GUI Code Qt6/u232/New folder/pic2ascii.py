@@ -765,7 +765,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Documents\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Desktop\\pic2ascii\\GUI Code Qt6\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
@@ -1065,32 +1065,6 @@ class Ui_MainWindow(object):
         self.Fontlabel.setToolTipDuration(0)
         self.Fontlabel.setAlignment(QtCore.Qt.Alignment.AlignCenter)
         self.Fontlabel.setObjectName("Fontlabel")
-        self.lineEditFrameImage = QtWidgets.QLineEdit(self.tabSetup)
-        self.lineEditFrameImage.setGeometry(QtCore.QRect(270, 115, 331, 236))
-        self.lineEditFrameImage.setStyleSheet("")
-        self.lineEditFrameImage.setFrame(True)
-        self.lineEditFrameImage.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)
-        self.lineEditFrameImage.setReadOnly(True)
-        self.lineEditFrameImage.setObjectName("lineEditFrameImage")
-        self.labelimage = QtWidgets.QLabel(self.tabSetup)
-        self.labelimage.setGeometry(QtCore.QRect(385, 115, 96, 26))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.labelimage.setFont(font)
-        self.labelimage.setStyleSheet("")
-        self.labelimage.setAlignment(QtCore.Qt.Alignment.AlignCenter)
-        self.labelimage.setObjectName("labelimage")
-        self.ImageDisplay = QtWidgets.QLabel(self.tabSetup)
-        self.ImageDisplay.setGeometry(QtCore.QRect(275, 145, 321, 201))
-        self.ImageDisplay.setToolTipDuration(0)
-        self.ImageDisplay.setText("")
-        self.ImageDisplay.setPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Documents\\pic2ascii\\GUI Code Qt6 & Qt5\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\ErMax Plain.png"))
-        self.ImageDisplay.setScaledContents(True)
-        self.ImageDisplay.setObjectName("ImageDisplay")
         self.labelAdvanced = QtWidgets.QLabel(self.tabSetup)
         self.labelAdvanced.setGeometry(QtCore.QRect(665, 115, 261, 41))
         font = QtGui.QFont()
@@ -1102,12 +1076,6 @@ class Ui_MainWindow(object):
         self.labelAdvanced.setFont(font)
         self.labelAdvanced.setAlignment(QtCore.Qt.Alignment.AlignCenter)
         self.labelAdvanced.setObjectName("labelAdvanced")
-        self.comboBoxCompute = QtWidgets.QComboBox(self.tabSetup)
-        self.comboBoxCompute.setGeometry(QtCore.QRect(15, 130, 166, 21))
-        self.comboBoxCompute.setObjectName("comboBoxCompute")
-        self.comboBoxCompute.addItem("")
-        self.comboBoxCompute.addItem("")
-        self.comboBoxCompute.addItem("")
         self.lineEdit = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEdit.setGeometry(QtCore.QRect(665, 195, 266, 156))
         font = QtGui.QFont()
@@ -1122,8 +1090,19 @@ class Ui_MainWindow(object):
         self.lineEdit.setReadOnly(True)
         self.lineEdit.setObjectName("lineEdit")
         self.comboBoxIdemPerRun = QtWidgets.QComboBox(self.tabSetup)
-        self.comboBoxIdemPerRun.setGeometry(QtCore.QRect(195, 130, 56, 21))
+        self.comboBoxIdemPerRun.setGeometry(QtCore.QRect(210, 130, 56, 21))
         self.comboBoxIdemPerRun.setObjectName("comboBoxIdemPerRun")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
+        self.comboBoxIdemPerRun.addItem("")
         self.comboBoxIdemPerRun.addItem("")
         self.comboBoxIdemPerRun.addItem("")
         self.comboBoxIdemPerRun.addItem("")
@@ -1171,6 +1150,40 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelColor.setFont(font)
         self.labelColor.setObjectName("labelColor")
+        self.coreLabel = QtWidgets.QLabel(self.tabSetup)
+        self.coreLabel.setGeometry(QtCore.QRect(10, 125, 106, 31))
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI Semilight")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
+        self.coreLabel.setFont(font)
+        self.coreLabel.setObjectName("coreLabel")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.tabSetup)
+        self.lineEdit_2.setGeometry(QtCore.QRect(0, 115, 291, 86))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setWeight(50)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
+        self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setToolTipDuration(0)
+        self.lineEdit_2.setFrame(True)
+        self.lineEdit_2.setReadOnly(True)
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.checkBoxAutoProcess = QtWidgets.QCheckBox(self.tabSetup)
+        self.checkBoxAutoProcess.setGeometry(QtCore.QRect(140, 135, 51, 17))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
+        self.checkBoxAutoProcess.setFont(font)
+        self.checkBoxAutoProcess.setObjectName("checkBoxAutoProcess")
+        self.lineEdit_2.raise_()
         self.lineEdit.raise_()
         self.labelinDesk.raise_()
         self.lineEditInDir.raise_()
@@ -1191,16 +1204,14 @@ class Ui_MainWindow(object):
         self.lineEditFont.raise_()
         self.pushButtonFontIn.raise_()
         self.Fontlabel.raise_()
-        self.lineEditFrameImage.raise_()
-        self.labelimage.raise_()
-        self.ImageDisplay.raise_()
         self.labelAdvanced.raise_()
-        self.comboBoxCompute.raise_()
         self.comboBoxIdemPerRun.raise_()
         self.labelNote.raise_()
         self.radioButtonBW.raise_()
         self.radioButtonRGB.raise_()
         self.labelColor.raise_()
+        self.coreLabel.raise_()
+        self.checkBoxAutoProcess.raise_()
         self.tabWidget.addTab(self.tabSetup, "")
         MainWindow.setCentralWidget(self.widgetMain)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -1293,28 +1304,37 @@ class Ui_MainWindow(object):
         self.labelSF.setText(_translate("MainWindow", "ASCII Character Scale Factor"))
         self.lineEditFont.setToolTip(_translate("MainWindow", "The Font of The Ascii Charaters"))
         self.lineEditFont.setStatusTip(_translate("MainWindow", "The Font of The Ascii Charaters"))
-        self.pushButtonFontIn.setText(_translate("MainWindow", "Browse Font File (tiff)"))
+        self.pushButtonFontIn.setText(_translate("MainWindow", "Browse Font File"))
         self.Fontlabel.setToolTip(_translate("MainWindow", "The Font of The Ascii Charaters"))
         self.Fontlabel.setStatusTip(_translate("MainWindow", "The Font of The Ascii Charaters"))
         self.Fontlabel.setText(_translate("MainWindow", "Font:"))
-        self.labelimage.setText(_translate("MainWindow", "Final Image:"))
-        self.ImageDisplay.setToolTip(_translate("MainWindow", "The Final Image"))
         self.labelAdvanced.setText(_translate("MainWindow", "Advanced Features:"))
-        self.comboBoxCompute.setCurrentText(_translate("MainWindow", "Compute Device: CPU"))
-        self.comboBoxCompute.setItemText(0, _translate("MainWindow", "Compute Device: CPU"))
-        self.comboBoxCompute.setItemText(1, _translate("MainWindow", "Compute Device: GPU (Nvidia)"))
-        self.comboBoxCompute.setItemText(2, _translate("MainWindow", "Compute Device: GPU (AMD)"))
         self.lineEdit.setToolTip(_translate("MainWindow", "The Scale Factor of The Ascii Charaters"))
         self.lineEdit.setStatusTip(_translate("MainWindow", "The Scale Factor of The Ascii Charaters"))
         self.comboBoxIdemPerRun.setItemText(0, _translate("MainWindow", "1"))
         self.comboBoxIdemPerRun.setItemText(1, _translate("MainWindow", "2"))
-        self.comboBoxIdemPerRun.setItemText(2, _translate("MainWindow", "4"))
-        self.comboBoxIdemPerRun.setItemText(3, _translate("MainWindow", "8"))
-        self.comboBoxIdemPerRun.setItemText(4, _translate("MainWindow", "16"))
+        self.comboBoxIdemPerRun.setItemText(2, _translate("MainWindow", "3"))
+        self.comboBoxIdemPerRun.setItemText(3, _translate("MainWindow", "4"))
+        self.comboBoxIdemPerRun.setItemText(4, _translate("MainWindow", "5"))
+        self.comboBoxIdemPerRun.setItemText(5, _translate("MainWindow", "6"))
+        self.comboBoxIdemPerRun.setItemText(6, _translate("MainWindow", "7"))
+        self.comboBoxIdemPerRun.setItemText(7, _translate("MainWindow", "8"))
+        self.comboBoxIdemPerRun.setItemText(8, _translate("MainWindow", "9"))
+        self.comboBoxIdemPerRun.setItemText(9, _translate("MainWindow", "10"))
+        self.comboBoxIdemPerRun.setItemText(10, _translate("MainWindow", "11"))
+        self.comboBoxIdemPerRun.setItemText(11, _translate("MainWindow", "12"))
+        self.comboBoxIdemPerRun.setItemText(12, _translate("MainWindow", "13"))
+        self.comboBoxIdemPerRun.setItemText(13, _translate("MainWindow", "14"))
+        self.comboBoxIdemPerRun.setItemText(14, _translate("MainWindow", "15"))
+        self.comboBoxIdemPerRun.setItemText(15, _translate("MainWindow", "16"))
         self.labelNote.setText(_translate("MainWindow", "Note: Only .jpg files are supported for input"))
         self.radioButtonBW.setText(_translate("MainWindow", "B/W"))
         self.radioButtonRGB.setText(_translate("MainWindow", "Color (RGB)"))
         self.labelColor.setText(_translate("MainWindow", "Image Color:"))
+        self.coreLabel.setText(_translate("MainWindow", "CPU Processes:"))
+        self.lineEdit_2.setToolTip(_translate("MainWindow", "The Scale Factor of The Ascii Charaters"))
+        self.lineEdit_2.setStatusTip(_translate("MainWindow", "The Scale Factor of The Ascii Charaters"))
+        self.checkBoxAutoProcess.setText(_translate("MainWindow", "auto"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabSetup), _translate("MainWindow", "Setup"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tabSetup), _translate("MainWindow", "This is where you setup the source and ouput"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
@@ -1350,7 +1370,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
-        self.start.clicked.connect(lambda:pta.main(float(ui.lineEditSF.text())))
+        #self.start.clicked.connect(lambda:pta.main(float(ui.lineEditSF.text())))
 
 #############################################################################################################
 #window (from fine imports)
@@ -1459,7 +1479,7 @@ class atrib(Ui_MainWindow):
         fntman.withdraw()
         fntman.attributes('-alpha', 0)
         global fnt_path
-        fnt_path = askopenfilename(filetypes=(("ttf Font files","*.ttf"),), initialdir=str(os.getcwd() + winslash + 'fnts'), title='Choose Your Ascii Font')
+        fnt_path = askopenfilename(filetypes=(("TrueType Font Files","*.ttf *.tte *.ttc"), ("OpenType Font Files","*.otf *.otc"), ("All Font Files", "*.ttf *.ttc *.tte *.otf *.otc")), initialdir=str(os.getcwd() + winslash + 'fnts'), title='Choose Your Ascii Font')
         if fnt_path:
             ui.lineEditFont.setText(str(fnt_path))
         fntman.deiconify()
@@ -1486,127 +1506,7 @@ class atrib(Ui_MainWindow):
 
 
 #########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
-#########################################################################################################
 
-
-class pta:
-    def getChar(self, inputInt):
-        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-
-        charArray = list(chars)
-        charLength = len(charArray)
-        interval = charLength/256
-        return charArray[math.floor(inputInt*interval)]
-    
-    def main(self, scaleFactor):
-        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-
-        charArray = list(chars)
-        charLength = len(charArray)
-        interval = charLength/256
-        oneCharWidth = 10
-        oneCharHeight = 18
-        
-        
-        #scaleFactor = 0.09
-
-        #fileman = Tk()
-        #fileman.wm_state('iconic')
-        #file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("PNG files (in beta)", "*.png"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
-        ##fileman.mainloop()
-        #file_path_list = list(file_path_list)
-        #if not file_path_list:
-        #    print('you have no files selected')
-        #    sleep(.5)
-        #    print('exiting')
-        #    sleep(.2)
-        #    exit()
-        #else:
-        #this variable (x) is a preuse of the while loop. We will keep this variable for future purposes
-        x = 0
-        if str(os.name) == 'nt':
-            dirslash = '\\'
-        else:
-            dirslash = '/'
-            
-        print('starting...', end='\n\n')
-        for file in file_path_list:
-                
-            im = PIL.Image.open(file_path_list[int(x)])
-            if file_path_list[int(x)][-4] == '.' and file_path_list[int(x)][-3] == 'p' and file_path_list[int(x)][-2] == 'n' and file_path_list[int(x)][-1] == 'g':
-                format = 'RGBA'
-            else:
-                format = 'RGB'
-            fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
-
-            width, height = im.size
-            im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
-            width, height = im.size
-            pix = im.convert(str(format))
-
-            outputImage = PIL.Image.new(str(format), (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
-
-            d = ImageDraw.Draw(outputImage)
-                
-            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
-                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
-            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
-                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
-
-            text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
-            for i in range(height):
-                for j in range(width):
-                    if format == 'RGBA':
-                        r, g, b, a = pix.getpixel((j, i))
-                    elif format == 'RGB':
-                        r, g, b = pix.getpixel((j, i))
-                    #r, g, b = pix[j, i]
-                    h = int(r/3 + g/3 + b/3)
-                    #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
-                    text_file.write(self.getChar(h))
-                    if format == 'RGBA':
-                        d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
-                    elif format == 'RGB':
-                        d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
-                    try:
-                        print(fg(r, g, b) + str(self.getChar(h)), end='') #please don't put fg.rs into the code or it will slow down a lot
-                    except:
-                        try:
-                            print(str(self.getChar(h)), end='')
-                        except:
-                            print('?', end='')
-                text_file.write('\n')
-                print()
-            text_file.close()
-            x += int(1)
-            outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
-            if int(len(file_path_list)) >= int(x + 1):
-                print(f'\n\nImage {x} is done, going to next image\n\n')
-            try:print(fg.rs + '\n\nall done!')
-            except:print('\n\nall done!')
-#for class
-
-
-# if __name__ == '__main__':
-    # p1 = Process(target=p.main)
-    # input('yes')
-    # p1.start()
-
-    # p1.join()
-    # input('done(enter to exit)')
-
-
-#############################################################################################################################################
 
 
 class error:
@@ -1680,7 +1580,6 @@ class exiting:
         #del root
 
 #class debunks
-pta = pta()
 atrib = atrib()
 error = error()
 dtet = dtet()
