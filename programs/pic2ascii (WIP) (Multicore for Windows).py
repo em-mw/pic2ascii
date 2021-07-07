@@ -151,8 +151,8 @@ else:
             for keytorun in range(len(extitems)):
                 tmpaft.write(str(list(file_path_list)[extitems[keytorun]]))
             tmpaft.write(']')
-    if str(os.name) == 'nt':
-        os.system(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.win.cmd'))
-    else:
-       os.system(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.nix.sh'))
+    # if str(os.name) == 'nt':
+    #     os.system(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.win.cmd'))
+    # else:
+    #    os.system(str(os.getcwd() + str(dirslash) + 'gen-files' + str(dirslash) + 'start.nix.sh'))
     input('done! (press enter to exit)')

@@ -10,6 +10,7 @@ from sty import fg
 import PIL
 from PIL import ImageDraw, ImageFont
 
+
 #if you want the normal loading screen you have to uncomment the import and add the function to the first for loop like this [for i in tqdm(range(height)):]
 #from tqdm import tqdm
 os.system("")
@@ -114,15 +115,6 @@ class start:
                 
 #for class
 p = start()
-
-# if __name__ == '__main__':
-    # p1 = Process(target=p.main)
-    # input('yes')
-    # p1.start()
-
-    # p1.join()
-    # input('done(enter to exit)')
-
 p.main()
 try:input(fg.rs + '\n\nall done! Press enter to exit!')
 except:input('\n\nall done! Press enter to exit!')
