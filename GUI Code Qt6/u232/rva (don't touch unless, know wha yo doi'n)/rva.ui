@@ -932,118 +932,6 @@ p, li { white-space: pre-wrap; }
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBoxIdemPerRun">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>130</y>
-        <width>56</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>3</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>4</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>5</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>6</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>7</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>8</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>9</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>10</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>11</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>12</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>13</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>14</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>15</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>16</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="labelNote">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>72</y>
-        <width>371</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Yu Gothic UI Semilight</family>
-        <pointsize>14</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-        <stylestrategy>PreferAntialias</stylestrategy>
-       </font>
-      </property>
-      <property name="text">
-       <string>Note: Only .jpg files are supported for input</string>
-      </property>
-     </widget>
      <widget class="QRadioButton" name="radioButtonBW">
       <property name="geometry">
        <rect>
@@ -1173,10 +1061,13 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QCheckBox" name="checkBoxAutoProcess">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>135</y>
+        <y>130</y>
         <width>51</width>
         <height>17</height>
        </rect>
@@ -1191,7 +1082,26 @@ p, li { white-space: pre-wrap; }
        </font>
       </property>
       <property name="text">
-       <string>auto</string>
+       <string>Auto</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditProcess">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>130</y>
+        <width>66</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <zorder>lineEdit_2</zorder>
@@ -1216,13 +1126,12 @@ p, li { white-space: pre-wrap; }
      <zorder>pushButtonFontIn</zorder>
      <zorder>Fontlabel</zorder>
      <zorder>labelAdvanced</zorder>
-     <zorder>comboBoxIdemPerRun</zorder>
-     <zorder>labelNote</zorder>
      <zorder>radioButtonBW</zorder>
      <zorder>radioButtonRGB</zorder>
      <zorder>labelColor</zorder>
      <zorder>coreLabel</zorder>
      <zorder>checkBoxAutoProcess</zorder>
+     <zorder>lineEditProcess</zorder>
     </widget>
    </widget>
   </widget>
@@ -1246,6 +1155,7 @@ p, li { white-space: pre-wrap; }
      <string>Help!</string>
     </property>
     <addaction name="actionContact"/>
+    <addaction name="separator"/>
     <addaction name="actionReport_an_Erorr"/>
     <addaction name="actionRequest_a_Feature"/>
    </widget>
