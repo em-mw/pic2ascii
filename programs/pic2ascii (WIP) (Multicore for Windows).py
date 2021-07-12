@@ -112,7 +112,7 @@ else:
             tmp.write(', ')
             if isinstance(int(len(file_path_list)) / int(properseq), float):
                 evenproc = int(math.floor(int(int(len(list(file_path_list))) / int(properseq))))
-                extraproc = int(int(len(list(file_path_list))) // int(properseq))
+                extraproc = int(int(len(list(file_path_list))) % int(properseq))
                 add2 = properseq
                 for hello in range(int(evenproc - 1)):
                     tmp.write(str(list(file_path_list)[int(int(add2) + int(thing))]))
