@@ -295,7 +295,7 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="value">
-       <number>24</number>
+       <number>0</number>
       </property>
       <property name="textVisible">
        <bool>false</bool>
@@ -602,7 +602,7 @@ p, li { white-space: pre-wrap; }
        <string notr="true"/>
       </property>
       <property name="value">
-       <number>24</number>
+       <number>0</number>
       </property>
       <property name="textVisible">
        <bool>true</bool>

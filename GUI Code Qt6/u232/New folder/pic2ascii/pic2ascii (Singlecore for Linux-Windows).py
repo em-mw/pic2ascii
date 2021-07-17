@@ -1,5 +1,5 @@
 import math
-from multiprocessing import Process
+#from multiprocessing import Process
 from time import sleep
 from tkinter import *
 from tkinter.filedialog import askopenfilenames

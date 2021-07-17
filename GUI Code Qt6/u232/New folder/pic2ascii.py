@@ -690,10 +690,6 @@ Public License instead of this License.  But first, please read
 
 #IMPORTANT TO NOTE
 
-'''
-adft (the ultra advanced user settings) help is stored in the adft_help.txt flie
-'''
-
 #THE FINE IMPORTS
 
 from PyQt6 import QtCore, QtGui, QtWidgets
@@ -704,15 +700,16 @@ import reis
 from tqdm import tqdm
 #pta class imports (fine imports)
 
+
 #NOTE: You are responcible for installing all of the depencancies if you want this to work
     #PIL is the new Pillow Library
-
-from sty import fg, rs
-import PIL
-from PIL import ImageDraw, ImageFont
+#####
+#!#from sty import fg, rs
+#!#import PIL
+#!#from PIL import ImageDraw, ImageFont
+#####
 import math
 from time import sleep
-from multiprocessing import Process
 
 #all (fine imports)
 from platform import platform
@@ -765,7 +762,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\LidiaAcer.000\\Desktop\\pic2ascii\\GUI Code Qt6\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Desktop\\pic2ascii\\GUI Code Qt6\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
@@ -862,9 +859,9 @@ class Ui_MainWindow(object):
         self.textEdit.setObjectName("textEdit")
         self.progressBar_2 = QtWidgets.QProgressBar(self.tabHome)
         self.progressBar_2.setGeometry(QtCore.QRect(970, 0, 16, 391))
-        self.progressBar_2.setProperty("value", 24)
+        self.progressBar_2.setProperty("value", 0)
         self.progressBar_2.setTextVisible(False)
-        self.progressBar_2.setOrientation(QtCore.Qt.Orientations.Vertical)
+        self.progressBar_2.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.progressBar_2.setInvertedAppearance(False)
         self.progressBar_2.setTextDirection(QtWidgets.QProgressBar.Direction.TopToBottom)
         self.progressBar_2.setObjectName("progressBar_2")
@@ -972,9 +969,9 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.progressBar.setFont(font)
         self.progressBar.setStyleSheet("")
-        self.progressBar.setProperty("value", 24)
+        self.progressBar.setProperty("value", 0)
         self.progressBar.setTextVisible(True)
-        self.progressBar.setOrientation(QtCore.Qt.Orientations.Horizontal)
+        self.progressBar.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.progressBar.setTextDirection(QtWidgets.QProgressBar.Direction.TopToBottom)
         self.progressBar.setObjectName("progressBar")
         self.stop = QtWidgets.QPushButton(self.tabSetup)
@@ -1010,7 +1007,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.setPageStep(10)
         self.spinDialScaleFactor.setProperty("value", 50)
         self.spinDialScaleFactor.setSliderPosition(50)
-        self.spinDialScaleFactor.setOrientation(QtCore.Qt.Orientations.Horizontal)
+        self.spinDialScaleFactor.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.spinDialScaleFactor.setInvertedAppearance(False)
         self.spinDialScaleFactor.setNotchTarget(5.0)
         self.spinDialScaleFactor.setNotchesVisible(False)
@@ -1036,7 +1033,7 @@ class Ui_MainWindow(object):
         font.setStrikeOut(False)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelSF.setFont(font)
-        self.labelSF.setAlignment(QtCore.Qt.Alignment.AlignCenter)
+        self.labelSF.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.labelSF.setObjectName("labelSF")
         self.line = QtWidgets.QFrame(self.tabSetup)
         self.line.setGeometry(QtCore.QRect(5, 100, 971, 20))
@@ -1063,7 +1060,7 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.Fontlabel.setFont(font)
         self.Fontlabel.setToolTipDuration(0)
-        self.Fontlabel.setAlignment(QtCore.Qt.Alignment.AlignCenter)
+        self.Fontlabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.Fontlabel.setObjectName("Fontlabel")
         self.labelAdvanced = QtWidgets.QLabel(self.tabSetup)
         self.labelAdvanced.setGeometry(QtCore.QRect(665, 115, 261, 41))
@@ -1074,7 +1071,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelAdvanced.setFont(font)
-        self.labelAdvanced.setAlignment(QtCore.Qt.Alignment.AlignCenter)
+        self.labelAdvanced.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.labelAdvanced.setObjectName("labelAdvanced")
         self.lineEdit = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEdit.setGeometry(QtCore.QRect(665, 195, 266, 156))
@@ -1158,7 +1155,7 @@ class Ui_MainWindow(object):
         self.lineEditProcess = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEditProcess.setEnabled(False)
         self.lineEditProcess.setGeometry(QtCore.QRect(200, 130, 66, 20))
-        self.lineEditProcess.setAlignment(QtCore.Qt.Alignment.AlignCenter)
+        self.lineEditProcess.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEditProcess.setObjectName("lineEditProcess")
         self.lineEdit_2.raise_()
         self.lineEdit.raise_()
@@ -1331,7 +1328,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.valueChanged.connect(lambda:atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
-        self.start.clicked.connect(lambda:pta.main(float(ui.lineEditSF.text())))
+        self.start.clicked.connect(lambda:pta.main())
 
 #############################################################################################################
 #window (from fine imports)
@@ -1540,125 +1537,8 @@ class exiting:
         #root.quit()
         #del root
 class pta:
-#    import PIL
-#from PIL import ImageDraw, ImageFont
+    pass
 
-#if you want the normal loading screen you have to uncomment the import and add the function to the first for loop like this [for i in tqdm(range(height)):]
-#from tqdm import tqdm
-    os.system("")
-    #def __init__(self):
-    #    chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-
-    #    charArray = list(chars)
-    #    charLength = len(charArray)
-    #    interval = charLength/256
-
-    def getChar(self, inputInt):
-        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-
-        charArray = list(chars)
-        charLength = len(charArray)
-        interval = charLength/256
-        return charArray[math.floor(inputInt*interval)]
-    
-    def main(self):
-        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-
-        charArray = list(chars)
-        charLength = len(charArray)
-        interval = charLength/256
-
-
-        oneCharWidth = 10
-        oneCharHeight = 18
-        
-        #tfFPS = int(30)
-        
-        scaleFactor = 0.09
-
-        fileman = Tk()
-        fileman.wm_state('iconic')
-        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("PNG files (in beta)", "*.png"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
-        #fileman.mainloop()
-        file_path_list = list(file_path_list)
-        if not file_path_list:
-            print('you have no files selected')
-            sleep(.5)
-            print('exiting')
-            sleep(.2)
-            exit()
-        else:
-            #this variable (x) is a preuse of the while loop. We will keep this variable for future purposes
-            x = 0
-            if str(os.name) == 'nt':
-                dirslash = '\\'
-            else:
-                dirslash = '/'
-            
-            print('starting...', end='\n\n')
-            for file in file_path_list:
-                
-                im = PIL.Image.open(file_path_list[int(x)])
-                if file_path_list[int(x)][-4] == '.' and file_path_list[int(x)][-3] == 'p' and file_path_list[int(x)][-2] == 'n' and file_path_list[int(x)][-1] == 'g':
-                    format = 'RGBA'
-                else:
-                    format = 'RGB'
-                fnt = ImageFont.truetype('C:\\Windows\\Fonts\\lucon.ttf', 15)
-
-                width, height = im.size
-                im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
-                width, height = im.size
-                pix = im.convert(str(format))
-
-                outputImage = PIL.Image.new(str(format), (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
-
-                d = ImageDraw.Draw(outputImage)
-                
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
-
-                tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
-                text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
-                for i in range(height):
-                    for j in range(width):
-                        if format == 'RGBA':
-                            r, g, b, a = pix.getpixel((j, i))
-                        elif format == 'RGB':
-                            r, g, b = pix.getpixel((j, i))
-                        #r, g, b = pix[j, i]
-                        h = int(r/3 + g/3 + b/3)
-                        #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
-                        text_file.write(self.getChar(h))
-                        tf.write(str(fg(r, g, b)) + str(self.getChar(h)))
-                        if format == 'RGBA':
-                            d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
-                        elif format == 'RGB':
-                            d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
-                        try:
-                            print(fg(r, g, b) + str(self.getChar(h)), end='') #please don't put fg.rs into the code or it will slow down a lot
-                        except:
-                            try:
-                                print(str(self.getChar(h)), end='')
-                            except:
-                                print('?', end='')
-                    tf.write('\n')
-                    text_file.write('\n')
-                    print()
-                text_file.close()
-                tf.close()
-                x += int(1)
-                outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
-                if int(len(file_path_list)) >= int(x + 1):
-                    print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
-
-
-
-try:input(fg.rs + '\n\nall done! Press enter to exit!')
-except:input('\n\nall done! Press enter to exit!')
 
 #class debunks
 atrib = atrib()
