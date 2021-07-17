@@ -77,6 +77,8 @@ class start:
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
                 if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
+                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'tmp') == bool(False):
+                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'tmp')
 
                 tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
                 text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
@@ -107,6 +109,9 @@ class start:
                     print()
                 text_file.close()
                 tf.close()
+                psbr=open(os.getcwd() + os.sep + 'tmp' + os.sep + str(int(file)), 'w')
+                psbr.close()
+                del psbr
                 x += int(1)
                 outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
                 if int(len(file_path_list)) >= int(x + 1):

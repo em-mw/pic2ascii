@@ -25,15 +25,12 @@
     <Compile Include="pic2ascii\pic2ascii %28Singlecore for Linux-Windows%29.py" />
     <Compile Include="pic2ascii\pic2ascii %28WIP%29 %28Multicore for Windows%29.py" />
     <Compile Include="pic2ascii\TFreader %28Works with Singlecore Linux-Windows%29.py" />
-    <Compile Include="pta.py" />
     <Compile Include="reis.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.9" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adft.txt" />
-    <Content Include="adft_help.txt" />
     <Content Include="Data.txt" />
     <Content Include="ErMax Plain.png" />
     <Content Include="pic2ascii\gen-files\start.nix.sh" />
