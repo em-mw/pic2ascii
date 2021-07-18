@@ -1,4 +1,5 @@
 import pic2ascii
+from PyQt6 import QtWidgets
 
 import math
 #from multiprocessing import Process
@@ -28,6 +29,14 @@ class start:
         return charArray[math.floor(inputInt*interval)]
     
     def main(self):
+        # Importing the bar
+        MainWindow = QtWidgets.QMainWindow()
+        ui = pic2ascii.Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        bar = ui.progressBar
+        bar2 = ui.progressBar_2
+        ###
+        
         oneCharWidth = 10
         oneCharHeight = 18
         
@@ -79,8 +88,6 @@ class start:
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
                 if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
-                if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'tmp') == bool(False):
-                    os.mkdir(str(os.getcwd()) + str(dirslash) + 'tmp')
 
                 tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
                 text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
@@ -111,14 +118,12 @@ class start:
                     print()
                 text_file.close()
                 tf.close()
-                psbr=open(os.getcwd() + os.sep + 'tmp' + os.sep + str(int(file)), 'w')
-                psbr.close()
-                del psbr
                 x += int(1)
                 outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
                 if int(len(file_path_list)) >= int(x + 1):
                     print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
-                
+                bar.setValue(int(math.ceil(int(x) / len(file_path_list)) * 100))
+                bar2.setValue(int(math.ceil(int(x) / len(file_path_list)) * 100))
 #for class
 p = start()
 

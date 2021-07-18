@@ -734,7 +734,7 @@ from tkinter import messagebox
 #to prevent the worst, app is here insted of the if statment
 app = QtWidgets.QApplication(sys.argv)
 
-os.system("")
+#os.system("")
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
 #
 # Created by: PyQt6 UI code generator 6.0.3
@@ -1538,6 +1538,7 @@ class exiting:
         #del root
 class pta:
     def main(self):
+        somt = 0
         if os.name == 'nt':
             os.system('start pta.py')
         else:
