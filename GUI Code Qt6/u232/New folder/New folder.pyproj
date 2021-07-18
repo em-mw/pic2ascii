@@ -25,6 +25,7 @@
     <Compile Include="pic2ascii\pic2ascii %28Singlecore for Linux-Windows%29.py" />
     <Compile Include="pic2ascii\pic2ascii %28WIP%29 %28Multicore for Windows%29.py" />
     <Compile Include="pic2ascii\TFreader %28Works with Singlecore Linux-Windows%29.py" />
+    <Compile Include="pta.py" />
     <Compile Include="reis.py" />
   </ItemGroup>
   <ItemGroup>

@@ -1,3 +1,5 @@
+import pic2ascii
+
 import math
 #from multiprocessing import Process
 from time import sleep

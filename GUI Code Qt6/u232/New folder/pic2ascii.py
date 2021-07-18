@@ -714,6 +714,7 @@ from time import sleep
 #all (fine imports)
 from platform import platform
 import os
+from subprocess import Popen
 
 #atrib and error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
@@ -1537,7 +1538,11 @@ class exiting:
         #root.quit()
         #del root
 class pta:
-    pass
+    def main(self):
+        if os.name == 'nt':
+            os.system('start pta.py')
+        else:
+            pass
 
 
 #class debunks
