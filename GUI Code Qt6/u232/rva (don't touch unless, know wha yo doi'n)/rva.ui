@@ -1104,6 +1104,50 @@ p, li { white-space: pre-wrap; }
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QLineEdit" name="lineEditChar">
+      <property name="geometry">
+       <rect>
+        <x>185</x>
+        <y>246</y>
+        <width>475</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string>$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;&gt;i!lI;:,&quot;^`'.</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>7</x>
+        <y>244</y>
+        <width>176</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Yu Gothic UI Semilight</family>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string>Characters (bright to dark):</string>
+      </property>
+     </widget>
      <zorder>lineEdit_2</zorder>
      <zorder>lineEdit</zorder>
      <zorder>labelinDesk</zorder>
@@ -1132,6 +1176,8 @@ p, li { white-space: pre-wrap; }
      <zorder>coreLabel</zorder>
      <zorder>checkBoxAutoProcess</zorder>
      <zorder>lineEditProcess</zorder>
+     <zorder>lineEditChar</zorder>
+     <zorder>label_4</zorder>
     </widget>
    </widget>
   </widget>
