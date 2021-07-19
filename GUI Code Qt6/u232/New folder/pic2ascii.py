@@ -816,7 +816,6 @@ class atrib(Ui_MainWindow):
         #and change the dial
         #ui.spinDialScaleFactor
 
-
 #########################################################################################################
 
 
@@ -993,7 +992,14 @@ class pta:
 
             try:input(fg.rs + '\n\nall done! Press enter to exit!')
             except:input('\n\nall done! Press enter to exit!')
-
+    
+    def pg(self):
+        if __name__ == '__main__':
+            #in the future, please use the commeted forloop
+            #for _ in (whatever the process/core variable is):
+            for _ in [0]:
+                pta_ps = Process(target=self.main) #args=(file_path_list,)
+                pta_ps.start()
 
 #class debunks
 call_atrib = atrib()
