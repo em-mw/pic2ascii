@@ -30,7 +30,8 @@ from tqdm import tqdm
 #####
 #!#from sty import fg, rs
 #!#import PIL
-#!#from PIL import ImageDraw, ImageFont
+from PIL import ImageDraw, ImageFont
+import PIL
 #####
 import math
 from time import sleep
@@ -46,6 +47,7 @@ from tkinter.filedialog import askopenfilenames, askopenfilename
 from tkinter import *
 from tkinter import messagebox
 
+from sty import fg
 #global sys var
 
 #def winslash():
