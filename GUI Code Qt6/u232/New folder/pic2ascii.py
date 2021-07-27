@@ -952,15 +952,15 @@ class pta:
 
             d = ImageDraw.Draw(outputImage)
                 
-            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles') == bool(False):
-                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTextFiles')
-            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles') == bool(False):
-                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles')
-            if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
-                os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
+            if os.path.isdir(str(folder_out_path) + str(dirslash) + 'outputTextFiles') == bool(False):
+                os.mkdir(str(folder_out_path) + str(dirslash) + 'outputTextFiles')
+            if os.path.isdir(str(folder_out_path) + str(dirslash) + 'outputPictureFiles') == bool(False):
+                os.mkdir(str(folder_out_path) + str(dirslash) + 'outputPictureFiles')
+            if os.path.isdir(str(folder_out_path) + str(dirslash) + 'outputTF') == bool(False):
+                os.mkdir(str(folder_out_path) + str(dirslash) + 'outputTF')
 
-            tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
-            text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
+            tf = open(str(folder_out_path) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
+            text_file = open(str(folder_out_path) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
             for i in range(height):
                 for j in range(width):
                     if format == 'RGBA':
@@ -989,7 +989,7 @@ class pta:
             text_file.close()
             tf.close()
             x += int(1)
-            outputImage.save(str(os.getcwd()) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
+            outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
 
