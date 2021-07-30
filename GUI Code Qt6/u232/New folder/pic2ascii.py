@@ -818,6 +818,7 @@ class atrib(Ui_MainWindow):
         #and change the dial
         #ui.spinDialScaleFactor
 
+
 #########################################################################################################
 
 
@@ -893,8 +894,8 @@ class exiting:
         #del root
 class pta:  
     def getChar(self, inputInt):
-        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
-        
+        #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+        chars = str(ui.lineEditChar.text())
 
         charArray = list(chars)
         charLength = len(charArray)
@@ -902,7 +903,8 @@ class pta:
         return charArray[math.floor(inputInt*interval)]
     
     def main(self):
-        chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+        #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+        chars = str(ui.lineEditChar.text())
 
         charArray = list(chars)
         charLength = len(charArray)
