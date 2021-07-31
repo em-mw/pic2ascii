@@ -20,11 +20,15 @@ def lols():
         num = str(num)
         if num.find('.'):
             if len(num) >= 3:
-                if num[2].find()
+                if num[2].find('0') != int(-1):
+                    return False
+                else:
+                    return True
             else:
                 return True
         else:
             return True
+    
     def truncate_utf8_chars(filename, count, ignore_newlines=True):
         """
         Truncates last `count` characters of a text file encoded in UTF-8.
