@@ -164,11 +164,14 @@ def lols():
                     if extitems[delif] == True:
                         del extitems[delif]
                 del extitems2
+                tls=0
                 extlist = list(extitems.keys())
                 for witems in extlist:
-                    tmp.write(str(witems))
-                    if int(witems + 1) != int(len(extlist)):
-                        tmp.write(', ')
+                    tmp.write(str(list(file_path_list)[int(witems)]))
+                    tls += 1
+                    if int(len(extlist)) == int(tls):pass
+                    else:tmp.write(', ')
+                    
             tmp.write(']')
             tmp.close()
         input('done! press enter to exit')
