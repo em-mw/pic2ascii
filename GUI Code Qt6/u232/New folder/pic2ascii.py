@@ -18,7 +18,7 @@
 
 #Self Made
 
-import more
+#import more
 
 #Important
 from PyQt6 import QtCore, QtGui, QtWidgets
@@ -1178,7 +1178,7 @@ if __name__ == "__main__":
     
     
     MainWindow.show()
-    #please don't set arg val to true as it will skrew things up
+    #please don't set arg val to true as it will skrew [with a k] things up
 
     try:
         sys.exit(app.exec())
