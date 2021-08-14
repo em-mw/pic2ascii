@@ -1,4 +1,4 @@
-> NOTE: If you are interested for the Terminal version (more up to date) source code, it is in the ```Terminal``` branch. Else, if you looking for the GUI version source code, it is  in the ```GUI``` branch.
+> NOTE: If you are interested for the Terminal version source code, it is in the ```Terminal``` branch. Else, if you looking for the GUI version source code (more up to date), it is  in the ```GUI``` branch.
 
 # pic2ascii
 
