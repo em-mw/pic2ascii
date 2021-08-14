@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'rva.ui'
+# Form implementation generated from reading ui file 'C:\Users\Legion\Desktop\pic2ascii\GUI Code Qt6\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
 #
 # Created by: PyQt6 UI code generator 6.1.1
 #
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Desktop\\pic2ascii\\GUI Code Qt6\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
@@ -416,7 +416,7 @@ class Ui_MainWindow(object):
         self.checkBoxAutoProcess.setFont(font)
         self.checkBoxAutoProcess.setObjectName("checkBoxAutoProcess")
         self.lineEditProcess = QtWidgets.QLineEdit(self.tabSetup)
-        self.lineEditProcess.setEnabled(False)
+        self.lineEditProcess.setEnabled(True)
         self.lineEditProcess.setGeometry(QtCore.QRect(200, 130, 66, 20))
         self.lineEditProcess.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEditProcess.setObjectName("lineEditProcess")
