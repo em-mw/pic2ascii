@@ -952,10 +952,10 @@ class pta:
                 return None
 
 
-        fileman = Tk()
-        fileman.wm_state('iconic')
-        file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("PNG files (in beta)", "*.png"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
-        #fileman.mainloop()
+        #fileman = Tk()
+        #fileman.wm_state('iconic')
+        #file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"), ("PNG files (in beta)", "*.png"), ("Any file", "*")), title='Select pictures.')  #initialdir="/"
+        ##fileman.mainloop()
         file_path_list = list(file_path_list)
         if not file_path_list:
             print('you have no files selected')
@@ -1035,7 +1035,7 @@ class pta:
         interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
     
-    def main(self):
+    def main(self, execing):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
 
@@ -1134,9 +1134,9 @@ class pta:
     def pg(self):
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
-            #for _ in (whatever the process/core variable is):
-            for _ in [0]:
-                pta_ps = Process(target=self.main) #args=(file_path_list,)
+            #for execing in range(whatever the process/core variable is):
+            for execing in [0]:
+                pta_ps = Process(target=self.main, args=(int(execing),)) #args=(file_path_list,)
                 pta_ps.start()
 
 #class debunks
