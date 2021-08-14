@@ -1,15 +1,10 @@
-import pic2ascii, sys
-from PyQt6 import QtWidgets
+import more, os
 
+x = open(os.getcwd() + 'this.txt', 'w')
+x.write('this is the best')
+x.close()
 
-class some():
-    def lols(self):
-        MainWindow = QtWidgets.QMainWindow()
-        ui = pic2ascii.Ui_MainWindow()
-        ui.setupUi(MainWindow)
-        input('yes')
-        print(ui.progressBar.value())
-        ui.progressBar.setValue(int(5))
-        MainWindow.show()
-        sys.exit(pic2ascii.app.exec())
-some().lols()
+#more.truncate_utf8_chars(os.getcwd() + 'this.txt', 1)
+input(os.getcwd())
+
+os.system('notepad this.txt')
