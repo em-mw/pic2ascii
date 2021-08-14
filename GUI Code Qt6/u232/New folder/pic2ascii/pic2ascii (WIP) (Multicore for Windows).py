@@ -8,12 +8,6 @@ import shutil
 def lols():
 
 
-    oneCharWidth = 10
-    oneCharHeight = 18
-
-
-
-    scaleFactor = 0.09
     properseq = int(3)
 
     def isInt(num):
