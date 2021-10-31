@@ -46,6 +46,7 @@ from platform import platform
 import os
 from subprocess import Popen
 from multiprocessing import Process
+import picgen
 
 #call_atrib and error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
@@ -1133,8 +1134,10 @@ class pta:
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
             #for execing in range(whatever the process/core variable is):
+            picgen.lols(list(file_path_list))
             for execing in [0]:
-                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list), str(folder_out_path))) #args=(file_path_list,)
+                with open(str(os.getcwd()) + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp'):pass
+                pta_ps = Process(target=self.main, args=(int(execing), list(), str(folder_out_path))) #args=(file_path_list,)
                 pta_ps.start()
 
 #class debunks
