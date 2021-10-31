@@ -7,8 +7,12 @@ import os
 import shutil
 def lols():
 
-
+#vars:
     properseq = int(3)
+###########################
+
+
+
 
     def isInt(num):
         """
