@@ -26,7 +26,7 @@ from PyQt6.QtWidgets import QWidget, QApplication
 import webbrowser
 import sys
 import reis
-from tqdm import tqdm
+#from tqdm import tqdm
 #pta class imports (fine imports)
 
 
@@ -45,6 +45,7 @@ from time import sleep
 from platform import platform
 import os
 from subprocess import Popen
+from multiprocessing import Process
 
 #call_atrib and error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
@@ -682,7 +683,7 @@ class Ui_MainWindow(object):
         self.spinDialScaleFactor.valueChanged.connect(lambda:call_atrib.dialSF())
         self.lineEditSF.textChanged.connect(lambda:call_atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
-        self.start.clicked.connect(lambda:call_pta.main())
+        self.start.clicked.connect(lambda:call_pta.pg())
 
 #############################################################################################################
 #window (from fine imports)
@@ -1035,7 +1036,7 @@ class pta:
         interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
     
-    def main(self, execing):
+    def main(self, execing, file_path_list, folder_out_path):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
 
@@ -1127,16 +1128,13 @@ class pta:
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
-
-        try:input(fg.rs + '\n\nall done! Press enter to exit!')
-        except:input('\n\nall done! Press enter to exit!')
     
     def pg(self):
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
             #for execing in range(whatever the process/core variable is):
             for execing in [0]:
-                pta_ps = Process(target=self.main, args=(int(execing),)) #args=(file_path_list,)
+                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list), str(folder_out_path))) #args=(file_path_list,)
                 pta_ps.start()
 
 #class debunks
