@@ -1136,9 +1136,10 @@ class pta:
             #for execing in range(whatever the process/core variable is):
             picgen.lols(list(file_path_list))
             for execing in [0]:
-                with open(str(os.getcwd()) + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp'):pass
-                pta_ps = Process(target=self.main, args=(int(execing), list(), str(folder_out_path))) #args=(file_path_list,)
-                pta_ps.start()
+                with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp'):
+                    pta_ps = Process(target=self.main, args=(int(execing), list(), str(folder_out_path))) #args=(file_path_list,)
+                    pta_ps.start()
+                #I did some reaserch and figured out that .join() is for allready (not in function) tasks
 
 #class debunks
 call_atrib = atrib()
