@@ -5,6 +5,8 @@ from tkinter.filedialog import askopenfilenames
 #from os import getcwd
 import os
 import shutil
+
+
 def lols(file_path_list):
 
 #vars:
@@ -64,37 +66,24 @@ def lols(file_path_list):
         else:
             return None
 
-
-
-        #file_path_list is needed
-    if str(os.name) == 'nt':
-        dirslash = '\\'
-    else:
-        dirslash = '/'
         
     print('starting...', end='\n\n')
 
-        
+    os.mkdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
 
-        
     for zink in range(properseq):
-        try:shutil.rmtree(str(os.getcwd()) + str(dirslash) + str(int(zink + 1)))
+        try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(zink + 1)))
         except:
-            try:os.mkdir((str(os.getcwd()) + str(dirslash) + str(int(zink + 1))))
+            try:os.mkdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(zink + 1)))
             except:
-                print('You have a file open or being acsessed in:\n\n' + str(os.getcwd()) + str(dirslash) + str(int(zink + 1)) + '\n\nplease close the program that is acsessing this folder and try again.')
-                sleep(1)
-                print('exiting')
+                print('You have a file open or being acsessed in:\n\n' + str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(zink + 1)) + '\n\nplease close the program that is acsessing this folder and try again.')
+                sleep(2)
+                print('exiting...')
                 sleep(.3)
                 exit()
-        else:os.mkdir((str(os.getcwd()) + str(dirslash) + str(int(zink + 1))))
+        else:os.mkdir((str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(zink + 1))))
             
-        # if os.path.isdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputTextFiles') == bool(False):
-        #     os.mkdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputTextFiles')
-        # if os.path.isdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputPictureFiles') == bool(False):
-        #     os.mkdir(str(os.getcwd()) + str(dirslash) + str(int(zink +1)) + str(dirslash) + 'outputPictureFiles')
-        # if os.path.isdir(str(os.getcwd()) + str(dirslash) + str(int(zink + 1)) + str(dirslash) + 'outputTF') == bool(False):
-        #     os.mkdir(str(os.getcwd()) + str(dirslash) + str(int(zink + 1)) + str(dirslash) + 'outputTF')
+
     del zink
 
     extitems = {}
@@ -103,7 +92,7 @@ def lols(file_path_list):
     del tmp
 
     for thing in range(properseq):
-        tmp = open(str(os.getcwd()) + str(dirslash) + str(int(thing + 1)) + str(dirslash) + 'tmp' + '.tmp', 'w')
+        tmp = open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(thing + 1)) + str(os.sep) + 'tmp' + '.tmp', 'w')
         tmp.write('[')
         for in_file in range(math.floor(int(len(file_path_list)) / int(properseq))):
             tmp.write(str(file_path_list[int(thing)]))
