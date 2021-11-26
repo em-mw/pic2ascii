@@ -813,6 +813,7 @@ class atrib(Ui_MainWindow):
     def dialSF(self):
         sfd_val = float(ui.spinDialScaleFactor.value() / 100)
         ui.lineEditSF.setText(str(sfd_val))
+        del sfd_val
         #print(ui.lineEditSF.text())
     
         
@@ -873,6 +874,19 @@ class error:
         root.quit()
         del root
 
+    def sf_error():
+        root = Tk()
+        root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
+        root.withdraw()
+        root.attributes('-alpha', 0)
+
+        messagebox.showerror('SF_Error', 'dial and line are not equal!')
+
+        root.deiconify()
+        root.destroy()
+        root.quit()
+        del root
+
 class exiting:
     def message(self):
         root = Tk()
@@ -921,7 +935,8 @@ class pta:
         oneCharWidth = 10
         oneCharHeight = 18
         
-        #tfFPS = int(30)
+        if float(ui.lineEditSF.text()) != float(ui.spinDialScaleFactor.value() / 100):
+            call_error.sf_error()
         
         scaleFactor = 0.09
 
