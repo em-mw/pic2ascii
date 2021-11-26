@@ -9,6 +9,7 @@ import shutil
 
 def lols(file_path_list):
 
+
 #vars:
     properseq = int(3)
 ###########################
@@ -68,7 +69,9 @@ def lols(file_path_list):
 
         
     print('starting...', end='\n\n')
-
+    
+    if os.path.isdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp'):
+        shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
     os.mkdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
 
     for zink in range(properseq):
@@ -93,7 +96,7 @@ def lols(file_path_list):
 
     for thing in range(properseq):
         tmp = open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(thing + 1)) + str(os.sep) + 'tmp' + '.tmp', 'w')
-        tmp.write('[')
+        #tmp.write('[')
         for in_file in range(math.floor(int(len(file_path_list)) / int(properseq))):
             tmp.write(str(file_path_list[int(thing)]))
             extitems[thing] = True
@@ -114,6 +117,6 @@ def lols(file_path_list):
                 if int(len(extlist)) == int(tls):pass
                 else:tmp.write(', ')
                     
-        tmp.write(']')
+        #tmp.write(']')
         tmp.close()
-    input('done! press enter to exit')
+    #input('done! press enter to exit')

@@ -4,4 +4,6 @@ we need to change the format that the picgen.lols function saves the tmp file in
 
 test the program and see/ write down what else needs to be done
 
-updated last on Nov 6, 2021
+and make sure that the input filename doesn't have any ", " in it
+
+updated last on Nov 25, 2021

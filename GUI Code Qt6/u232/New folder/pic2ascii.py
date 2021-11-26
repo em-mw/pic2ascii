@@ -760,12 +760,12 @@ class atrib(Ui_MainWindow):
         file_path_list = askopenfilenames(filetypes=(("JPEG/JPG files","*.jpeg *.jpg"),), title='Select All Pictures to Ascii.')
         file_path_list = list(file_path_list)
 
-        if file_path_list:
-            ui.lineEditInDir.setText(str(file_path_list[0].replace('/', str(winslash))))
-
         fileman.deiconify()
         fileman.destroy()
         fileman.quit()
+
+        if file_path_list:
+            ui.lineEditInDir.setText(str(file_path_list[0].replace('/', str(winslash))))
 
     def OutImgFolder(self):
         if int(os.name.lower().find('nt')) != int(-1):
@@ -1000,7 +1000,7 @@ class pta:
             text_file.close()
             tf.close()
             x += int(1)
-            outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '.png')
+            outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
     
@@ -1010,8 +1010,9 @@ class pta:
             #for execing in range(whatever the process/core variable is):
             picgen.lols(list(file_path_list))
             for execing in range(int(processes)):
+            #for execing in range(int(1)):
                 with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp', 'r') as dumpclutchprocs:
-                    file_path_list2 = dumpclutchprocs.read().replace('\n', '')
+                    file_path_list2 = dumpclutchprocs.read().split(', ')
                 del dumpclutchprocs
                 pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path))) #args=(file_path_list,)
                 pta_ps.start()
