@@ -23,9 +23,11 @@
 #Important
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QWidget, QApplication
+from PyQt6.QtGui import QFocusEvent
 import webbrowser
 import sys
 import reis
+import shutil
 #from tqdm import tqdm
 #pta class imports (fine imports)
 
@@ -46,6 +48,7 @@ from platform import platform
 import os
 from subprocess import Popen
 from multiprocessing import Process
+from threading import Thread
 import picgen
 
 #call_atrib and error (fine imports)
@@ -69,7 +72,7 @@ from sty import fg
 app = QtWidgets.QApplication(sys.argv)
 
 #default value for processes for now
-processes = int(3)
+processes = int(1)
 
 #os.system("")
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
@@ -688,6 +691,7 @@ class Ui_MainWindow(object):
         self.lineEditSF.textChanged.connect(lambda:call_atrib.editSF())
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
         self.start.clicked.connect(lambda:call_pta.pg())
+        self.lineEditProcess.textChanged.connect(lambda:call_atrib.EditProcesses())
 
 #############################################################################################################
 #window (from fine imports)
@@ -815,8 +819,7 @@ class atrib(Ui_MainWindow):
         ui.lineEditSF.setText(str(sfd_val))
         del sfd_val
         #print(ui.lineEditSF.text())
-    
-        
+      
     def editSF(self):
         try:
             float(ui.lineEditSF.text())
@@ -828,6 +831,27 @@ class atrib(Ui_MainWindow):
         #and change the dial
         #ui.spinDialScaleFactor
 
+
+    def EditProcesses(self):
+        global processes
+        try:file_path_list
+        except:pass
+        else:
+            try:
+                processes = int(ui.lineEditProcess.text())
+            except:
+                ui.lineEditProcess.backspace()
+            else:
+                if processes > len(file_path_list):
+                    ui.lineEditProcess.setText(str(len(file_path_list)))
+            
+            if not bool(ui.lineEditProcess.displayText()):
+                bst = Thread(target=self.diddle)
+                bst.start()
+    def diddle(self):
+        sleep(2)
+        if not bool(ui.lineEditProcess.displayText()):
+                ui.lineEditProcess.setText(str(processes))
 
 #########################################################################################################
 
@@ -937,6 +961,7 @@ class pta:
         
         if float(ui.lineEditSF.text()) != float(ui.spinDialScaleFactor.value() / 100):
             call_error.sf_error()
+            raise ValueError('something went wrong, please restart application')
         
         scaleFactor = 0.09
 
@@ -1018,12 +1043,14 @@ class pta:
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
+    try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
+    except:pass
     
     def pg(self):
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
             #for execing in range(whatever the process/core variable is):
-            picgen.lols(list(file_path_list))
+            picgen.lols(list(file_path_list), int(processes))
             for execing in range(int(processes)):
             #for execing in range(int(1)):
                 with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp', 'r') as dumpclutchprocs:

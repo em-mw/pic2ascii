@@ -7,11 +7,11 @@ import os
 import shutil
 
 
-def lols(file_path_list):
+def lols(file_path_list, properseq):
 
 
 #vars:
-    properseq = int(3)
+    #properseq = int(3)
 ###########################
 
 
