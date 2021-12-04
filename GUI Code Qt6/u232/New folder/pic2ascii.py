@@ -73,6 +73,7 @@ app = QtWidgets.QApplication(sys.argv)
 
 #default value for processes for now
 processes = int(1)
+file_path_list = False
 
 #os.system("")
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
@@ -770,6 +771,7 @@ class atrib(Ui_MainWindow):
 
         if file_path_list:
             ui.lineEditInDir.setText(str(file_path_list[0].replace('/', str(winslash))))
+            self.EditProcesses()
 
     def OutImgFolder(self):
         if int(os.name.lower().find('nt')) != int(-1):
@@ -821,37 +823,47 @@ class atrib(Ui_MainWindow):
         #print(ui.lineEditSF.text())
       
     def editSF(self):
+        def diddle():
+            sleep(3.5)
+            if not bool(ui.lineEditSF.displayText()):
+                ui.lineEditSF.setText('.09')
         try:
             float(ui.lineEditSF.text())
         except:
             ui.lineEditSF.backspace()
         else:
             ui.spinDialScaleFactor.setValue(int(float(ui.lineEditSF.text()) * 100))
+        if not bool(ui.lineEditSF.displayText()):
+            bst = Thread(target=diddle)
+            bst.start()
+            del bst
+        elif float(ui.lineEditSF.text()) >= int(1):
+            ui.lineEditSF.setText('1')
+
         #get the value of the edit widget
         #and change the dial
         #ui.spinDialScaleFactor
 
 
     def EditProcesses(self):
-        global processes
-        try:file_path_list
-        except:pass
-        else:
-            try:
-                processes = int(ui.lineEditProcess.text())
-            except:
-                ui.lineEditProcess.backspace()
-            else:
-                if processes > len(file_path_list):
-                    ui.lineEditProcess.setText(str(len(file_path_list)))
-            
+        def diddle():
+            sleep(float(3.5))
             if not bool(ui.lineEditProcess.displayText()):
-                bst = Thread(target=self.diddle)
-                bst.start()
-    def diddle(self):
-        sleep(2)
+                    ui.lineEditProcess.setText(str(1))
+        global processes
+        try:
+            processes = int(ui.lineEditProcess.text())
+        except:
+            ui.lineEditProcess.backspace()
+        if file_path_list:
+            if processes > len(file_path_list):
+                ui.lineEditProcess.setText(str(len(file_path_list)))
+            
         if not bool(ui.lineEditProcess.displayText()):
-                ui.lineEditProcess.setText(str(processes))
+            bst = Thread(target=diddle)
+            bst.start()
+            del bst
+        
 
 #########################################################################################################
 
