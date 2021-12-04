@@ -60,5 +60,4 @@ ASCII with color (only in picture format):
 ![](ext-files/output0.png)
 
 ## All Remotes:
-> * GitHub: https://github.com/ErMax-Inc/pic2ascii
 > * GitLab: https://gitlab.com/ermax-inc/pic2ascii
