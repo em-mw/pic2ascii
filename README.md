@@ -11,7 +11,7 @@ The Terminal edition is closer to being done, so we recomend you use that for no
 
 
 
-### An example (Genarated by pic2ascii Terminal-commit 91189c7c)
+### An example (Genarated by pic2ascii GUI-commit b12628dc)
 
 Original Image (before processed through the program):
 
