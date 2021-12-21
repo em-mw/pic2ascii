@@ -15,7 +15,7 @@ The Terminal edition is closer to being done, so we recomend you use that for no
 
 Original Image (before processed through the program):
 
-![](ext-files/download.jpg)
+![](ext-files/download_.jpg)
 
 Plain ASCII Text (Genarated from .txt output file):
 ```
