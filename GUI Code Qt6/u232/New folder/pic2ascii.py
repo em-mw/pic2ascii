@@ -50,6 +50,7 @@ from subprocess import Popen
 from multiprocessing import Process
 from threading import Thread
 import picgen
+import psutil
 
 #call_atrib and error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
@@ -104,7 +105,7 @@ class Ui_MainWindow(object):
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         MainWindow.setMouseTracking(False)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\ErMax\\Desktop\\pic2ascii\\GUI Code Qt6\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\Legion\\Desktop\\pic2ascii\\GUI Code Qt6\\u232\\rva (don\'t touch unless, know wha yo doi\'n)\\Untitled.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(24, 24))
@@ -121,6 +122,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.tabWidget.setFont(font)
         self.tabWidget.setFocusPolicy(QtCore.Qt.FocusPolicy.ClickFocus)
@@ -139,6 +141,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.tabHome.setFont(font)
         self.tabHome.setAutoFillBackground(True)
@@ -148,6 +151,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(32)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.label.setFont(font)
         self.label.setObjectName("label")
@@ -156,6 +160,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(24)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.label_2.setFont(font)
         self.label_2.setOpenExternalLinks(False)
@@ -165,6 +170,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(18)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
@@ -174,6 +180,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.textEdit.setFont(font)
         self.textEdit.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
@@ -209,6 +216,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelinDesk.setFont(font)
         self.labelinDesk.setToolTipDuration(0)
@@ -219,6 +227,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setKerning(True)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditInDir.setFont(font)
@@ -239,6 +248,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelOutDesk.setFont(font)
         self.labelOutDesk.setToolTipDuration(0)
@@ -248,6 +258,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditOutDir.setFont(font)
         self.lineEditOutDir.setToolTipDuration(0)
@@ -259,6 +270,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.pushButtonFolderOut.setFont(font)
         self.pushButtonFolderOut.setToolTipDuration(0)
@@ -268,6 +280,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelFormatOut.setFont(font)
         self.labelFormatOut.setObjectName("labelFormatOut")
@@ -282,6 +295,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.progressBar.setFont(font)
         self.progressBar.setStyleSheet("")
@@ -311,6 +325,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStrikeOut(False)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.spinDialScaleFactor.setFont(font)
@@ -331,6 +346,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditSF.setFont(font)
         self.lineEditSF.setReadOnly(False)
@@ -340,6 +356,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         font.setBold(False)
+        font.setWeight(50)
         font.setStrikeOut(False)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelSF.setFont(font)
@@ -365,6 +382,7 @@ class Ui_MainWindow(object):
         font.setPointSize(14)
         font.setBold(False)
         font.setItalic(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.Fontlabel.setFont(font)
         self.Fontlabel.setToolTipDuration(0)
@@ -375,6 +393,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(21)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelAdvanced.setFont(font)
         self.labelAdvanced.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -384,6 +403,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEdit.setFont(font)
         self.lineEdit.setToolTipDuration(0)
@@ -395,6 +415,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.radioButtonBW.setFont(font)
         self.radioButtonBW.setObjectName("radioButtonBW")
@@ -403,6 +424,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.radioButtonRGB.setFont(font)
         self.radioButtonRGB.setChecked(True)
@@ -413,6 +435,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.labelColor.setFont(font)
         self.labelColor.setObjectName("labelColor")
@@ -421,6 +444,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.coreLabel.setFont(font)
         self.coreLabel.setObjectName("coreLabel")
@@ -429,6 +453,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEdit_2.setFont(font)
         self.lineEdit_2.setToolTipDuration(0)
@@ -436,11 +461,12 @@ class Ui_MainWindow(object):
         self.lineEdit_2.setReadOnly(True)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.checkBoxAutoProcess = QtWidgets.QCheckBox(self.tabSetup)
-        self.checkBoxAutoProcess.setEnabled(False)
+        self.checkBoxAutoProcess.setEnabled(True)
         self.checkBoxAutoProcess.setGeometry(QtCore.QRect(140, 130, 51, 17))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.checkBoxAutoProcess.setFont(font)
         self.checkBoxAutoProcess.setObjectName("checkBoxAutoProcess")
@@ -454,6 +480,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditChar.setFont(font)
         self.lineEditChar.setObjectName("lineEditChar")
@@ -462,6 +489,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(False)
+        font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
@@ -498,7 +526,7 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tabSetup, "")
         MainWindow.setCentralWidget(self.widgetMain)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 985, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 985, 21))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -548,13 +576,13 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Choose Setup to begin,"))
         self.label_3.setText(_translate("MainWindow", "or select Help! for help."))
         self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Yu Gothic UI\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:20pt;\">Release Notes</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt;\">pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail (or no detail) and </span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#ff0000;\">c</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#ffaa00;\">o</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#a2a200;\">l</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#00aa00;\">o</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#0055ff;\">r</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#aa00ff;\">. </span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#000000;\">You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity\'s software.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:9pt; color:#000000;\">    --ErMax Team</span></p></body></html>"))
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">Release Notes</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail (or no detail) and </span><span style=\" font-size:9pt; color:#ff0000;\">c</span><span style=\" font-size:9pt; color:#ffaa00;\">o</span><span style=\" font-size:9pt; color:#a2a200;\">l</span><span style=\" font-size:9pt; color:#00aa00;\">o</span><span style=\" font-size:9pt; color:#0055ff;\">r</span><span style=\" font-size:9pt; color:#aa00ff;\">. </span><span style=\" font-size:9pt; color:#000000;\">You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity\'s software.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Yu Gothic UI\'; font-size:8.25pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#000000;\">    --ErMax Team</span></p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabHome), _translate("MainWindow", "Home"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tabHome), _translate("MainWindow", "This is the Home Tab"))
         self.labelinDesk.setToolTip(_translate("MainWindow", "Where Your Original Image is Located"))
@@ -640,6 +668,7 @@ class Ui_MainWindow(object):
         self.actionReport_an_Erorr.triggered.connect(lambda:self.win_browser())
         self.start.clicked.connect(lambda:call_pta.pg())
         self.lineEditProcess.textChanged.connect(lambda:call_atrib.EditProcesses())
+        self.checkBoxAutoProcess.stateChanged.connect(lambda:call_atrib.autobutton())
 
 #############################################################################################################
 #window (from fine imports)
@@ -812,6 +841,13 @@ class atrib(Ui_MainWindow):
             bst = Thread(target=diddle)
             bst.start()
             del bst
+
+    def autobutton(self):
+        if ui.checkBoxAutoProcess.isChecked():
+            ui.lineEditProcess.setText(str(int(psutil.cpu_count(False) + math.floor(int(psutil.cpu_count(False) / 2)))))
+            ui.lineEditProcess.setEnabled(False)
+        elif ui.checkBoxAutoProcess.isChecked() == False:
+            ui.lineEditProcess.setEnabled(True)
         
 
 #########################################################################################################
@@ -926,8 +962,7 @@ class exiting:
         ui.radioButtonBW.setEnabled(True)
         ui.checkBoxAutoProcess.setEnabled(True)
 
-    def sulo(self):
-        self.statshow()
+
 
 
 
