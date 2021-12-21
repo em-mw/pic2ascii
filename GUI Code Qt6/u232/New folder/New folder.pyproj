@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a61d7916-c711-4bb7-be2a-1913cc8121f6}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>pic2ascii.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>Global|PythonCore|3.9</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="msgbox_tmp.py" />
+    <Compile Include="pic2ascii.py" />
+    <Compile Include="pic2ascii\gen-files\mps.engine.py" />
+    <Compile Include="pic2ascii\pic2ascii %28Singlecore for Linux-Windows%29.py" />
+    <Compile Include="pic2ascii\pic2ascii %28WIP%29 %28Multicore for Windows%29.py" />
+    <Compile Include="pic2ascii\TFreader %28Works with Singlecore Linux-Windows%29.py" />
+    <Compile Include="picgen.py" />
+    <Compile Include="pta.py" />
+    <Compile Include="reis.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data.txt" />
+    <Content Include="ErMax Plain.png" />
+    <Content Include="pic2ascii\gen-files\start.nix.sh" />
+    <Content Include="pic2ascii\gen-files\start.win.cmd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pic2ascii\" />
+    <Folder Include="pic2ascii\gen-files\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
