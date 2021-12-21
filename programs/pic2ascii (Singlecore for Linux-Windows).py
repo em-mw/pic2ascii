@@ -15,9 +15,10 @@ from PIL import ImageDraw, ImageFont
 #from tqdm import tqdm
 os.system("")
 
-chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
+chars = u'''技術就像的中國人'''[::-1]
 
-charArray = list(chars)
+#charArray = list(chars)
+charArray = [u'技', u'術', u'就', u'像', u'的', u'中', u'國', u'人']
 charLength = len(charArray)
 interval = charLength/256
 
@@ -79,8 +80,8 @@ class start:
                 if os.path.isdir(str(os.getcwd()) + str(dirslash) + 'outputTF') == bool(False):
                     os.mkdir(str(os.getcwd()) + str(dirslash) + 'outputTF')
 
-                tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
-                text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
+                tf = open(str(os.getcwd()) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "wb+")
+                text_file = open(str(os.getcwd()) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "wb+")
                 for i in range(height):
                     for j in range(width):
                         if format == 'RGBA':
@@ -90,8 +91,8 @@ class start:
                         #r, g, b = pix[j, i]
                         h = int(r/3 + g/3 + b/3)
                         #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
-                        text_file.write(self.getChar(h))
-                        tf.write(str(fg(r, g, b)) + str(self.getChar(h)))
+                        text_file.write(str(self.getChar(h)).encode('utf-8'))
+                        tf.write(str(str(fg(r, g, b)) + str(self.getChar(h))).encode('utf-8'))
                         if format == 'RGBA':
                             d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
                         elif format == 'RGB':
@@ -103,8 +104,8 @@ class start:
                                 print(str(self.getChar(h)), end='')
                             except:
                                 print('?', end='')
-                    tf.write('\n')
-                    text_file.write('\n')
+                    tf.write('\n'.encode('utf-8'))
+                    text_file.write('\n'.encode('utf-8'))
                     print()
                 text_file.close()
                 tf.close()
