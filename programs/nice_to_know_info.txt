@@ -1,1 +1,0 @@
-the command for getting users terminal is "ps -p $(ps -p $$ -o ppid=) -o args=" if it says "login -- (user" then block the user from using pic2ascii and tell them they need to install a GUI (only on linux)
