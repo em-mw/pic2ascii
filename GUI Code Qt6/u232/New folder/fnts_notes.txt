@@ -1,1 +1,0 @@
-The fonts are not in the open source build but the binary released version!

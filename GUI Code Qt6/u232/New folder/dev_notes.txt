@@ -1,9 +1,16 @@
 what to do next?:
 
-we need to change the format that the picgen.lols function saves the tmp file in "more list conversion frendly without commas and ["
+make cpu processes area work
+disable and enable all buttons in the stathide/statshow function at command (do some reasearch for non buggy way of doing that)
+make and map all the top actions (file, help, about)
+link the start and stop buttons
+link the progress bar to the status of all of the pic2ascii processing engines
+add more allowed input and output file types
+support for unicode characters
+add a way of showing an error message if user selected unsupported file type
+add more user control settings (monchome color/colour image filter, ext.) *may need to add another tab (probably something called: advanced)
 
-test the program and see/ write down what else needs to be done
+this is just a list on what to work on beffore releasing the final relese.
 
-and make sure that the input filename doesn't have any ", " in it
 
-updated last on Nov 25, 2021
+updated last on Dec 20, 2021
