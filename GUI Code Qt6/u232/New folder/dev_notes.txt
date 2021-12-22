@@ -6,7 +6,6 @@ make and map all the top actions (file, help, about)
 link the start and stop buttons
 link the progress bar to the status of all of the pic2ascii processing engines
 add more allowed input and output file types
-support for unicode characters
 add a way of showing an error message if user selected unsupported file type
 add more user control settings (monchome color/colour image filter, ext.) *may need to add another tab (probably something called: advanced)
 see what the optimal processes per core are

@@ -102,7 +102,7 @@
      <string/>
     </property>
     <property name="autoFillBackground">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="tabPosition">
      <enum>QTabWidget::North</enum>
@@ -394,6 +394,9 @@ p, li { white-space: pre-wrap; }
       <property name="statusTip">
        <string>Where Your Original Image is Located</string>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(245, 245, 245);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -484,6 +487,9 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="statusTip">
        <string>Where your Output Image is Located</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="text">
        <string/>
@@ -625,6 +631,12 @@ p, li { white-space: pre-wrap; }
         <width>111</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Start</string>
@@ -802,6 +814,9 @@ p, li { white-space: pre-wrap; }
       <property name="statusTip">
        <string>The Font of The Ascii Charaters</string>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(245, 245, 245);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -905,6 +920,12 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="statusTip">
        <string>The Scale Factor of The Ascii Charaters</string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(241, 241, 241);</string>
       </property>
       <property name="frame">
        <bool>true</bool>
@@ -1029,6 +1050,9 @@ p, li { white-space: pre-wrap; }
       <property name="statusTip">
        <string>The Scale Factor of The Ascii Charaters</string>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(241, 241, 241);</string>
+      </property>
       <property name="frame">
        <bool>true</bool>
       </property>
@@ -1072,6 +1096,10 @@ p, li { white-space: pre-wrap; }
         <height>20</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(245, 245, 245);
+</string>
+      </property>
       <property name="text">
        <string>1</string>
       </property>
@@ -1095,6 +1123,9 @@ p, li { white-space: pre-wrap; }
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="text">
        <string>$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;&gt;i!lI;:,&quot;^`'.</string>
@@ -1151,6 +1182,11 @@ p, li { white-space: pre-wrap; }
      <zorder>lineEditProcess</zorder>
      <zorder>lineEditChar</zorder>
      <zorder>label_4</zorder>
+    </widget>
+    <widget class="QWidget" name="tabAdvanced">
+     <attribute name="title">
+      <string>Advanced</string>
+     </attribute>
     </widget>
    </widget>
   </widget>

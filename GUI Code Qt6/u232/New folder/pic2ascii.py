@@ -127,7 +127,7 @@ class Ui_MainWindow(object):
         self.tabWidget.setFont(font)
         self.tabWidget.setFocusPolicy(QtCore.Qt.FocusPolicy.ClickFocus)
         self.tabWidget.setStatusTip("")
-        self.tabWidget.setAutoFillBackground(False)
+        self.tabWidget.setAutoFillBackground(True)
         self.tabWidget.setTabPosition(QtWidgets.QTabWidget.TabPosition.North)
         self.tabWidget.setTabShape(QtWidgets.QTabWidget.TabShape.Rounded)
         self.tabWidget.setIconSize(QtCore.QSize(16, 16))
@@ -234,6 +234,7 @@ class Ui_MainWindow(object):
         self.lineEditInDir.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.IBeamCursor))
         self.lineEditInDir.setMouseTracking(False)
         self.lineEditInDir.setToolTipDuration(0)
+        self.lineEditInDir.setStyleSheet("background-color: rgb(245, 245, 245);")
         self.lineEditInDir.setText("")
         self.lineEditInDir.setFrame(True)
         self.lineEditInDir.setReadOnly(True)
@@ -262,6 +263,7 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditOutDir.setFont(font)
         self.lineEditOutDir.setToolTipDuration(0)
+        self.lineEditOutDir.setStyleSheet("background-color: rgb(245, 245, 245);")
         self.lineEditOutDir.setText("")
         self.lineEditOutDir.setReadOnly(True)
         self.lineEditOutDir.setObjectName("lineEditOutDir")
@@ -309,6 +311,8 @@ class Ui_MainWindow(object):
         self.stop.setObjectName("stop")
         self.start = QtWidgets.QPushButton(self.tabSetup)
         self.start.setGeometry(QtCore.QRect(140, 310, 111, 31))
+        self.start.setAutoFillBackground(False)
+        self.start.setStyleSheet("")
         self.start.setObjectName("start")
         self.whatToDo = QtWidgets.QComboBox(self.tabSetup)
         self.whatToDo.setGeometry(QtCore.QRect(10, 281, 241, 21))
@@ -370,6 +374,7 @@ class Ui_MainWindow(object):
         self.lineEditFont = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEditFont.setGeometry(QtCore.QRect(670, 160, 186, 20))
         self.lineEditFont.setToolTipDuration(0)
+        self.lineEditFont.setStyleSheet("background-color: rgb(245, 245, 245);")
         self.lineEditFont.setText("")
         self.lineEditFont.setReadOnly(True)
         self.lineEditFont.setObjectName("lineEditFont")
@@ -407,6 +412,8 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEdit.setFont(font)
         self.lineEdit.setToolTipDuration(0)
+        self.lineEdit.setAutoFillBackground(False)
+        self.lineEdit.setStyleSheet("background-color: rgb(241, 241, 241);")
         self.lineEdit.setFrame(True)
         self.lineEdit.setReadOnly(True)
         self.lineEdit.setObjectName("lineEdit")
@@ -457,6 +464,7 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEdit_2.setFont(font)
         self.lineEdit_2.setToolTipDuration(0)
+        self.lineEdit_2.setStyleSheet("background-color: rgb(241, 241, 241);")
         self.lineEdit_2.setFrame(True)
         self.lineEdit_2.setReadOnly(True)
         self.lineEdit_2.setObjectName("lineEdit_2")
@@ -473,6 +481,8 @@ class Ui_MainWindow(object):
         self.lineEditProcess = QtWidgets.QLineEdit(self.tabSetup)
         self.lineEditProcess.setEnabled(True)
         self.lineEditProcess.setGeometry(QtCore.QRect(200, 130, 66, 20))
+        self.lineEditProcess.setStyleSheet("background-color: rgb(245, 245, 245);\n"
+"")
         self.lineEditProcess.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEditProcess.setObjectName("lineEditProcess")
         self.lineEditChar = QtWidgets.QLineEdit(self.tabSetup)
@@ -483,6 +493,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.lineEditChar.setFont(font)
+        self.lineEditChar.setStyleSheet("background-color: rgb(245, 245, 245);")
         self.lineEditChar.setObjectName("lineEditChar")
         self.label_4 = QtWidgets.QLabel(self.tabSetup)
         self.label_4.setGeometry(QtCore.QRect(7, 244, 176, 24))
@@ -524,6 +535,9 @@ class Ui_MainWindow(object):
         self.lineEditChar.raise_()
         self.label_4.raise_()
         self.tabWidget.addTab(self.tabSetup, "")
+        self.tabAdvanced = QtWidgets.QWidget()
+        self.tabAdvanced.setObjectName("tabAdvanced")
+        self.tabWidget.addTab(self.tabAdvanced, "")
         MainWindow.setCentralWidget(self.widgetMain)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 985, 21))
@@ -635,6 +649,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Characters (bright to dark):"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabSetup), _translate("MainWindow", "Setup"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tabSetup), _translate("MainWindow", "This is where you setup the source and ouput"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabAdvanced), _translate("MainWindow", "Advanced"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuHelp.setTitle(_translate("MainWindow", "Help!"))
         self.menuAbout.setTitle(_translate("MainWindow", "About"))
@@ -669,7 +684,7 @@ class Ui_MainWindow(object):
         self.start.clicked.connect(lambda:call_pta.pg())
         self.lineEditProcess.textChanged.connect(lambda:call_atrib.EditProcesses())
         self.checkBoxAutoProcess.stateChanged.connect(lambda:call_atrib.autobutton())
-
+        self.actionRequest_a_Feature.triggered.connect(lambda:call_actions.gt2())
 #############################################################################################################
 #window (from fine imports)
 #############################################################################################################
@@ -710,6 +725,13 @@ class dtet():
         del root
 
 class actions:
+    def gt2(self):
+        try:
+            webbrowser.open('https://gitlab.com/ermax-inc/pic2ascii/-/issues/new')
+        except:
+            call_error.report_error()
+    
+    
     def GitHub(self):
         try:
             webbrowser.open('https://gitlab.com/ermax-inc/pic2ascii/-/issues/new')
@@ -1040,8 +1062,8 @@ class pta:
             if os.path.isdir(str(folder_out_path) + str(dirslash) + 'outputTF') == bool(False):
                 os.mkdir(str(folder_out_path) + str(dirslash) + 'outputTF')
 
-            tf = open(str(folder_out_path) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "w")
-            text_file = open(str(folder_out_path) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "w")
+            tf = open(str(folder_out_path) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "wb+")
+            text_file = open(str(folder_out_path) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "wb+")
             for i in range(height):
                 for j in range(width):
                     if format == 'RGBA':
@@ -1051,8 +1073,8 @@ class pta:
                     #r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
-                    text_file.write(self.getChar(h))
-                    tf.write(str(fg(r, g, b)) + str(self.getChar(h)))
+                    text_file.write(self.getChar(h).encode('utf-8'))
+                    tf.write(str(fg(r, g, b)) + str(self.getChar(h)).encode('utf-8'))
                     if format == 'RGBA':
                         d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
                     elif format == 'RGB':
@@ -1065,8 +1087,8 @@ class pta:
                         #except:
                         #    print('?', end='')
                         pass
-                tf.write('\n')
-                text_file.write('\n')
+                tf.write('\n'.encode('utf-8'))
+                text_file.write('\n'.encode('utf-8'))
                 print()
             text_file.close()
             tf.close()
