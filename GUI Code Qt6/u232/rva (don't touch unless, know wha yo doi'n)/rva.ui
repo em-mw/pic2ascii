@@ -90,6 +90,7 @@
     <property name="font">
      <font>
       <pointsize>8</pointsize>
+      <weight>50</weight>
       <bold>false</bold>
       <stylestrategy>PreferAntialias</stylestrategy>
      </font>
@@ -140,6 +141,7 @@
      <property name="font">
       <font>
        <pointsize>8</pointsize>
+       <weight>50</weight>
        <bold>false</bold>
        <stylestrategy>PreferAntialias</stylestrategy>
       </font>
@@ -168,6 +170,7 @@
       <property name="font">
        <font>
         <pointsize>32</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -191,6 +194,7 @@
       <property name="font">
        <font>
         <pointsize>24</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -220,6 +224,7 @@
       <property name="font">
        <font>
         <pointsize>18</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -246,6 +251,7 @@
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -279,13 +285,13 @@
       </property>
       <property name="html">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt;&quot;&gt;Release Notes&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail (or no detail) and &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity's software.&lt;/span&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Release Notes&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail (or no detail) and &lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity's software.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Yu Gothic UI'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;	--ErMax Team&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;	--ErMax Team&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="acceptRichText">
        <bool>true</bool>
@@ -355,6 +361,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -387,6 +394,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
@@ -457,6 +465,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -486,6 +495,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -521,6 +531,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -550,6 +561,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -595,6 +607,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <strikeout>false</strikeout>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -649,6 +662,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -672,6 +686,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>13</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <strikeout>false</strikeout>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -689,7 +704,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>5</x>
         <y>100</y>
-        <width>971</width>
+        <width>951</width>
         <height>20</height>
        </rect>
       </property>
@@ -700,7 +715,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QLineEdit" name="lineEditFont">
       <property name="geometry">
        <rect>
-        <x>670</x>
+        <x>645</x>
         <y>160</y>
         <width>186</width>
         <height>20</height>
@@ -728,7 +743,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QPushButton" name="pushButtonFontIn">
       <property name="geometry">
        <rect>
-        <x>860</x>
+        <x>835</x>
         <y>160</y>
         <width>116</width>
         <height>23</height>
@@ -741,7 +756,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="Fontlabel">
       <property name="geometry">
        <rect>
-        <x>605</x>
+        <x>580</x>
         <y>160</y>
         <width>61</width>
         <height>21</height>
@@ -750,6 +765,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>14</pointsize>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -783,6 +799,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -821,6 +838,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -841,6 +859,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -867,6 +886,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>12</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -880,13 +900,14 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>125</y>
-        <width>106</width>
+        <width>111</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <pointsize>12</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -907,6 +928,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -945,6 +967,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -988,9 +1011,13 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(245, 245, 245);</string>
@@ -1002,21 +1029,143 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>7</x>
+        <x>2</x>
         <y>244</y>
-        <width>176</width>
+        <width>181</width>
         <height>24</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <pointsize>11</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
       </property>
       <property name="text">
        <string>Characters (bright to dark):</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar_3">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>0</y>
+        <width>16</width>
+        <height>396</height>
+       </rect>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
+      </property>
+      <property name="textDirection">
+       <enum>QProgressBar::TopToBottom</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelCharHeight">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>345</y>
+        <width>76</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string>CharHeight:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>305</y>
+        <width>76</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="text">
+       <string>CharWidth:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditCharWidth">
+      <property name="geometry">
+       <rect>
+        <x>105</x>
+        <y>305</y>
+        <width>56</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(241, 241, 241);</string>
+      </property>
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditCharHeight">
+      <property name="geometry">
+       <rect>
+        <x>105</x>
+        <y>345</y>
+        <width>56</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <stylestrategy>PreferAntialias</stylestrategy>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(241, 241, 241);</string>
+      </property>
+      <property name="text">
+       <string>18</string>
       </property>
      </widget>
      <zorder>lineEdit_2</zorder>
@@ -1044,6 +1193,11 @@ p, li { white-space: pre-wrap; }
      <zorder>lineEditProcess</zorder>
      <zorder>lineEditChar</zorder>
      <zorder>label_4</zorder>
+     <zorder>progressBar_3</zorder>
+     <zorder>labelCharHeight</zorder>
+     <zorder>label_6</zorder>
+     <zorder>lineEditCharWidth</zorder>
+     <zorder>lineEditCharHeight</zorder>
     </widget>
     <widget class="QWidget" name="tabAdvanced">
      <property name="autoFillBackground">
@@ -1053,6 +1207,9 @@ p, li { white-space: pre-wrap; }
       <string>Advanced</string>
      </attribute>
      <widget class="QTabWidget" name="tabWidget_2">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1093,7 +1250,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>20</y>
+          <y>30</y>
           <width>22</width>
           <height>160</height>
          </rect>
@@ -1108,6 +1265,9 @@ p, li { white-space: pre-wrap; }
          <bool>true</bool>
         </property>
         <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="value">
          <number>255</number>
         </property>
         <property name="orientation">
@@ -1127,7 +1287,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>20</y>
+          <y>30</y>
           <width>22</width>
           <height>160</height>
          </rect>
@@ -1144,6 +1304,9 @@ p, li { white-space: pre-wrap; }
         <property name="maximum">
          <number>255</number>
         </property>
+        <property name="value">
+         <number>255</number>
+        </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -1158,10 +1321,13 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
        <widget class="QSlider" name="verticalSliderB">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>140</x>
-          <y>20</y>
+          <y>30</y>
           <width>22</width>
           <height>160</height>
          </rect>
@@ -1176,6 +1342,9 @@ p, li { white-space: pre-wrap; }
          <bool>true</bool>
         </property>
         <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="value">
          <number>255</number>
         </property>
         <property name="orientation">
@@ -1195,7 +1364,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>140</x>
-          <y>0</y>
+          <y>10</y>
           <width>21</width>
           <height>20</height>
          </rect>
@@ -1203,6 +1372,7 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>11</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1224,7 +1394,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>0</y>
+          <y>10</y>
           <width>21</width>
           <height>20</height>
          </rect>
@@ -1232,6 +1402,7 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>11</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1253,7 +1424,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>0</y>
+          <y>10</y>
           <width>21</width>
           <height>20</height>
          </rect>
@@ -1261,6 +1432,7 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>11</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1282,7 +1454,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>180</y>
+          <y>190</y>
           <width>21</width>
           <height>21</height>
          </rect>
@@ -1290,6 +1462,7 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1305,7 +1478,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>80</x>
-          <y>180</y>
+          <y>190</y>
           <width>21</width>
           <height>21</height>
          </rect>
@@ -1313,6 +1486,7 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1328,7 +1502,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>140</x>
-          <y>180</y>
+          <y>190</y>
           <width>21</width>
           <height>21</height>
          </rect>
@@ -1336,6 +1510,7 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
+          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1355,9 +1530,285 @@ p, li { white-space: pre-wrap; }
        <attribute name="title">
         <string>HSV</string>
        </attribute>
+       <widget class="QSlider" name="verticalSliderS">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>30</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>SplitVCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="pageStep">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksAbove</enum>
+        </property>
+        <property name="tickInterval">
+         <number>5</number>
+        </property>
+       </widget>
+       <widget class="QSlider" name="verticalSliderV">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>30</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>SplitVCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksAbove</enum>
+        </property>
+        <property name="tickInterval">
+         <number>5</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_SVal">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>190</y>
+          <width>21</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_VVal">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>190</y>
+          <width>21</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QSlider" name="verticalSliderH">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>SplitVCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksAbove</enum>
+        </property>
+        <property name="tickInterval">
+         <number>5</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_S">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>10</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 91, 91, 255), stop:1 rgba(255, 255, 255, 255));</string>
+        </property>
+        <property name="text">
+         <string>S</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_HVal">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>190</y>
+          <width>21</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_H">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 92);
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 0, 0, 255), stop:0.166 rgba(255, 255, 0, 255), stop:0.333 rgba(0, 255, 0, 255), stop:0.5 rgba(0, 255, 255, 255), stop:0.666 rgba(0, 0, 255, 255), stop:0.833 rgba(255, 0, 255, 255), stop:1 rgba(255, 0, 0, 255));</string>
+        </property>
+        <property name="text">
+         <string>H</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_V">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>10</y>
+          <width>21</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 0, 0);
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+        </property>
+        <property name="text">
+         <string>V</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
      </widget>
-     <widget class="QProgressBar" name="progressBar_3">
+     <widget class="QProgressBar" name="progressBar_4">
       <property name="geometry">
        <rect>
         <x>970</x>
@@ -1387,13 +1838,15 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>9</x>
         <y>0</y>
-        <width>221</width>
+        <width>196</width>
         <height>56</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>Segoe UI</family>
         <pointsize>16</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1420,6 +1873,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_3">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>-3</x>
@@ -1431,6 +1887,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1445,10 +1902,30 @@ p, li { white-space: pre-wrap; }
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButtonColor">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>10</y>
+        <width>136</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Color Preview/Selector</string>
+      </property>
+     </widget>
      <zorder>lineEdit_3</zorder>
-     <zorder>progressBar_3</zorder>
+     <zorder>progressBar_4</zorder>
      <zorder>commandLinkButton</zorder>
      <zorder>tabWidget_2</zorder>
+     <zorder>pushButtonColor</zorder>
     </widget>
     <widget class="QWidget" name="tabFinnish">
      <attribute name="title">
@@ -1535,6 +2012,7 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1567,7 +2045,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>985</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
