@@ -45,7 +45,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>Untitled.png</normaloff>Untitled.png</iconset>
+    <normaloff>../../../../../.designer/backup/Untitled.png</normaloff>../../../../../.designer/backup/Untitled.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -90,7 +90,6 @@
     <property name="font">
      <font>
       <pointsize>8</pointsize>
-      <weight>50</weight>
       <bold>false</bold>
       <stylestrategy>PreferAntialias</stylestrategy>
      </font>
@@ -141,7 +140,6 @@
      <property name="font">
       <font>
        <pointsize>8</pointsize>
-       <weight>50</weight>
        <bold>false</bold>
        <stylestrategy>PreferAntialias</stylestrategy>
       </font>
@@ -170,7 +168,6 @@
       <property name="font">
        <font>
         <pointsize>32</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -194,7 +191,6 @@
       <property name="font">
        <font>
         <pointsize>24</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -224,7 +220,6 @@
       <property name="font">
        <font>
         <pointsize>18</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -251,7 +246,6 @@
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -285,13 +279,13 @@
       </property>
       <property name="html">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Release Notes&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail (or no detail) and &lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity's software.&lt;/span&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:20pt;&quot;&gt;Release Notes&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt;&quot;&gt;pic2ascii is an open source app run by the ErMax.Inc comunity. Pic2ascii can turn regular pictures into ascii characters with detail (or no detail) and &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ff0000;&quot;&gt;c&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#ffaa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#a2a200;&quot;&gt;l&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#00aa00;&quot;&gt;o&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#0055ff;&quot;&gt;r&lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#aa00ff;&quot;&gt;. &lt;/span&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;You can also control various peramitars like the scale factor of the characters, the font and even the characters themself. At the moment, pic2ascii only suports the .jpg as an input format and both jpg and .png as an output format but that may change in the future. For now please enjoy the comunity's software.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Yu Gothic UI'; font-size:8.25pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;	--ErMax Team&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:9pt; color:#000000;&quot;&gt;	--ErMax Team&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="acceptRichText">
        <bool>true</bool>
@@ -361,7 +355,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -394,7 +387,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
@@ -465,7 +457,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -495,7 +486,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -531,7 +521,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -561,7 +550,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -607,7 +595,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <strikeout>false</strikeout>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -662,7 +649,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -686,7 +672,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>13</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <strikeout>false</strikeout>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -765,7 +750,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>14</pointsize>
-        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
@@ -799,7 +783,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -838,7 +821,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -859,7 +841,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -886,7 +867,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -907,7 +887,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>12</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -928,7 +907,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -967,7 +945,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1011,7 +988,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1038,7 +1014,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>11</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1084,7 +1059,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>11</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1105,7 +1079,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>11</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1126,7 +1099,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1153,7 +1125,6 @@ p, li { white-space: pre-wrap; }
       <property name="font">
        <font>
         <pointsize>9</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1372,7 +1343,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>11</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1402,7 +1372,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>11</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1432,7 +1401,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>11</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1462,7 +1430,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1486,7 +1453,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1510,7 +1476,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1619,7 +1584,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1643,7 +1607,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1701,7 +1664,6 @@ p, li { white-space: pre-wrap; }
         <property name="font">
          <font>
           <pointsize>11</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1732,7 +1694,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1756,7 +1717,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
         <property name="font">
          <font>
           <pointsize>11</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1787,7 +1747,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
         <property name="font">
          <font>
           <pointsize>11</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
@@ -1844,9 +1803,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
       </property>
       <property name="font">
        <font>
-        <family>Segoe UI</family>
         <pointsize>16</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -1856,8 +1813,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>x.png</normaloff>
-        <activeon>check.png</activeon>x.png</iconset>
+        <normaloff>../../../../../.designer/backup/x.png</normaloff>
+        <activeon>../../../../../.designer/backup/check.png</activeon>../../../../../.designer/backup/x.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -1887,7 +1844,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>75</weight>
         <bold>true</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -2012,7 +1968,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
       <property name="font">
        <font>
         <pointsize>8</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
         <stylestrategy>PreferAntialias</stylestrategy>
        </font>
@@ -2045,7 +2000,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      <x>0</x>
      <y>0</y>
      <width>985</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

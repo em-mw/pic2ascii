@@ -18,54 +18,57 @@ def lols(file_path_list, properseq):
 
 
     def isInt(num):
-        """
-        Finds if a number is an int or a float.
-        This is a better version of the "isinstance"
-        function in python. This function returns a
-        bool value (like the "isinstance" function)
-        :param num: The number to check if is a int
-        ::returns True if int
-        ::returns False if float
-        """
         if str(type(num)) == '<class \'int\'>' or str(type(num)) == '<class \'float\'>':
             num = str(num)
-            if num.find('.'):
-                if len(num) >= 3:
-                    if num[2].find('0') == int(-1):
-                        return False
-                    else:
-                        return True
+            if num.find('.') != int(-1):
+                if len(num) >= 2:
+                    numl = list(num)
+                    elx = 0
+                    dolto = int(num.find('.'))
+                    for qot in numl[:]:
+                        if qot.find('.') != int(-1) or int(elx) < int(dolto):
+                            elx += 1
+                            continue
+                        elif int(elx) > int(dolto):
+                            if qot.find('0') == int(-1):
+                                return False
+                        if str(num[-1]) == str(qot) and qot.find('0') != int(-1):
+                            return True
+                        elx += 1
                 else:
                     return True
             else:
                 return True
         else:
-            return None
+            return False
+
+
 
     def isFloat(num):
-        """
-        Finds if a number is an int or a float.
-        This is a better version of the "isinstance"
-        function in python. This function returns a
-        bool value (like the "isinstance" function)
-        :param num: The number to check if is a float
-        ::returns False if int
-        ::returns True if float
-        """
         if str(type(num)) == '<class \'int\'>' or str(type(num)) == '<class \'float\'>':
             num = str(num)
-            if num.find('.'):
-                if len(num) >= 3:
-                    if num[2].find('0') == int(-1):
-                        return True
-                    else:
-                        return False
+            if num.find('.') != int(-1):
+                if len(num) >= 2:
+                    numl = list(num)
+                    elx = 0
+                    dolto = int(num.find('.'))
+                    for qot in numl[:]:
+                        if qot.find('.') != int(-1) or int(elx) < int(dolto):
+                            elx += 1
+                            continue
+                        elif int(elx) > int(dolto):
+                            if qot.find('0') == int(-1):
+                                return True
+                        if str(num[-1]) == str(qot) and qot.find('0') != int(-1):
+                            return False
+                        elx += 1
                 else:
                     return False
             else:
                 return False
         else:
-            return None
+            return False
+
 
         
     print('starting...', end='\n\n')
