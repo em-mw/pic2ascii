@@ -9,7 +9,6 @@ add more allowed input and output file types
 add a way of showing an error message if user selected unsupported file type
 add more user control settings (monchome color/colour image filter, ext.) *may need to add another tab (probably something called: advanced)
 see what the optimal processes per core are
-map the char widths and char heights to the coresponding things
 make the monochrome section work
 
 

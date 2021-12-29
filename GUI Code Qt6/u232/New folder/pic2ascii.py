@@ -52,13 +52,16 @@ from threading import Thread
 import picgen
 import psutil
 
-#call_atrib and error (fine imports)
+#call_atrib and call_error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
 from tkinter.filedialog import askopenfilenames, askopenfilename
 from tkinter import *
 from tkinter import messagebox
 
 from sty import fg
+
+#this one is only used for 2 methods
+import decimal
 #global sys var
 
 #def winslash():
@@ -1177,84 +1180,129 @@ class atrib(Ui_MainWindow):
             ui.lineEditProcess.setEnabled(False)
         elif ui.checkBoxAutoProcess.isChecked() == False:
             ui.lineEditProcess.setEnabled(True)
-    
-    
+
+
             
-            
-            
-            
-            
-            
-    #please work on this as soon as possible this is urgently needed        
-            
-            
-    ##################################################################def charsize(self, width):
+    def charsize(self, width):
+        def isInt(num):
+            """
+            Finds if a number is an int or a float.
+            This is a better version of the "isinstance"
+            function in python. This function returns a
+            bool value (like the "isinstance" function)
+            :param num: The number to check if is a int
+            ::returns True if int
+            ::returns False if float
+            """
+            def num_to_str(f):
+                #create a new context for this task
+                ctx = decimal.Context()
+
+                # 30 digits should be enough for everyone :D
+                ctx.prec = 30
         
+                d1 = ctx.create_decimal(f)
+                return format(d1, 'f')
+    
+            if str(num).find('0') == int(-1) and str(num).find('1') == int(-1) and str(num).find('2') == int(-1) and str(num).find('3') == int(-1) and str(num).find('4') == int(-1) and str(num).find('5') == int(-1) and str(num).find('6') == int(-1) and str(num).find('7') == int(-1) and str(num).find('8') == int(-1) and str(num).find('9') == int(-1):
+                return False    
+            else:
+                num = num_to_str(num)
+                if num.find('.') != int(-1):
+                    if len(num) >= 2:
+                        numl = list(num)
+                        elx = 0
+                        dolto = int(num.find('.'))
+                        for qot in numl[:]:
+                            if qot.find('.') != int(-1) or int(elx) < int(dolto):
+                                if int(int(len(numl)) - int(1)) == int(elx):
+                                    return True
+                                else:
+                                    elx += 1
+                                    continue
+                            elif int(elx) > int(dolto):
+                                if qot.find('0') == int(-1):
+                                    return False
+                                elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
+                                    print(2)
+                                    return True                        
+                            elx += 1
+                    else:
+                        return True
+                else:
+                    return True
+
+        def isFloat(num):
+            """
+            Finds if a number is an int or a float.
+            This is a better version of the "isinstance"
+            function in python. This function returns a
+            bool value (like the "isinstance" function)
+            :param num: The number to check if is a float
+            ::returns False if int
+            ::returns True if float
+            """
+            def num_to_str(f):
+                #create a new context for this task
+                ctx = decimal.Context()
+
+                # 30 digits should be enough for everyone :D
+                ctx.prec = 30
         
-    ##################################################################    def isInt(num):
-    ##################################################################        if str(type(num)) == '<class \'int\'>' or str(type(num)) == '<class \'float\'>':
-    ##################################################################            num = str(num)
-    ##################################################################            if num.find('.') != int(-1):
-    ##################################################################                if len(num) >= 2:
-    ##################################################################                    numl = list(num)
-    ##################################################################                    elx = 0
-    ##################################################################                    dolto = int(num.find('.'))
-    ##################################################################                    for qot in numl[:]:
-    ##################################################################                        if qot.find('.') != int(-1) or int(elx) < int(dolto):
-    ##################################################################                            elx += 1
-    ##################################################################                            continue
-    ##################################################################                        elif int(elx) > int(dolto):
-    ##################################################################                            if qot.find('0') == int(-1):
-    ##################################################################                                return False
-    ##################################################################                        if str(num[-1]) == str(qot) and qot.find('0') != int(-1):
-    ##################################################################                            return True
-    ##################################################################                        elx += 1
-    ##################################################################                else:
-    ##################################################################                    return True
-    ##################################################################            else:
-    ##################################################################                return True
-    ##################################################################        else:
-    ##################################################################            return False
-
-       
-    ##################################################################    def isFloat(num):
-    ##################################################################        if str(type(num)) == '<class \'int\'>' or str(type(num)) == '<class \'float\'>':
-    ##################################################################            num = str(num)
-    ##################################################################            if num.find('.') != int(-1):
-    ##################################################################                if len(num) >= 2:
-    ##################################################################                    numl = list(num)
-    ##################################################################                    elx = 0
-    ##################################################################                    dolto = int(num.find('.'))
-    ##################################################################                    for qot in numl[:]:
-    ##################################################################                        if qot.find('.') != int(-1) or int(elx) < int(dolto):
-    ##################################################################                            elx += 1
-    ##################################################################                            continue
-    ##################################################################                        elif int(elx) > int(dolto):
-    ##################################################################                            if qot.find('0') == int(-1):
-    ##################################################################                                return True
-    ##################################################################                        if str(num[-1]) == str(qot) and qot.find('0') != int(-1):
-    ##################################################################                            return False
-    ##################################################################                        elx += 1
-    ##################################################################                else:
-    ##################################################################                    return False
-    ##################################################################            else:
-    ##################################################################                return False
-    ##################################################################        else:
-    ##################################################################            return False
+                d1 = ctx.create_decimal(repr(f))
+                return format(d1, 'f')
+    
+            if str(num).find('0') == int(-1) and str(num).find('1') == int(-1) and str(num).find('2') == int(-1) and str(num).find('3') == int(-1) and str(num).find('4') == int(-1) and str(num).find('5') == int(-1) and str(num).find('6') == int(-1) and str(num).find('7') == int(-1) and str(num).find('8') == int(-1) and str(num).find('9') == int(-1):
+                return False    
+            else:
+                num = num_to_str(num)
+                if num.find('.') != int(-1):
+                    if len(num) >= 2:
+                        numl = list(num)
+                        elx = 0
+                        dolto = int(num.find('.'))
+                        for qot in numl[:]:
+                            if qot.find('.') != int(-1) or int(elx) < int(dolto):
+                                if int(int(len(numl)) - int(1)) == int(elx):
+                                    return False
+                                else:
+                                    elx += 1
+                                    continue
+                            elif int(elx) > int(dolto):
+                                if qot.find('0') == int(-1):
+                                    return True
+                                elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
+                                    return False                        
+                            elx += 1
+                    else:
+                        return False
+                else:
+                    return False
 
 
-    ##################################################################    if width:
-    ##################################################################        if ui.lineEditCharWidth.text() == '':
-    ##################################################################            pass
-    ##################################################################        elif str(type(ui.lineEditCharWidth.text())) == '<class \'str\'>' and ui.lineEditCharWidth.text() != '':
-    ##################################################################            ui.lineEditCharWidth.backspace()
-    ##################################################################        if isFloat(ui.lineEditCharWidth.text()):
-    ##################################################################            ui.lineEditCharWidth.backspace()
-    ##################################################################        if isInt(ui.lineEditCharWidth.text()):
-    ##################################################################            if int(ui.lineEditCharWidth.text()) < 1:
-    ##################################################################                ui.lineEditCharWidth.setText('1')
 
-#########################################################################################################
+
+        if width:
+            if isInt(ui.lineEditCharWidth.text()):
+                if int(ui.lineEditCharWidth.text()) <= 0:
+                    ui.lineEditCharWidth.backspace()
+            else:
+                if ui.lineEditCharWidth.text() == '':
+                    pass
+                else:
+                    ui.lineEditCharWidth.backspace()
+        
+        elif width == False:
+            if isInt(ui.lineEditCharHeight.text()):
+                if int(ui.lineEditCharHeight.text()) <= 0:
+                    ui.lineEditCharHeight.backspace()
+            else:
+                if ui.lineEditCharHeight.text() == '':
+                    pass
+                else:
+                    ui.lineEditCharHeight.backspace()
+
+################################################################################
 
 
 

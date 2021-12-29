@@ -5,6 +5,7 @@ from tkinter.filedialog import askopenfilenames
 #from os import getcwd
 import os
 import shutil
+import decimal
 
 
 def lols(file_path_list, properseq):
