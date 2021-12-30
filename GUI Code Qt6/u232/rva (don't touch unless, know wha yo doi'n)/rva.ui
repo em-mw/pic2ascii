@@ -1179,7 +1179,7 @@ p, li { white-space: pre-wrap; }
        <string>↺</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButtonCharHeightReset_2">
+     <widget class="QPushButton" name="pushButtonCharReset">
       <property name="geometry">
        <rect>
         <x>660</x>
@@ -1231,7 +1231,7 @@ p, li { white-space: pre-wrap; }
      <zorder>lineEditCharHeight</zorder>
      <zorder>pushButtonCharWidthReset</zorder>
      <zorder>pushButtonCharHeightReset</zorder>
-     <zorder>pushButtonCharHeightReset_2</zorder>
+     <zorder>pushButtonCharReset</zorder>
     </widget>
     <widget class="QWidget" name="tabAdvanced">
      <property name="autoFillBackground">

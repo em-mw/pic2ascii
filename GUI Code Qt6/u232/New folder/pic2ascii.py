@@ -508,14 +508,14 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
         self.pushButtonCharHeightReset.setFont(font)
         self.pushButtonCharHeightReset.setObjectName("pushButtonCharHeightReset")
-        self.pushButtonCharHeightReset_2 = QtWidgets.QPushButton(self.tabSetup)
-        self.pushButtonCharHeightReset_2.setGeometry(QtCore.QRect(660, 245, 26, 26))
+        self.pushButtonCharReset = QtWidgets.QPushButton(self.tabSetup)
+        self.pushButtonCharReset.setGeometry(QtCore.QRect(660, 245, 26, 26))
         font = QtGui.QFont()
         font.setPointSize(17)
         font.setBold(False)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.pushButtonCharHeightReset_2.setFont(font)
-        self.pushButtonCharHeightReset_2.setObjectName("pushButtonCharHeightReset_2")
+        self.pushButtonCharReset.setFont(font)
+        self.pushButtonCharReset.setObjectName("pushButtonCharReset")
         self.lineEdit_2.raise_()
         self.lineEdit.raise_()
         self.labelinDesk.raise_()
@@ -548,7 +548,7 @@ class Ui_MainWindow(object):
         self.lineEditCharHeight.raise_()
         self.pushButtonCharWidthReset.raise_()
         self.pushButtonCharHeightReset.raise_()
-        self.pushButtonCharHeightReset_2.raise_()
+        self.pushButtonCharReset.raise_()
         self.tabWidget.addTab(self.tabSetup, "")
         self.tabAdvanced = QtWidgets.QWidget()
         self.tabAdvanced.setAutoFillBackground(True)
@@ -956,7 +956,7 @@ class Ui_MainWindow(object):
         self.lineEditCharHeight.setText(_translate("MainWindow", "18"))
         self.pushButtonCharWidthReset.setText(_translate("MainWindow", "↺"))
         self.pushButtonCharHeightReset.setText(_translate("MainWindow", "↺"))
-        self.pushButtonCharHeightReset_2.setText(_translate("MainWindow", "↺"))
+        self.pushButtonCharReset.setText(_translate("MainWindow", "↺"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabSetup), _translate("MainWindow", "Setup"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tabSetup), _translate("MainWindow", "This is where you setup the source and ouput"))
         self.label_B.setText(_translate("MainWindow", "B"))
@@ -1021,6 +1021,10 @@ class Ui_MainWindow(object):
         self.actionRequest_a_Feature.triggered.connect(lambda:call_actions.gt2())
         self.lineEditCharWidth.textChanged.connect(lambda:call_atrib.charsize(True))
         self.lineEditCharHeight.textChanged.connect(lambda:call_atrib.charsize(False))
+        self.pushButtonCharWidthReset.clicked.connect(lambda:call_atrib.reset('w'))
+        self.pushButtonCharHeightReset.clicked.connect(lambda:call_atrib.reset('h'))
+        self.pushButtonCharReset.clicked.connect(lambda:call_atrib.reset('c'))
+
 #############################################################################################################
 #window (from fine imports)
 #############################################################################################################
@@ -1331,6 +1335,15 @@ class atrib(Ui_MainWindow):
                     pass
                 else:
                     ui.lineEditCharHeight.backspace()
+    
+    def reset(self, line):
+        if str(line).find('w') != int(-1):
+            ui.lineEditCharWidth.setText('10')
+        elif str(line).find('h') != int(-1):
+            ui.lineEditCharHeight.setText('18')
+        elif str(line).find('c') != int(-1):
+            ui.lineEditChar.setText('$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`\'.')
+
 
 ################################################################################
 
