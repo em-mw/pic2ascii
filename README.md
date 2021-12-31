@@ -5,11 +5,11 @@
 ### About Repo
 The `pic2ascii` program (mostly writen in `Python 3`) takes any image and converts it in to text characters using the ascii system (working on unicode). Right now we are still in development, but we got most of the low level stuff down. We even added etxra things like multiprocessing into the GUI version. We are curently working on features that are important for the GUI to comunicate with the engine (core) of the program. 
 
-The Terminal edition is ever so close to being done, so we recomend you use that for now (if you know python). However you can still use the GUI version if you prefer it over the Terminal as it has more features (like multiprocessing) than the terminal version.
+The Terminal edition is done (the beta anyway), so we recomend you use that for now. However you can still use the GUI version if you prefer it over the Terminal as it has more features (like multiprocessing) than the terminal version.
 
 Thank you for reading our notes! We hope you enjoy our program.
 
---ErMax.Inc Dec 20, 2021 -em-mw
+--ErMax.Inc Dec 31, 2021 -em-mw
 
 here are some examples of what pic to ascii can do:
 
