@@ -51,6 +51,7 @@ from multiprocessing import Process
 from threading import Thread
 import picgen
 import psutil
+from more import isInt, isFloat
 
 #call_atrib and call_error (fine imports)
 from tkinter.filedialog import askdirectory as askdir
@@ -1327,7 +1328,18 @@ class Ui_MainWindow(object):
         ##
         #sliders
         ##
+        self.verticalSliderR.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderR, self.lineEditRVal))
+        self.verticalSliderG.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderG, self.lineEditGVal))
+        self.verticalSliderB.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderB, self.lineEditBVal))
+        self.verticalSliderR_2.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderR_2, self.lineEditRVal_2))
         self.verticalSliderG_2.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderG_2, self.lineEditGVal_2))
+        self.verticalSliderB_2.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderB_2, self.lineEditBVal_2))
+        self.verticalSliderA.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderA, self.lineEditAVal))
+        ##
+        #
+        ##
+        #self.
+
 
 #############################################################################################################
 #window (from fine imports)
@@ -1530,105 +1542,9 @@ class atrib(Ui_MainWindow):
 ##################################################################################
             
     def charsize(self, width):
-        def isInt(num):
-            """
-            Finds if a number is an int or a float.
-            This is a better version of the "isinstance"
-            function in python. This function returns a
-            bool value (like the "isinstance" function)
-            :param num: The number to check if is a int
-            ::returns True if int
-            ::returns False if float
-            """
-            def num_to_str(f):
-                #create a new context for this task
-                ctx = decimal.Context()
-
-                # 30 digits should be enough for everyone :D
-                ctx.prec = 30
-        
-                d1 = ctx.create_decimal(f)
-                return format(d1, 'f')
-    
-            if str(num).find('0') == int(-1) and str(num).find('1') == int(-1) and str(num).find('2') == int(-1) and str(num).find('3') == int(-1) and str(num).find('4') == int(-1) and str(num).find('5') == int(-1) and str(num).find('6') == int(-1) and str(num).find('7') == int(-1) and str(num).find('8') == int(-1) and str(num).find('9') == int(-1):
-                return False    
-            else:
-                num = num_to_str(num)
-                if num.find('.') != int(-1):
-                    if len(num) >= 2:
-                        numl = list(num)
-                        elx = 0
-                        dolto = int(num.find('.'))
-                        for qot in numl[:]:
-                            if qot.find('.') != int(-1) or int(elx) < int(dolto):
-                                if int(int(len(numl)) - int(1)) == int(elx):
-                                    return True
-                                else:
-                                    elx += 1
-                                    continue
-                            elif int(elx) > int(dolto):
-                                if qot.find('0') == int(-1):
-                                    return False
-                                elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
-                                    print(2)
-                                    return True                        
-                            elx += 1
-                    else:
-                        return True
-                else:
-                    return True
-
-        def isFloat(num):
-            """
-            Finds if a number is an int or a float.
-            This is a better version of the "isinstance"
-            function in python. This function returns a
-            bool value (like the "isinstance" function)
-            :param num: The number to check if is a float
-            ::returns False if int
-            ::returns True if float
-            """
-            def num_to_str(f):
-                #create a new context for this task
-                ctx = decimal.Context()
-
-                # 30 digits should be enough for everyone :D
-                ctx.prec = 30
-        
-                d1 = ctx.create_decimal(repr(f))
-                return format(d1, 'f')
-    
-            if str(num).find('0') == int(-1) and str(num).find('1') == int(-1) and str(num).find('2') == int(-1) and str(num).find('3') == int(-1) and str(num).find('4') == int(-1) and str(num).find('5') == int(-1) and str(num).find('6') == int(-1) and str(num).find('7') == int(-1) and str(num).find('8') == int(-1) and str(num).find('9') == int(-1):
-                return False    
-            else:
-                num = num_to_str(num)
-                if num.find('.') != int(-1):
-                    if len(num) >= 2:
-                        numl = list(num)
-                        elx = 0
-                        dolto = int(num.find('.'))
-                        for qot in numl[:]:
-                            if qot.find('.') != int(-1) or int(elx) < int(dolto):
-                                if int(int(len(numl)) - int(1)) == int(elx):
-                                    return False
-                                else:
-                                    elx += 1
-                                    continue
-                            elif int(elx) > int(dolto):
-                                if qot.find('0') == int(-1):
-                                    return True
-                                elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
-                                    return False                        
-                            elx += 1
-                    else:
-                        return False
-                else:
-                    return False
-
-
-
-
         if width:
+            if str(ui.lineEditCharWidth.text()).find('-') != int(-1):
+                ui.lineEditCharWidth.backspace()
             if isInt(ui.lineEditCharWidth.text()):
                 if int(ui.lineEditCharWidth.text()) <= 0:
                     ui.lineEditCharWidth.backspace()
@@ -1639,6 +1555,8 @@ class atrib(Ui_MainWindow):
                     ui.lineEditCharWidth.backspace()
         
         elif width == False:
+            if str(ui.lineEditCharHeight.text()).find('-') != int(-1):
+                ui.lineEditCharHeight.backspace()
             if isInt(ui.lineEditCharHeight.text()):
                 if int(ui.lineEditCharHeight.text()) <= 0:
                     ui.lineEditCharHeight.backspace()
@@ -1673,6 +1591,7 @@ class atrib(Ui_MainWindow):
 
     
     def lineChangeRGB(self, line, slide):
+        #isInt
         pass
 
 
