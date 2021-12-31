@@ -1355,9 +1355,6 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
        <widget class="QSlider" name="verticalSliderB">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
         <property name="geometry">
          <rect>
           <x>140</x>
@@ -1481,70 +1478,70 @@ p, li { white-space: pre-wrap; }
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label_RVal">
+       <widget class="QLineEdit" name="lineEditRVal">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>190</y>
-          <width>21</width>
+          <x>15</x>
+          <y>195</y>
+          <width>36</width>
           <height>21</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <bold>true</bold>
+          <bold>false</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
         </property>
         <property name="text">
-         <string>0</string>
+         <string>255</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label_GVal">
+       <widget class="QLineEdit" name="lineEditGVal">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>190</y>
-          <width>21</width>
+          <x>75</x>
+          <y>195</y>
+          <width>36</width>
           <height>21</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <bold>true</bold>
+          <bold>false</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
         </property>
         <property name="text">
-         <string>0</string>
+         <string>255</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label_BVal">
+       <widget class="QLineEdit" name="lineEditBVal">
         <property name="geometry">
          <rect>
-          <x>140</x>
-          <y>190</y>
-          <width>21</width>
+          <x>130</x>
+          <y>195</y>
+          <width>36</width>
           <height>21</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <bold>true</bold>
+          <bold>false</bold>
           <stylestrategy>PreferAntialias</stylestrategy>
          </font>
         </property>
         <property name="text">
-         <string>0</string>
+         <string>255</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -1635,52 +1632,6 @@ p, li { white-space: pre-wrap; }
          <number>5</number>
         </property>
        </widget>
-       <widget class="QLabel" name="label_SVal">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>190</y>
-          <width>21</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-          <bold>true</bold>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_VVal">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>190</y>
-          <width>21</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-          <bold>true</bold>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
        <widget class="QSlider" name="verticalSliderH">
         <property name="geometry">
          <rect>
@@ -1745,29 +1696,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label_HVal">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>190</y>
-          <width>21</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-          <bold>true</bold>
-          <stylestrategy>PreferAntialias</stylestrategy>
-         </font>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_H">
         <property name="geometry">
          <rect>
@@ -1823,6 +1751,76 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
         </property>
         <property name="text">
          <string>V</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditVVal">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>195</y>
+          <width>36</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Yu Gothic UI</family>
+          <pointsize>10</pointsize>
+          <bold>false</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>100</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditSVal">
+        <property name="geometry">
+         <rect>
+          <x>75</x>
+          <y>195</y>
+          <width>36</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <bold>false</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>100</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditHVal">
+        <property name="geometry">
+         <rect>
+          <x>15</x>
+          <y>195</y>
+          <width>36</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <bold>false</bold>
+          <stylestrategy>PreferAntialias</stylestrategy>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

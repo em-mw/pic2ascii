@@ -591,7 +591,6 @@ class Ui_MainWindow(object):
         self.verticalSliderG.setTickInterval(10)
         self.verticalSliderG.setObjectName("verticalSliderG")
         self.verticalSliderB = QtWidgets.QSlider(self.tabRGB)
-        self.verticalSliderB.setEnabled(False)
         self.verticalSliderB.setGeometry(QtCore.QRect(140, 30, 22, 160))
         self.verticalSliderB.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.SplitVCursor))
         self.verticalSliderB.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
@@ -636,33 +635,33 @@ class Ui_MainWindow(object):
         self.label_G.setStyleSheet("color: rgb(0, 235, 0);")
         self.label_G.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_G.setObjectName("label_G")
-        self.label_RVal = QtWidgets.QLabel(self.tabRGB)
-        self.label_RVal.setGeometry(QtCore.QRect(20, 190, 21, 21))
+        self.lineEditRVal = QtWidgets.QLineEdit(self.tabRGB)
+        self.lineEditRVal.setGeometry(QtCore.QRect(15, 195, 36, 21))
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(True)
+        font.setBold(False)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.label_RVal.setFont(font)
-        self.label_RVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_RVal.setObjectName("label_RVal")
-        self.label_GVal = QtWidgets.QLabel(self.tabRGB)
-        self.label_GVal.setGeometry(QtCore.QRect(80, 190, 21, 21))
+        self.lineEditRVal.setFont(font)
+        self.lineEditRVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEditRVal.setObjectName("lineEditRVal")
+        self.lineEditGVal = QtWidgets.QLineEdit(self.tabRGB)
+        self.lineEditGVal.setGeometry(QtCore.QRect(75, 195, 36, 21))
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(True)
+        font.setBold(False)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.label_GVal.setFont(font)
-        self.label_GVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_GVal.setObjectName("label_GVal")
-        self.label_BVal = QtWidgets.QLabel(self.tabRGB)
-        self.label_BVal.setGeometry(QtCore.QRect(140, 190, 21, 21))
+        self.lineEditGVal.setFont(font)
+        self.lineEditGVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEditGVal.setObjectName("lineEditGVal")
+        self.lineEditBVal = QtWidgets.QLineEdit(self.tabRGB)
+        self.lineEditBVal.setGeometry(QtCore.QRect(130, 195, 36, 21))
         font = QtGui.QFont()
         font.setPointSize(10)
-        font.setBold(True)
+        font.setBold(False)
         font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.label_BVal.setFont(font)
-        self.label_BVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_BVal.setObjectName("label_BVal")
+        self.lineEditBVal.setFont(font)
+        self.lineEditBVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEditBVal.setObjectName("lineEditBVal")
         self.tabWidget_2.addTab(self.tabRGB, "")
         self.tabHSV = QtWidgets.QWidget()
         self.tabHSV.setAutoFillBackground(True)
@@ -692,24 +691,6 @@ class Ui_MainWindow(object):
         self.verticalSliderV.setTickPosition(QtWidgets.QSlider.TickPosition.TicksAbove)
         self.verticalSliderV.setTickInterval(5)
         self.verticalSliderV.setObjectName("verticalSliderV")
-        self.label_SVal = QtWidgets.QLabel(self.tabHSV)
-        self.label_SVal.setGeometry(QtCore.QRect(80, 190, 21, 21))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.label_SVal.setFont(font)
-        self.label_SVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_SVal.setObjectName("label_SVal")
-        self.label_VVal = QtWidgets.QLabel(self.tabHSV)
-        self.label_VVal.setGeometry(QtCore.QRect(140, 190, 21, 21))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.label_VVal.setFont(font)
-        self.label_VVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_VVal.setObjectName("label_VVal")
         self.verticalSliderH = QtWidgets.QSlider(self.tabHSV)
         self.verticalSliderH.setGeometry(QtCore.QRect(20, 30, 22, 160))
         self.verticalSliderH.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.SplitVCursor))
@@ -733,15 +714,6 @@ class Ui_MainWindow(object):
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 91, 91, 255), stop:1 rgba(255, 255, 255, 255));")
         self.label_S.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_S.setObjectName("label_S")
-        self.label_HVal = QtWidgets.QLabel(self.tabHSV)
-        self.label_HVal.setGeometry(QtCore.QRect(20, 190, 21, 21))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
-        self.label_HVal.setFont(font)
-        self.label_HVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_HVal.setObjectName("label_HVal")
         self.label_H = QtWidgets.QLabel(self.tabHSV)
         self.label_H.setGeometry(QtCore.QRect(20, 10, 21, 20))
         font = QtGui.QFont()
@@ -766,6 +738,34 @@ class Ui_MainWindow(object):
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));")
         self.label_V.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_V.setObjectName("label_V")
+        self.lineEditVVal = QtWidgets.QLineEdit(self.tabHSV)
+        self.lineEditVVal.setGeometry(QtCore.QRect(130, 195, 36, 21))
+        font = QtGui.QFont()
+        font.setFamily("Yu Gothic UI")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
+        self.lineEditVVal.setFont(font)
+        self.lineEditVVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEditVVal.setObjectName("lineEditVVal")
+        self.lineEditSVal = QtWidgets.QLineEdit(self.tabHSV)
+        self.lineEditSVal.setGeometry(QtCore.QRect(75, 195, 36, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
+        self.lineEditSVal.setFont(font)
+        self.lineEditSVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEditSVal.setObjectName("lineEditSVal")
+        self.lineEditHVal = QtWidgets.QLineEdit(self.tabHSV)
+        self.lineEditHVal.setGeometry(QtCore.QRect(15, 195, 36, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setStyleStrategy(QtGui.QFont.StyleStrategy.PreferAntialias)
+        self.lineEditHVal.setFont(font)
+        self.lineEditHVal.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEditHVal.setObjectName("lineEditHVal")
         self.tabWidget_2.addTab(self.tabHSV, "")
         self.progressBar_4 = QtWidgets.QProgressBar(self.tabAdvanced)
         self.progressBar_4.setGeometry(QtCore.QRect(970, 0, 16, 396))
@@ -962,16 +962,16 @@ class Ui_MainWindow(object):
         self.label_B.setText(_translate("MainWindow", "B"))
         self.label_R.setText(_translate("MainWindow", "R"))
         self.label_G.setText(_translate("MainWindow", "G"))
-        self.label_RVal.setText(_translate("MainWindow", "0"))
-        self.label_GVal.setText(_translate("MainWindow", "0"))
-        self.label_BVal.setText(_translate("MainWindow", "0"))
+        self.lineEditRVal.setText(_translate("MainWindow", "255"))
+        self.lineEditGVal.setText(_translate("MainWindow", "255"))
+        self.lineEditBVal.setText(_translate("MainWindow", "255"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tabRGB), _translate("MainWindow", "RGB"))
-        self.label_SVal.setText(_translate("MainWindow", "0"))
-        self.label_VVal.setText(_translate("MainWindow", "0"))
         self.label_S.setText(_translate("MainWindow", "S"))
-        self.label_HVal.setText(_translate("MainWindow", "0"))
         self.label_H.setText(_translate("MainWindow", "H"))
         self.label_V.setText(_translate("MainWindow", "V"))
+        self.lineEditVVal.setText(_translate("MainWindow", "100"))
+        self.lineEditSVal.setText(_translate("MainWindow", "100"))
+        self.lineEditHVal.setText(_translate("MainWindow", "0"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tabHSV), _translate("MainWindow", "HSV"))
         self.commandLinkButton.setText(_translate("MainWindow", "Monochrome"))
         self.pushButtonColor.setText(_translate("MainWindow", "Color Preview/Selector"))
@@ -993,8 +993,6 @@ class Ui_MainWindow(object):
         self.actionReport_an_Erorr.setText(_translate("MainWindow", "Report an Erorr!"))
         self.actionRequest_a_Feature.setText(_translate("MainWindow", "Request a Feature"))
         self.actionLicence.setText(_translate("MainWindow", "Licence"))
-
-
 
 
 
@@ -1024,6 +1022,7 @@ class Ui_MainWindow(object):
         self.pushButtonCharWidthReset.clicked.connect(lambda:call_atrib.reset('w'))
         self.pushButtonCharHeightReset.clicked.connect(lambda:call_atrib.reset('h'))
         self.pushButtonCharReset.clicked.connect(lambda:call_atrib.reset('c'))
+        self.commandLinkButton.clicked.connect(lambda:call_atrib.commandlinking())
 
 #############################################################################################################
 #window (from fine imports)
@@ -1133,7 +1132,8 @@ class atrib(Ui_MainWindow):
                 folderman.deiconify()
                 folderman.destroy()
                 folderman.quit()
-    
+
+######################################################################################################    
 
     def fnt_loc(self):
         
@@ -1155,7 +1155,8 @@ class atrib(Ui_MainWindow):
         fntman.destroy()
         fntman.quit()
     
-            
+##########################################################################################
+        
     def dialSF(self):
         sfd_val = float(ui.spinDialScaleFactor.value() / 100)
         ui.lineEditSF.setText(str(sfd_val))
@@ -1183,6 +1184,8 @@ class atrib(Ui_MainWindow):
         #get the value of the edit widget
         #and change the dial
         #ui.spinDialScaleFactor
+
+##########################################################################################
 
 
     def EditProcesses(self):
@@ -1215,7 +1218,7 @@ class atrib(Ui_MainWindow):
         elif ui.checkBoxAutoProcess.isChecked() == False:
             ui.lineEditProcess.setEnabled(True)
 
-
+##################################################################################
             
     def charsize(self, width):
         def isInt(num):
@@ -1335,6 +1338,8 @@ class atrib(Ui_MainWindow):
                     pass
                 else:
                     ui.lineEditCharHeight.backspace()
+
+#######################################################################################
     
     def reset(self, line):
         if str(line).find('w') != int(-1):
@@ -1344,12 +1349,22 @@ class atrib(Ui_MainWindow):
         elif str(line).find('c') != int(-1):
             ui.lineEditChar.setText('$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`\'.')
 
+#####################################################################################
+
+    def commandlinking(self):
+        if ui.commandLinkButton.isChecked():
+            call_enable_disable.commandShow()
+        elif ui.commandLinkButton.isChecked() == False:
+            call_enable_disable.commandHide()
 
 ################################################################################
 
 
 
 class error:
+    #Note:
+    #This class is probably the least maintained class of them all
+    #
     def invalid_dir(self, x):
         root = Tk()
         root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())
@@ -1410,7 +1425,7 @@ class exiting:
         root.withdraw()
         root.attributes('-alpha', 0)
 
-        exitprompt = messagebox.askyesno(title='Exit?', message='Are You Want to Exit?')
+        exitprompt = messagebox.askyesno(title='Exit?', message='Are Sure You Want to Exit?')
         if int(exitprompt) == 1:
             root.deiconify()
             root.destroy()
@@ -1426,6 +1441,9 @@ class exiting:
             del root
             return False
     
+
+
+class enable_disable:
     def stathide(self):
         ui.lineEditChar.setEnabled(False)
         ui.whatToDo.setEnabled(False)
@@ -1440,7 +1458,6 @@ class exiting:
         ui.radioButtonRGB.setEnabled(False)
         ui.radioButtonBW.setEnabled(False)
         ui.checkBoxAutoProcess.setEnabled(False)
-
 
     def statshow(self):
         ui.lineEditChar.setEnabled(True)
@@ -1457,11 +1474,23 @@ class exiting:
         ui.radioButtonBW.setEnabled(True)
         ui.checkBoxAutoProcess.setEnabled(True)
 
+########################################################
+
+    def commandShow(self):
+        ui.tabWidget_2.setEnabled(True)
+        ui.pushButtonColor.setEnabled(True)
+
+    def commandHide(self):
+        ui.tabWidget_2.setDisabled(True)
+        ui.pushButtonColor.setDisabled(True)
 
 
-
+#########################################################
 
 class pta:
+    def getMonochrome(self, rgb_color, rgb_value):
+        pass
+    
     def getChar(self, inputInt):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
@@ -1471,7 +1500,7 @@ class pta:
         interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
     
-    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes):
+    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
 
@@ -1524,7 +1553,7 @@ class pta:
             width, height = im.size
             pix = im.convert(str(format))
 
-            outputImage = PIL.Image.new(str(format), (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0))
+            outputImage = PIL.Image.new(str(format), (oneCharWidth * width, oneCharHeight * height), color = (0, 0, 0, 255))
 
             d = ImageDraw.Draw(outputImage)
                 
@@ -1546,8 +1575,16 @@ class pta:
                     #r, g, b = pix[j, i]
                     h = int(r/3 + g/3 + b/3)
                     #pix.getpixel((j, i)) = (h, h, h)#line no work nomore
-                    text_file.write(self.getChar(h).encode('utf-8'))
-                    tf.write(str(fg(r, g, b)) + str(self.getChar(h)).encode('utf-8'))
+                    text_file.write(str(self.getChar(h)).encode('utf-8'))
+                    tf.write(str(str(fg(r, g, b)) + str(self.getChar(h))).encode('utf-8'))
+                    #
+                    ##  add this in as soon as the monochrome function/module is implemented
+                    ###
+                    ####if monochrome:
+                    ####    mr, mg, mb = getMonochrome()
+                    ###
+                    ##
+                    #
                     if format == 'RGBA':
                         d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b), int(a)))
                     elif format == 'RGB':
@@ -1585,11 +1622,12 @@ class pta:
                 with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp', 'r') as dumpclutchprocs:
                     file_path_list2 = dumpclutchprocs.read().split(', ')
                 del dumpclutchprocs
-                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes))) #args=(file_path_list,)
+                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked())))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
 
 #class debunks
+call_enable_disable = enable_disable()
 call_atrib = atrib()
 call_error = error()
 call_dtet = dtet()

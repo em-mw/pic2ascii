@@ -19,6 +19,7 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="monogen.py" />
     <Compile Include="msgbox_tmp.py" />
     <Compile Include="pic2ascii.py" />
     <Compile Include="pic2ascii\gen-files\mps.engine.py" />
