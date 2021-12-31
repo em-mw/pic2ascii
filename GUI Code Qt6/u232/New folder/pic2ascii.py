@@ -1047,8 +1047,8 @@ class Ui_MainWindow(object):
         self.verticalSliderA_2.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.SplitVCursor))
         self.verticalSliderA_2.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.verticalSliderA_2.setAutoFillBackground(True)
-        self.verticalSliderA_2.setMaximum(255)
-        self.verticalSliderA_2.setProperty("value", 255)
+        self.verticalSliderA_2.setMaximum(100)
+        self.verticalSliderA_2.setProperty("value", 100)
         self.verticalSliderA_2.setOrientation(QtCore.Qt.Orientation.Vertical)
         self.verticalSliderA_2.setInvertedAppearance(False)
         self.verticalSliderA_2.setTickPosition(QtWidgets.QSlider.TickPosition.TicksAbove)
@@ -1174,7 +1174,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
-        self.tabWidget_3.setCurrentIndex(0)
+        self.tabWidget_3.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1324,7 +1324,10 @@ class Ui_MainWindow(object):
         self.pushButtonCharHeightReset.clicked.connect(lambda:call_atrib.reset('h'))
         self.pushButtonCharReset.clicked.connect(lambda:call_atrib.reset('c'))
         self.commandLinkButton.clicked.connect(lambda:call_atrib.commandlinking())
-
+        ##
+        #sliders
+        ##
+        self.verticalSliderG_2.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderG_2, self.lineEditGVal_2))
 
 #############################################################################################################
 #window (from fine imports)
@@ -1523,6 +1526,7 @@ class atrib(Ui_MainWindow):
         elif ui.checkBoxAutoProcess.isChecked() == False:
             ui.lineEditProcess.setEnabled(True)
 
+
 ##################################################################################
             
     def charsize(self, width):
@@ -1664,7 +1668,15 @@ class atrib(Ui_MainWindow):
 
 ################################################################################
 
+    def slideChangeRGB(self, slide, line):
+        line.setText(str(slide.value()))
 
+    
+    def lineChangeRGB(self, line, slide):
+        pass
+
+
+################################################################################
 
 class error:
     #Note:

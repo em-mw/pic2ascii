@@ -1942,7 +1942,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -2613,10 +2613,10 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
          <bool>true</bool>
         </property>
         <property name="maximum">
-         <number>255</number>
+         <number>100</number>
         </property>
         <property name="value">
-         <number>255</number>
+         <number>100</number>
         </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
