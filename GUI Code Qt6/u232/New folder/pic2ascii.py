@@ -1002,9 +1002,9 @@ class Ui_MainWindow(object):
 #############################################################################################################
 #############################################################################################################
 #############################################################################################################
-
+        
    
-
+############################################################################################################
 
         #Edits ##we put this here to help us later when biulding a later GUI version
         self.pushButtonImageIn.clicked.connect(lambda:call_atrib.InputFileLoc())
@@ -1023,6 +1023,7 @@ class Ui_MainWindow(object):
         self.pushButtonCharHeightReset.clicked.connect(lambda:call_atrib.reset('h'))
         self.pushButtonCharReset.clicked.connect(lambda:call_atrib.reset('c'))
         self.commandLinkButton.clicked.connect(lambda:call_atrib.commandlinking())
+
 
 #############################################################################################################
 #window (from fine imports)
@@ -1047,6 +1048,12 @@ MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
 ui.setupUi(MainWindow)
 ######################################
+
+
+class autostart:
+    def auto(self):
+        ui.checkBoxAutoProcess.setChecked(True)
+
 
 class dtet():
     #delete func once done with program
@@ -1089,10 +1096,7 @@ class actions:
 class atrib(Ui_MainWindow):
     def InputFileLoc(self):
         
-        if int(os.name.lower().find('nt')) != int(-1):
-            winslash = str('\\')
-        else:
-            winslash = str('/')
+        winslash = str(os.sep)
 
         fileman = Tk()
         fileman.withdraw()
@@ -1634,8 +1638,10 @@ call_dtet = dtet()
 call_actions = actions()
 call_exiting = exiting()
 call_pta = pta()
+call_autostart = autostart()
 
 if __name__ == "__main__":
+    call_autostart.auto()
     def mtrest():       
         MainWindow.show()
         try:
