@@ -17,35 +17,39 @@ def isInt(num):
         # 30 digits should be enough for everyone :D
         ctx.prec = 30
         
-        d1 = ctx.create_decimal(repr(f))
+        d1 = ctx.create_decimal(f)
         return format(d1, 'f')
     
-    if str(num).find('0') == int(-1) and str(num).find('1') == int(-1) and str(num).find('2') == int(-1) and str(num).find('3') == int(-1) and str(num).find('4') == int(-1) and str(num).find('5') == int(-1) and str(num).find('6') == int(-1) and str(num).find('7') == int(-1) and str(num).find('8') == int(-1) and str(num).find('9') == int(-1):
-        return False    
-    else:
-        num = num_to_str(num)
-        if num.find('.') != int(-1):
-            if len(num) >= 2:
-                numl = list(num)
-                elx = 0
-                dolto = int(num.find('.'))
-                for qot in numl[:]:
-                    if qot.find('.') != int(-1) or int(elx) < int(dolto):
-                        if int(int(len(numl)) - int(1)) == int(elx):
-                            return True
-                        else:
-                            elx += 1
-                            continue
-                    elif int(elx) > int(dolto):
-                        if qot.find('0') == int(-1):
-                            return False
-                        elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
-                            return True                        
-                    elx += 1
-            else:
-                return True
+    if str(num) == '':
+        return False
+
+    for p in range(len(num)):
+        if not any(c in str(num)[p] for c in '0123456789.'):
+            return False
+    
+    num = num_to_str(num)
+    if num.find('.') != int(-1):
+        if len(num) >= 2:
+            numl = list(num)
+            elx = 0
+            dolto = int(num.find('.'))
+            for qot in numl[:]:
+                if qot.find('.') != int(-1) or int(elx) < int(dolto):
+                    if int(int(len(numl)) - int(1)) == int(elx):
+                        return True
+                    else:
+                        elx += 1
+                        continue
+                elif int(elx) > int(dolto):
+                    if qot.find('0') == int(-1):
+                        return False
+                    elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
+                        return True                        
+                elx += 1
         else:
             return True
+    else:
+        return True
 
 def isFloat(num):
     """
@@ -67,32 +71,36 @@ def isFloat(num):
         d1 = ctx.create_decimal(f)
         return format(d1, 'f')
     
-    if str(num).find('0') == int(-1) and str(num).find('1') == int(-1) and str(num).find('2') == int(-1) and str(num).find('3') == int(-1) and str(num).find('4') == int(-1) and str(num).find('5') == int(-1) and str(num).find('6') == int(-1) and str(num).find('7') == int(-1) and str(num).find('8') == int(-1) and str(num).find('9') == int(-1):
-        return False    
-    else:
-        num = num_to_str(num)
-        if num.find('.') != int(-1):
-            if len(num) >= 2:
-                numl = list(num)
-                elx = 0
-                dolto = int(num.find('.'))
-                for qot in numl[:]:
-                    if qot.find('.') != int(-1) or int(elx) < int(dolto):
-                        if int(int(len(numl)) - int(1)) == int(elx):
-                            return False
-                        else:
-                            elx += 1
-                            continue
-                    elif int(elx) > int(dolto):
-                        if qot.find('0') == int(-1):
-                            return True
-                        elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
-                            return False                        
-                    elx += 1
-            else:
-                return False
+    if str(num) == '':
+        return False
+
+    for p in range(len(str(num))):
+        if not any(c in str(num)[p] for c in '0123456789.'):
+            return False    
+    
+    num = num_to_str(num)
+    if num.find('.') != int(-1):
+        if len(num) >= 2:
+            numl = list(num)
+            elx = 0
+            dolto = int(num.find('.'))
+            for qot in numl[:]:
+                if qot.find('.') != int(-1) or int(elx) < int(dolto):
+                    if int(int(len(numl)) - int(1)) == int(elx):
+                        return False
+                    else:
+                        elx += 1
+                        continue
+                elif int(elx) > int(dolto):
+                    if qot.find('0') == int(-1):
+                        return True
+                    elif int(int(elx) + int(1)) == len(numl) and str(num[-1]) == str(qot) and qot.find('0') != int(-1):
+                        return False                        
+                elx += 1
         else:
             return False
+    else:
+        return False
 
 def truncate_utf8_chars(filename, count, ignore_newlines=True):
     """

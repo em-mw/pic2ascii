@@ -1336,9 +1336,14 @@ class Ui_MainWindow(object):
         self.verticalSliderB_2.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderB_2, self.lineEditBVal_2))
         self.verticalSliderA.valueChanged.connect(lambda:call_atrib.slideChangeRGB(self.verticalSliderA, self.lineEditAVal))
         ##
-        #
-        ##
-        #self.
+        #lines
+        self.lineEditRVal.textChanged.connect(lambda:call_atrib.lineChangeRGB(self.lineEditRVal, self.verticalSliderR))
+        self.lineEditGVal.textChanged.connect(lambda:call_atrib.lineChangeRGB(self.lineEditGVal, self.verticalSliderG))
+        self.lineEditBVal.textChanged.connect(lambda:call_atrib.lineChangeRGB(self.lineEditBVal, self.verticalSliderB))
+        self.lineEditRVal_2.textChanged.connect(lambda:call_atrib.lineChangeRGB(self.lineEditRVal_2, self.verticalSliderR_2))
+        self.lineEditGVal_2.textChanged.connect(lambda:call_atrib.lineChangeRGB(self.lineEditGVal_2, self.verticalSliderG_2))
+        self.lineEditBVal_2.textChanged.connect(lambda:call_atrib.lineChangeRGB(self.lineEditBVal_2, self.verticalSliderB_2))
+        self.lineEditAVal.textChanged.connect(lambda:call_atrib.lineChangeRGB(self.lineEditAVal, self.verticalSliderA))
 
 
 #############################################################################################################
@@ -1516,7 +1521,6 @@ class atrib(Ui_MainWindow):
         global processes
         try:
             processes = int(ui.lineEditProcess.text())
-            print(processes)
         except:
             ui.lineEditProcess.backspace()
         else:
@@ -1591,8 +1595,25 @@ class atrib(Ui_MainWindow):
 
     
     def lineChangeRGB(self, line, slide):
-        #isInt
-        pass
+        def leen():
+            sleep(2.5)
+            line.setText('0')
+        if any(c in str(line.text()) for c in '.-'):
+            line.backspace()
+        if isInt(line.text()):
+            if int(line.text()) > 255:
+                line.setText('255')
+            elif int(line.text()) < 0:
+                line.setText('0')
+            slide.setValue(int(line.text()))
+        else:
+            if line.text() == '':
+                s = Thread(target=leen)
+                s.start()
+                del s
+            else:
+                line.backspace()
+        
 
 
 ################################################################################
