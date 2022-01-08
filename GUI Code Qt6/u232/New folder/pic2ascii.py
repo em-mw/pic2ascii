@@ -28,6 +28,7 @@ import webbrowser
 import sys
 import reis
 import shutil
+import colorsys
 #from tqdm import tqdm
 #pta class imports (fine imports)
 
@@ -1746,7 +1747,8 @@ class enable_disable:
 
 class pta:
     def getMonochrome(self, rgb_color, rgb_value):
-        pass
+        r, g, b = tuple(rgb_color)
+        rgb_temp = colorsys.rgb_to_hsv(r, g, b)
     
     def getChar(self, inputInt):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
@@ -1757,7 +1759,7 @@ class pta:
         interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
     
-    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome):
+    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, iteral):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
 
@@ -1767,6 +1769,9 @@ class pta:
         oneCharWidth = 10
         oneCharHeight = 18
         
+        ##
+        iterated = 0
+        ##
         if float(ui.lineEditSF.text()) != float(ui.spinDialScaleFactor.value() / 100):
             print(float(ui.lineEditSF.text()))
             print(float(ui.spinDialScaleFactor.value() / 100))
@@ -1823,6 +1828,7 @@ class pta:
 
             tf = open(str(folder_out_path) + str(dirslash) + 'outputTF' + str(dirslash) + str(int(x + 1)) + '.txt', "wb+")
             text_file = open(str(folder_out_path) + str(dirslash) + 'outputTextFiles' + str(dirslash) + str(f"Output{int(x) + int(1)}.txt"), "wb+")
+            
             for i in range(height):
                 for j in range(width):
                     if format == 'RGBA':
@@ -1838,7 +1844,7 @@ class pta:
                     ##  add this in as soon as the monochrome function/module is implemented
                     ###
                     ####if monochrome:
-                    ####    mr, mg, mb = getMonochrome()
+                    ####    mr, mg, mb = getMonochrome((r, g, b), h)
                     ###
                     ##
                     #
@@ -1856,9 +1862,15 @@ class pta:
                         pass
                 tf.write('\n'.encode('utf-8'))
                 text_file.write('\n'.encode('utf-8'))
-                print()
             text_file.close()
             tf.close()
+            iterated += float(iteral)
+            if isInt(iterated):
+                print(iterated)
+                ui.progressBar_3.setValue(int(iterated))
+                ui.progressBar_4.setValue(int(iterated))
+                ui.progressBar.setValue(int(iterated))
+                ui.progressBar_2.setValue(int(iterated))
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             if int(execing + 1) == int(processes) and int(x) == len(file_path_list):
@@ -1873,13 +1885,14 @@ class pta:
             #in the future, please use the commeted forloop
             #for execing in range(whatever the process/core variable is):
             #call_exiting.stathide()     we will comment this out untill we can get a reliable way of un hiding
+            iteral = float(100/len(file_path_list))
             picgen.lols(list(file_path_list), int(processes))
             for execing in range(int(processes)):
             #for execing in range(int(1)):
                 with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp', 'r') as dumpclutchprocs:
                     file_path_list2 = dumpclutchprocs.read().split(', ')
                 del dumpclutchprocs
-                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked())))
+                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
 

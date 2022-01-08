@@ -23,7 +23,7 @@ def isInt(num):
     if str(num) == '':
         return False
 
-    for p in range(len(num)):
+    for p in range(len(str(num))):
         if not any(c in str(num)[p] for c in '0123456789.'):
             return False
     
