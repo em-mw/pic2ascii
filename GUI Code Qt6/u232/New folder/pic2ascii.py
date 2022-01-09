@@ -1886,8 +1886,8 @@ class pta:
                 pass
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
-    #try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
-    #except:pass
+    try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
+    except:pass
     
     def pg(self):
         if __name__ == '__main__':
