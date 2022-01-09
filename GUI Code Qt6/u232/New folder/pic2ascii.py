@@ -1311,6 +1311,7 @@ class Ui_MainWindow(object):
 
         #Edits ##we put this here to help us later when biulding a later GUI version
         self.pushButtonImageIn.clicked.connect(lambda:call_atrib.InputFileLoc())
+        self.pushButtonImageIn.clicked.connect(lambda:call_atrib.autobutton())
         self.pushButtonFolderOut.clicked.connect(lambda:call_atrib.OutImgFolder())
         self.pushButtonFontIn.clicked.connect(lambda:call_atrib.fnt_loc())
         self.spinDialScaleFactor.valueChanged.connect(lambda:call_atrib.dialSF())
@@ -1746,6 +1747,13 @@ class enable_disable:
 #########################################################
 
 class pta:
+    def updatewindow(self, iterated):
+        print(__name__)
+        ui.progressBar_3.setValue(int(iterated))
+        ui.progressBar_4.setValue(int(iterated))
+        ui.progressBar.setValue(int(iterated))
+        ui.progressBar_2.setValue(int(iterated))
+    
     def getMonochrome(self, rgb_color, rgb_value):
         r, g, b = tuple(rgb_color)
         rgb_temp = colorsys.rgb_to_hsv(r, g, b)
@@ -1866,19 +1874,20 @@ class pta:
             tf.close()
             iterated += float(iteral)
             if isInt(iterated):
-                print(iterated)
                 ui.progressBar_3.setValue(int(iterated))
                 ui.progressBar_4.setValue(int(iterated))
                 ui.progressBar.setValue(int(iterated))
                 ui.progressBar_2.setValue(int(iterated))
+                print('\n', ui.progressBar_2.value())
+                print(ui)
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             if int(execing + 1) == int(processes) and int(x) == len(file_path_list):
                 pass
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
-    try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
-    except:pass
+    #try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
+    #except:pass
     
     def pg(self):
         if __name__ == '__main__':
@@ -1893,6 +1902,7 @@ class pta:
                     file_path_list2 = dumpclutchprocs.read().split(', ')
                 del dumpclutchprocs
                 pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
+                #pta_ps = Process(target=self.main(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
 
