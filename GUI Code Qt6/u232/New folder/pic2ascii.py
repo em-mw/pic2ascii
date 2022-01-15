@@ -1777,6 +1777,9 @@ class pta:
         oneCharWidth = 10
         oneCharHeight = 18
         
+        #
+
+
         ##
         iterated = 0
         ##
@@ -1874,16 +1877,20 @@ class pta:
             tf.close()
             iterated += float(iteral)
             if isInt(iterated):
+                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as pgb:
+                    pgb.write(str(int(iterated)))
                 ui.progressBar_3.setValue(int(iterated))
                 ui.progressBar_4.setValue(int(iterated))
                 ui.progressBar.setValue(int(iterated))
                 ui.progressBar_2.setValue(int(iterated))
                 print('\n', ui.progressBar_2.value())
                 print(ui)
+                print(self)
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             if int(execing + 1) == int(processes) and int(x) == len(file_path_list):
-                pass
+                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as pgb:
+                    pgb.write('100')
             if int(len(file_path_list)) >= int(x + 1):
                 print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
     try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')

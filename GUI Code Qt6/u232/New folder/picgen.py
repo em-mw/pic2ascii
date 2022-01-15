@@ -123,4 +123,6 @@ def lols(file_path_list, properseq):
                     
         #tmp.write(']')
         tmp.close()
+    with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as trkr:
+        trkr.write('0')
     #input('done! press enter to exit')
