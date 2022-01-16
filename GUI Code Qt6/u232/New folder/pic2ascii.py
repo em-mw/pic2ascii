@@ -81,6 +81,7 @@ app = QtWidgets.QApplication(sys.argv)
 processes = int(1)
 file_path_list = False
 os.system("")
+iterated = 0
 
 pre_fnt=str(os.getcwd() + os.sep + 'font' + os.sep + 'anonymouspro.ttf')
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
@@ -1746,14 +1747,7 @@ class enable_disable:
 
 #########################################################
 
-class pta:
-    def updatewindow(self, iterated):
-        print(__name__)
-        ui.progressBar_3.setValue(int(iterated))
-        ui.progressBar_4.setValue(int(iterated))
-        ui.progressBar.setValue(int(iterated))
-        ui.progressBar_2.setValue(int(iterated))
-    
+class pta:   
     def getMonochrome(self, rgb_color, rgb_value):
         r, g, b = tuple(rgb_color)
         rgb_temp = colorsys.rgb_to_hsv(r, g, b)
@@ -1767,6 +1761,44 @@ class pta:
         interval = charLength/256
         return charArray[math.floor(inputInt*interval)]
     
+    
+    
+    def pbud(self):
+        itsofile = open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'r')
+        while True:
+            sleep(.2)
+            itsofile.seek(0)
+            sleep(.2)
+            it = itsofile.read()
+            
+            print(it)
+            ui.progressBar_3.setValue(int(it))
+            ui.progressBar_4.setValue(int(it))
+            ui.progressBar.setValue(int(it))
+            ui.progressBar_2.setValue(int(it))
+            sleep(.2)
+            if int(it) == 100:
+                itsofile.close()
+                del itsofile
+                break
+    
+    def inting(self, iteral=None, doing=False):
+        global iterated
+        if doing:
+            iterated += float(iteral)
+            if isInt(iterated):
+                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
+                    sleep(.2)
+                    pgb.write(str(int(iterated)))
+            else:
+                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
+                    sleep(.2)
+                    pgb.write(str(math.floor(iterated)))
+        elif doing == False:
+            return iterated
+        elif doing == None:
+            iterated = iteral
+            
     def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, iteral):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
@@ -1778,10 +1810,10 @@ class pta:
         oneCharHeight = 18
         
         #
-
+        #global iterated
 
         ##
-        iterated = 0
+        
         ##
         if float(ui.lineEditSF.text()) != float(ui.spinDialScaleFactor.value() / 100):
             print(float(ui.lineEditSF.text()))
@@ -1864,7 +1896,8 @@ class pta:
                     elif format == 'RGB':
                         d.text((math.ceil(int(j*oneCharWidth)), math.ceil(int(i*oneCharHeight))), self.getChar(h), font = fnt, fill = (int(r), int(g), int(b)))
                     try:
-                        print(fg(r, g, b) + str(self.getChar(h)), end='') #please don't put fg.rs into the code or it will slow down a lot
+                        pass
+                        #print(fg(r, g, b) + str(self.getChar(h)), end='') #please don't put fg.rs into the code or it will slow down a lot
                     except:
                         #try:
                         #    print(str(self.getChar(h)), end='')
@@ -1875,27 +1908,24 @@ class pta:
                 text_file.write('\n'.encode('utf-8'))
             text_file.close()
             tf.close()
-            iterated += float(iteral)
-            if isInt(iterated):
-                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as pgb:
-                    pgb.write(str(int(iterated)))
-                ui.progressBar_3.setValue(int(iterated))
-                ui.progressBar_4.setValue(int(iterated))
-                ui.progressBar.setValue(int(iterated))
-                ui.progressBar_2.setValue(int(iterated))
-                print('\n', ui.progressBar_2.value())
-                print(ui)
-                print(self)
+            #iterated is global
+            self.inting(iteral, True)
+
+            
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             if int(execing + 1) == int(processes) and int(x) == len(file_path_list):
                 with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as pgb:
                     pgb.write('100')
+                self.inting(100, None)
             if int(len(file_path_list)) >= int(x + 1):
-                print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
-    try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
-    except:pass
+                #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
+                pass
+    #try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
+    #except:pass
     
+
+
     def pg(self):
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
@@ -1912,6 +1942,7 @@ class pta:
                 #pta_ps = Process(target=self.main(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
+            Thread(target=self.pbud).start()
 
 #class debunks
 call_enable_disable = enable_disable()
