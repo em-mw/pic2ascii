@@ -31,6 +31,7 @@ def lols(file_path_list, processes):
     else:
         files_per_json = int(len(file_path_list) // processes)
         ext_files = int(len(file_path_list) % processes)
-        
-
-lols(['1', '2', '3', '4', '5', '6', '7', '8'], 8)
+        process_iteration = 1
+        mk_json = []
+        for file in range(int(files_per_json * processes))
+#lols(['1', '2', '3', '4', '5', '6', '7', '8'], 8)
