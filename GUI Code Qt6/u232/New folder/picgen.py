@@ -1,8 +1,7 @@
 import os, shutil, json
 
 def lols(file_path_list, processes):
-    #print(os.path.isdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp'))
-
+    #Check and create temp files
     if os.path.isdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp'):
         shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
     os.mkdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
@@ -11,9 +10,8 @@ def lols(file_path_list, processes):
             shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + os.sep + str(int(folder + 1)))
         os.mkdir(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + os.sep + str(int(folder + 1)))
     
-    print(list(file_path_list))
-    print(processes)
-    input(len(file_path_list) % processes)
+######################################################
+#separate the file_path_list into the processes:
     if len(file_path_list) % processes == 0:
         files_per_json = int(len(file_path_list) / processes)
         file_iterval = files_per_json
@@ -21,11 +19,8 @@ def lols(file_path_list, processes):
         mk_json = []
         for file in range(len(file_path_list)):
             mk_json.append(file_path_list[file])
-            print(process_iteration, file, file_iterval)
-            input(mk_json)
             if file + 1 == file_iterval:
-                print('should')
-                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(process_iteration) + os.sep + str(process_iteration) + '.json', 'w') as the_json_file:
+                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(process_iteration) + os.sep + 'tmp.json', 'w') as the_json_file:
                     json.dump(mk_json, the_json_file)
                 process_iteration += 1
                 file_iterval += files_per_json
@@ -40,14 +35,14 @@ def lols(file_path_list, processes):
         for file in range(int(files_per_json * processes)):
             mk_json.append(file_path_list[file])
             if file + 1 == file_interval:
-                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(process_iteration) + os.sep + str(process_iteration) + '.json', 'w') as the_json_file:
+                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(process_iteration) + os.sep + 'tmp.json', 'w') as the_json_file:
                     json.dump(mk_json, the_json_file)
                 process_iteration += 1
                 file_interval += files_per_json
                 mk_json = []
-        with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(processes) + os.sep + str(processes) + '.json', 'r') as the_json_file:
+        with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(processes) + os.sep + 'tmp.json', 'r') as the_json_file:
             the_json_file.seek(0)
             mk_json = json.load(the_json_file).copy()
             mk_json += file_path_list[int(-1 * ext_files):]
-        with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(processes) + os.sep + str(processes) + '.json', 'w') as the_json_file:
+        with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + str(processes) + os.sep + 'tmp.json', 'w') as the_json_file:
             json.dump(mk_json, the_json_file)

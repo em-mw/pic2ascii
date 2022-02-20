@@ -40,7 +40,7 @@ import colorsys
 #!#import PIL
 from PIL import ImageDraw, ImageFont
 import PIL
-#####
+import json
 import math
 from time import sleep
 
@@ -1763,41 +1763,41 @@ class pta:
     
     
     
-    def pbud(self):
-        itsofile = open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'r')
-        while True:
-            sleep(.2)
-            itsofile.seek(0)
-            sleep(.2)
-            it = itsofile.read()
+    #def pbud(self):
+    #    itsofile = open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'r')
+    #    while True:
+    #        sleep(.2)
+    #        itsofile.seek(0)
+    #        sleep(.2)
+    #        it = itsofile.read()
             
-            print(it)
-            ui.progressBar_3.setValue(int(it))
-            ui.progressBar_4.setValue(int(it))
-            ui.progressBar.setValue(int(it))
-            ui.progressBar_2.setValue(int(it))
-            sleep(.2)
-            if int(it) == 100:
-                itsofile.close()
-                del itsofile
-                break
+    #        print(it)
+    #        ui.progressBar_3.setValue(int(it))
+    #        ui.progressBar_4.setValue(int(it))
+    #        ui.progressBar.setValue(int(it))
+    #        ui.progressBar_2.setValue(int(it))
+    #        sleep(.2)
+    #        if int(it) == 100:
+    #            itsofile.close()
+    #            del itsofile
+    #            break
     
-    def inting(self, iteral=None, doing=False):
-        global iterated
-        if doing:
-            iterated += float(iteral)
-            if isInt(iterated):
-                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
-                    sleep(.2)
-                    pgb.write(str(int(iterated)))
-            else:
-                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
-                    sleep(.2)
-                    pgb.write(str(math.floor(iterated)))
-        elif doing == False:
-            return iterated
-        elif doing == None:
-            iterated = iteral
+    #def inting(self, iteral=None, doing=False):
+    #    global iterated
+    #    if doing:
+    #        iterated += float(iteral)
+    #        if isInt(iterated):
+    #            with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
+    #                sleep(.2)
+    #                pgb.write(str(int(iterated)))
+    #        else:
+    #            with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
+    #                sleep(.2)
+    #                pgb.write(str(math.floor(iterated)))
+    #    elif doing == False:
+    #        return iterated
+    #    elif doing == None:
+    #        iterated = iteral
             
     def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, iteral):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
@@ -1909,15 +1909,15 @@ class pta:
             text_file.close()
             tf.close()
             #iterated is global
-            self.inting(iteral, True)
+            #self.inting(iteral, True)
 
             
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
-            if int(execing + 1) == int(processes) and int(x) == len(file_path_list):
-                with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as pgb:
-                    pgb.write('100')
-                self.inting(100, None)
+            #if int(execing + 1) == int(processes) and int(x) == len(file_path_list):
+            #    with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as pgb:
+            #        pgb.write('100')
+            #    self.inting(100, None)
             if int(len(file_path_list)) >= int(x + 1):
                 #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 pass
@@ -1935,14 +1935,14 @@ class pta:
             picgen.lols(list(file_path_list), int(processes))
             for execing in range(int(processes)):
             #for execing in range(int(1)):
-                with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.tmp', 'r') as dumpclutchprocs:
-                    file_path_list2 = dumpclutchprocs.read().split(', ')
+                with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.json', 'r') as dumpclutchprocs:
+                    file_path_list2 = json.load(dumpclutchprocs)
                 del dumpclutchprocs
                 pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 #pta_ps = Process(target=self.main(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
-            Thread(target=self.pbud).start()
+            #Thread(target=self.pbud).start()
 
 #class debunks
 call_enable_disable = enable_disable()
