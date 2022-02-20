@@ -1914,10 +1914,6 @@ class pta:
             
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
-            #if int(execing + 1) == int(processes) and int(x) == len(file_path_list):
-            #    with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w') as pgb:
-            #        pgb.write('100')
-            #    self.inting(100, None)
             if int(len(file_path_list)) >= int(x + 1):
                 #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 pass
@@ -1929,7 +1925,6 @@ class pta:
     def pg(self):
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
-            #for execing in range(whatever the process/core variable is):
             #call_exiting.stathide()     we will comment this out untill we can get a reliable way of un hiding
             iteral = float(100/len(file_path_list))
             picgen.lols(list(file_path_list), int(processes))
