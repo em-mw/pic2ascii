@@ -48,7 +48,7 @@ from time import sleep
 from platform import platform
 import os
 from subprocess import Popen
-from multiprocessing import Process
+from multiprocessing import Process, Value, Lock
 from threading import Thread
 import picgen
 import psutil
@@ -81,7 +81,6 @@ app = QtWidgets.QApplication(sys.argv)
 processes = int(1)
 file_path_list = False
 os.system("")
-iterated = 0
 
 pre_fnt=str(os.getcwd() + os.sep + 'font' + os.sep + 'anonymouspro.ttf')
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
@@ -1763,43 +1762,26 @@ class pta:
     
     
     
-    #def pbud(self):
-    #    itsofile = open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'r')
-    #    while True:
-    #        sleep(.2)
-    #        itsofile.seek(0)
-    #        sleep(.2)
-    #        it = itsofile.read()
+    def pbud(self, len_file_path_list, progress):
+        while True:
+            if len_file_path_list == progress.value:
+                ui.progressBar.setValue(100)
+                ui.progressBar_2.setValue(100)
+                ui.progressBar_3.setValue(100)
+                ui.progressBar_4.setValue(100)
+                break
+            else:
+                sleep(1)
+                print(str(math.floor(float(progress.value / len_file_path_list) * 100)))
+                print(str(float(progress.value / len_file_path_list)))
+                print('th', str(progress.value))
+                ui.progressBar.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
+                ui.progressBar_2.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
+                ui.progressBar_3.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
+                ui.progressBar_4.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
+
             
-    #        print(it)
-    #        ui.progressBar_3.setValue(int(it))
-    #        ui.progressBar_4.setValue(int(it))
-    #        ui.progressBar.setValue(int(it))
-    #        ui.progressBar_2.setValue(int(it))
-    #        sleep(.2)
-    #        if int(it) == 100:
-    #            itsofile.close()
-    #            del itsofile
-    #            break
-    
-    #def inting(self, iteral=None, doing=False):
-    #    global iterated
-    #    if doing:
-    #        iterated += float(iteral)
-    #        if isInt(iterated):
-    #            with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
-    #                sleep(.2)
-    #                pgb.write(str(int(iterated)))
-    #        else:
-    #            with open(os.getcwd() + os.sep + 'pic2asciitemp' + os.sep + 'pgb.trkr', 'w+') as pgb:
-    #                sleep(.2)
-    #                pgb.write(str(math.floor(iterated)))
-    #    elif doing == False:
-    #        return iterated
-    #    elif doing == None:
-    #        iterated = iteral
-            
-    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, iteral):
+    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, progress, lock):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
 
@@ -1914,6 +1896,7 @@ class pta:
             
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
+            with lock:progress.value += 1
             if int(len(file_path_list)) >= int(x + 1):
                 #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 pass
@@ -1926,18 +1909,19 @@ class pta:
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
             #call_exiting.stathide()     we will comment this out untill we can get a reliable way of un hiding
-            iteral = float(100/len(file_path_list))
             picgen.lols(list(file_path_list), int(processes))
+            progress = Value('i', 0)
+            lock = Lock()
             for execing in range(int(processes)):
             #for execing in range(int(1)):
                 with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.json', 'r') as dumpclutchprocs:
                     file_path_list2 = json.load(dumpclutchprocs)
                 del dumpclutchprocs
-                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
+                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), progress, lock))
                 #pta_ps = Process(target=self.main(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
-            #Thread(target=self.pbud).start()
+            Thread(target=self.pbud, args=(len(file_path_list), progress)).start()
 
 #class debunks
 call_enable_disable = enable_disable()
