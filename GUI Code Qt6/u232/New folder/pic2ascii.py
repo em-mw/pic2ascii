@@ -1,3 +1,5 @@
+
+
 # Form implementation generated from reading ui file 'rva.ui'
 #
 # Created by: PyQt6 UI code generator 6.0.3
@@ -48,7 +50,7 @@ from time import sleep
 from platform import platform
 import os
 from subprocess import Popen
-from multiprocessing import Process, Value, Lock
+from multiprocessing import Process, Value, Lock, Event
 from threading import Thread
 import picgen
 import psutil
@@ -1769,9 +1771,13 @@ class pta:
                 ui.progressBar_2.setValue(100)
                 ui.progressBar_3.setValue(100)
                 ui.progressBar_4.setValue(100)
+                sleep(1)
+                ui.progressBar.setValue(0)
+                ui.progressBar_2.setValue(0)
+                ui.progressBar_3.setValue(0)
+                ui.progressBar_4.setValue(0)
                 break
             else:
-                sleep(1)
                 print(str(math.floor(float(progress.value / len_file_path_list) * 100)))
                 print(str(float(progress.value / len_file_path_list)))
                 print('th', str(progress.value))
@@ -1825,6 +1831,7 @@ class pta:
             dirslash = '/'
             
         print('starting...', end='\n\n')
+        
         for file in file_path_list:
                 
             im = PIL.Image.open(file_path_list[int(x)])
@@ -1897,6 +1904,7 @@ class pta:
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             with lock:progress.value += 1
+            
             if int(len(file_path_list)) >= int(x + 1):
                 #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 pass
@@ -1909,6 +1917,10 @@ class pta:
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
             #call_exiting.stathide()     we will comment this out untill we can get a reliable way of un hiding
+            ui.progressBar.setValue(0)
+            ui.progressBar_2.setValue(0)
+            ui.progressBar_3.setValue(0)
+            ui.progressBar_4.setValue(0)
             picgen.lols(list(file_path_list), int(processes))
             progress = Value('i', 0)
             lock = Lock()
