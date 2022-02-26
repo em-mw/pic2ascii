@@ -23,6 +23,7 @@
 #import more
 
 #Important
+from glob import glob
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QWidget, QApplication
 from PyQt6.QtGui import QFocusEvent
@@ -83,6 +84,8 @@ app = QtWidgets.QApplication(sys.argv)
 processes = int(1)
 file_path_list = False
 os.system("")
+stop_pressed = False
+
 
 pre_fnt=str(os.getcwd() + os.sep + 'font' + os.sep + 'anonymouspro.ttf')
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
@@ -1329,6 +1332,7 @@ class Ui_MainWindow(object):
         self.pushButtonCharHeightReset.clicked.connect(lambda:call_atrib.reset('h'))
         self.pushButtonCharReset.clicked.connect(lambda:call_atrib.reset('c'))
         self.commandLinkButton.clicked.connect(lambda:call_atrib.commandlinking())
+        self.stop.clicked.connect(lambda:call_pta.stopping_pic())
         ##
         #sliders
         ##
@@ -1705,7 +1709,9 @@ class exiting:
 
 
 class enable_disable:
-    def stathide(self):
+    def no_click(self):
+        ui.start.setDisabled(True)
+        ui.stop.setEnabled(True)
         ui.lineEditChar.setEnabled(False)
         ui.whatToDo.setEnabled(False)
         ui.start.setEnabled(False)
@@ -1716,11 +1722,10 @@ class enable_disable:
         ui.pushButtonFolderOut.setEnabled(False)
         ui.comboBoxFormatOut.setEnabled(False)
         ui.lineEditProcess.setEnabled(False)
-        ui.radioButtonRGB.setEnabled(False)
-        ui.radioButtonBW.setEnabled(False)
         ui.checkBoxAutoProcess.setEnabled(False)
-
-    def statshow(self):
+    
+    def click(self):
+        ui.stop.setDisabled(True)
         ui.lineEditChar.setEnabled(True)
         ui.whatToDo.setEnabled(True)
         ui.start.setEnabled(True)
@@ -1731,20 +1736,9 @@ class enable_disable:
         ui.pushButtonFolderOut.setEnabled(True)
         ui.comboBoxFormatOut.setEnabled(True)
         ui.lineEditProcess.setEnabled(True)
-        ui.radioButtonRGB.setEnabled(True)
-        ui.radioButtonBW.setEnabled(True)
         ui.checkBoxAutoProcess.setEnabled(True)
 
 ########################################################
-
-    def commandShow(self):
-        ui.tabWidget_2.setEnabled(True)
-        ui.pushButtonColor.setEnabled(True)
-
-    def commandHide(self):
-        ui.tabWidget_2.setDisabled(True)
-        ui.pushButtonColor.setDisabled(True)
-
 
 #########################################################
 
@@ -1765,8 +1759,11 @@ class pta:
     
     
     def pbud(self, len_file_path_list, progress):
+        global stop_pressed
         while True:
-            if len_file_path_list == progress.value:
+            if stop_pressed == True:
+                break
+            elif len_file_path_list == progress.value:
                 ui.progressBar.setValue(100)
                 ui.progressBar_2.setValue(100)
                 ui.progressBar_3.setValue(100)
@@ -1785,7 +1782,7 @@ class pta:
                 ui.progressBar_2.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
                 ui.progressBar_3.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
                 ui.progressBar_4.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
-
+    
             
     def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, progress, lock):
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
@@ -1831,7 +1828,7 @@ class pta:
             dirslash = '/'
             
         print('starting...', end='\n\n')
-        
+        global stop_pressed
         for file in file_path_list:
                 
             im = PIL.Image.open(file_path_list[int(x)])
@@ -1840,7 +1837,7 @@ class pta:
             else:
                 format = 'RGB'
             #print(str(os.getcwd() + os.sep() + 'font' + os.sep() + 'anonymouspro.ttf'))
-            fnt = ImageFont.truetype(str(os.getcwd() + os.sep + 'font' + os.sep + 'anonymouspro.ttf'), 15)
+            fnt = ImageFont.truetype(str('C:\Windows\Fonts\ARIAL.ttf'), 15)
 
             width, height = im.size
             im = im.resize((int(scaleFactor*width), int(scaleFactor*height*(oneCharWidth/oneCharHeight))), PIL.Image.NEAREST)
@@ -1904,10 +1901,12 @@ class pta:
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             with lock:progress.value += 1
-            
+
             if int(len(file_path_list)) >= int(x + 1):
                 #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 pass
+            if stop_pressed == True:
+                break
     #try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
     #except:pass
     
@@ -1917,10 +1916,13 @@ class pta:
         if __name__ == '__main__':
             #in the future, please use the commeted forloop
             #call_exiting.stathide()     we will comment this out untill we can get a reliable way of un hiding
+            call_enable_disable.no_click()
             ui.progressBar.setValue(0)
             ui.progressBar_2.setValue(0)
             ui.progressBar_3.setValue(0)
             ui.progressBar_4.setValue(0)
+            global stop_pressed
+            stop_pressed = False
             picgen.lols(list(file_path_list), int(processes))
             progress = Value('i', 0)
             lock = Lock()
@@ -1933,7 +1935,15 @@ class pta:
                 #pta_ps = Process(target=self.main(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
-            Thread(target=self.pbud, args=(len(file_path_list), progress)).start()
+            o = Thread(target=self.pbud, args=(len(file_path_list), progress))
+            o.start()
+
+    def stopping_pic(self):
+        global stop_pressed
+        stop_pressed = True
+        call_enable_disable.click()
+
+        
 
 #class debunks
 call_enable_disable = enable_disable()
