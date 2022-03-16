@@ -36,7 +36,7 @@ import colorsys
 #pta class imports (fine imports)
 
 
-#NOTE: You are responcible for installing all of the depencancies if you want this to work
+#NOTE: You are responsible for installing all of the depencancies if you want this to work
     #PIL is the new Pillow Library
 #####
 #!#from sty import fg, rs
@@ -51,7 +51,7 @@ from time import sleep
 from platform import platform
 import os
 from subprocess import Popen
-from multiprocessing import Process, Value, Lock, Event
+from multiprocessing import Process, Value, Lock, Event, process
 from threading import Thread
 import picgen
 import psutil
@@ -85,7 +85,6 @@ processes = int(1)
 file_path_list = False
 os.system("")
 stop_pressed = False
-
 
 pre_fnt=str(os.getcwd() + os.sep + 'font' + os.sep + 'anonymouspro.ttf')
 # Form implementation generated from reading ui file 'C:\Users\Legion\Documents\giti\pic2ascii-GUI\GUI Code Qt6 & Qt5\u232\rva (don't touch unless, know wha yo doi'n)\rva.ui'
@@ -1762,7 +1761,8 @@ class pta:
         global stop_pressed
         while True:
             if stop_pressed == True:
-                break
+                pass
+            #    break
             elif len_file_path_list == progress.value:
                 ui.progressBar.setValue(100)
                 ui.progressBar_2.setValue(100)
@@ -1901,12 +1901,12 @@ class pta:
             x += int(1)
             outputImage.save(str(folder_out_path) + str(dirslash) + 'outputPictureFiles' + str(dirslash) + 'output' + str(x) + '_' + str(execing) + '.png')
             with lock:progress.value += 1
-
             if int(len(file_path_list)) >= int(x + 1):
                 #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 pass
             if stop_pressed == True:
-                break
+                exit()
+                print(f'process {execing} done')
     #try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
     #except:pass
     
@@ -1928,7 +1928,7 @@ class pta:
             lock = Lock()
             for execing in range(int(processes)):
             #for execing in range(int(1)):
-                with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + int(1))) + str(os.sep) + 'tmp.json', 'r') as dumpclutchprocs:
+                with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + 1)) + str(os.sep) + 'tmp.json', 'r') as dumpclutchprocs:
                     file_path_list2 = json.load(dumpclutchprocs)
                 del dumpclutchprocs
                 pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), progress, lock))
@@ -1941,7 +1941,7 @@ class pta:
     def stopping_pic(self):
         global stop_pressed
         stop_pressed = True
-        call_enable_disable.click()
+        #call_enable_disable.click()
 
         
 
