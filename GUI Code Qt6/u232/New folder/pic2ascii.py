@@ -1709,19 +1709,20 @@ class exiting:
 
 class enable_disable:
     def no_click(self):
-        ui.start.setDisabled(True)
-        ui.stop.setEnabled(True)
-        ui.lineEditChar.setEnabled(False)
-        ui.whatToDo.setEnabled(False)
-        ui.start.setEnabled(False)
-        ui.spinDialScaleFactor.setEnabled(False)
-        ui.lineEditSF.setEnabled(False)
-        ui.pushButtonFontIn.setEnabled(False)
-        ui.pushButtonImageIn.setEnabled(False)
-        ui.pushButtonFolderOut.setEnabled(False)
-        ui.comboBoxFormatOut.setEnabled(False)
-        ui.lineEditProcess.setEnabled(False)
-        ui.checkBoxAutoProcess.setEnabled(False)
+        pass
+        #ui.start.setDisabled(True)
+        #ui.stop.setEnabled(True)
+        #ui.lineEditChar.setEnabled(False)
+        #ui.whatToDo.setEnabled(False)
+        #ui.start.setEnabled(False)
+        #ui.spinDialScaleFactor.setEnabled(False)
+        #ui.lineEditSF.setEnabled(False)
+        #ui.pushButtonFontIn.setEnabled(False)
+        #ui.pushButtonImageIn.setEnabled(False)
+        #ui.pushButtonFolderOut.setEnabled(False)
+        #ui.comboBoxFormatOut.setEnabled(False)
+        #ui.lineEditProcess.setEnabled(False)
+        #ui.checkBoxAutoProcess.setEnabled(False)
     
     def click(self):
         ui.stop.setDisabled(True)
@@ -1760,6 +1761,7 @@ class pta:
     def pbud(self, len_file_path_list, progress):
         global stop_pressed
         while True:
+            print(stop_pressed)
             if stop_pressed == True:
                 pass
             #    break
@@ -1775,9 +1777,9 @@ class pta:
                 ui.progressBar_4.setValue(0)
                 break
             else:
-                print(str(math.floor(float(progress.value / len_file_path_list) * 100)))
-                print(str(float(progress.value / len_file_path_list)))
-                print('th', str(progress.value))
+                #print(str(math.floor(float(progress.value / len_file_path_list) * 100)))
+                #print(str(float(progress.value / len_file_path_list)))
+                #print('th', str(progress.value))
                 ui.progressBar.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
                 ui.progressBar_2.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
                 ui.progressBar_3.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
@@ -1796,9 +1798,20 @@ class pta:
         
         #
         #global iterated
-
+        global stop_pressed
         ##
+        def stopo():
+            while True:
+                print(stop_pressed)
+                if stop_pressed:
+                    no()
+                    exit()
         
+        lso = Thread(target=stopo)
+        lso.start()
+
+        no = lambda:lso.stop()
+
         ##
         if float(ui.lineEditSF.text()) != float(ui.spinDialScaleFactor.value() / 100):
             print(float(ui.lineEditSF.text()))
@@ -1828,7 +1841,6 @@ class pta:
             dirslash = '/'
             
         print('starting...', end='\n\n')
-        global stop_pressed
         for file in file_path_list:
                 
             im = PIL.Image.open(file_path_list[int(x)])
@@ -1860,6 +1872,7 @@ class pta:
             
             for i in range(height):
                 for j in range(width):
+                    print(i)
                     if format == 'RGBA':
                         r, g, b, a = pix.getpixel((j, i))
                     elif format == 'RGB':
@@ -1904,8 +1917,6 @@ class pta:
             if int(len(file_path_list)) >= int(x + 1):
                 #print(f'{fg.rs}\n\nImage {x} is done, going to next image\n\n')
                 pass
-            if stop_pressed == True:
-                exit()
                 print(f'process {execing} done')
     #try:shutil.rmtree(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp')
     #except:pass
