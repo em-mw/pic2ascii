@@ -1760,8 +1760,13 @@ class pta:
     
     def pbud(self, len_file_path_list, progress):
         global stop_pressed
+        #############
+        ############
+        ############
+        ###########
+        #please change this so the loop stops when all the processes stop
         while True:
-            print(stop_pressed)
+            #print(stop_pressed)
             if stop_pressed == True:
                 pass
             #    break
@@ -1786,7 +1791,8 @@ class pta:
                 ui.progressBar_4.setValue(int(math.floor(float(progress.value / len_file_path_list) * 100)))
     
             
-    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, progress, lock):
+    def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, progress, stp_prsd, lock):
+        import asyncio
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
 
@@ -1796,23 +1802,16 @@ class pta:
         oneCharWidth = 10
         oneCharHeight = 18
         
-        #
-        #global iterated
-        global stop_pressed
-        ##
-        def stopo():
+        async def chikr():
             while True:
-                print(stop_pressed)
-                if stop_pressed:
-                    no()
-                    exit()
-        
-        lso = Thread(target=stopo)
-        lso.start()
-
-        no = lambda:lso.stop()
-
-        ##
+                with lock:
+                    if bool(stp_prsd.value):
+                        print(stp_prsd.value)
+                        print(bool(stp_prsd.value))
+                        print('stopped')
+                        exit()
+        asyncio.run(chikr())
+        #
         if float(ui.lineEditSF.text()) != float(ui.spinDialScaleFactor.value() / 100):
             print(float(ui.lineEditSF.text()))
             print(float(ui.spinDialScaleFactor.value() / 100))
@@ -1872,7 +1871,7 @@ class pta:
             
             for i in range(height):
                 for j in range(width):
-                    print(i)
+                    #print(i)
                     if format == 'RGBA':
                         r, g, b, a = pix.getpixel((j, i))
                     elif format == 'RGB':
@@ -1936,13 +1935,14 @@ class pta:
             stop_pressed = False
             picgen.lols(list(file_path_list), int(processes))
             progress = Value('i', 0)
+            stp_prsd = Value('i', int(stop_pressed))
             lock = Lock()
             for execing in range(int(processes)):
             #for execing in range(int(1)):
                 with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + 1)) + str(os.sep) + 'tmp.json', 'r') as dumpclutchprocs:
                     file_path_list2 = json.load(dumpclutchprocs)
                 del dumpclutchprocs
-                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), progress, lock))
+                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), progress, stp_prsd, lock))
                 #pta_ps = Process(target=self.main(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
                 pta_ps.start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
