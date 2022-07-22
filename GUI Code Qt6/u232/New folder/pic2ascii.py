@@ -23,7 +23,9 @@
 #import more
 
 #Important
+from ast import Pass
 from glob import glob
+from urllib.request import proxy_bypass
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QWidget, QApplication
 from PyQt6.QtGui import QFocusEvent
@@ -1792,7 +1794,7 @@ class pta:
     
             
     def main(self, execing, file_path_list, folder_out_path, pre_fnt, scaleFactor, processes, monochrome, progress, stp_prsd, lock):
-        import asyncio
+        #import asyncio
         #chars = '''$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. '''[::-1]
         chars = str(ui.lineEditChar.text())
 
@@ -1802,15 +1804,15 @@ class pta:
         oneCharWidth = 10
         oneCharHeight = 18
         
-        async def chikr():
-            while True:
-                with lock:
-                    if bool(stp_prsd.value):
-                        print(stp_prsd.value)
-                        print(bool(stp_prsd.value))
-                        print('stopped')
-                        exit()
-        asyncio.run(chikr())
+        #async def chikr():
+        #    while True:
+        #        with lock:
+        #            if bool(stp_prsd.value):
+        #                print(stp_prsd.value)
+        #                print(bool(stp_prsd.value))
+        #                print('stopped')
+        #                exit()
+        #asyncio.run(chikr())
         #
         if float(ui.lineEditSF.text()) != float(ui.spinDialScaleFactor.value() / 100):
             print(float(ui.lineEditSF.text()))
@@ -1937,21 +1939,36 @@ class pta:
             progress = Value('i', 0)
             stp_prsd = Value('i', int(stop_pressed))
             lock = Lock()
+            global o, lombar
+            lombar = ['error' + str(x) for x in range(int(processes))]
+            o = ['error' + str(x) for x in range(int(processes))]
             for execing in range(int(processes)):
             #for execing in range(int(1)):
                 with open(str(os.getcwd()) + str(os.sep) + 'pic2asciitemp' + str(os.sep) + str(int(execing + 1)) + str(os.sep) + 'tmp.json', 'r') as dumpclutchprocs:
                     file_path_list2 = json.load(dumpclutchprocs)
                 del dumpclutchprocs
-                pta_ps = Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), progress, stp_prsd, lock))
+                lombar[execing] = (Process(target=self.main, args=(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), progress, stp_prsd, lock)))
                 #pta_ps = Process(target=self.main(int(execing), list(file_path_list2), str(folder_out_path), str(pre_fnt), float(str(ui.lineEditSF.text())), int(processes), bool(ui.commandLinkButton.isChecked()), iteral))
-                pta_ps.start()
+                lombar[execing].start()
                 #I did some reaserch and figured out that .join() is for allready (not in function) tasks
-            o = Thread(target=self.pbud, args=(len(file_path_list), progress))
-            o.start()
+            o[execing] = (Thread(target=self.pbud, args=(len(file_path_list), progress)))
+            print(lombar)
+            print(o)
+            o[execing].start()
 
     def stopping_pic(self):
         global stop_pressed
         stop_pressed = True
+        tbarn = [False for _ in range(len(lombar))]
+        tbaro = [False for _ in range(len(lombar))]
+        while all(tbarn) != True and all(tbaro) != True:
+            for execing in range(len(lombar)):
+                try:lombar[execing].terminate()
+                except:pass
+                else:tbarn[execing] = True
+                try:o[execing].terminate()
+                except:pass
+                else:tbaro[exceing] = True
         #call_enable_disable.click()
 
         
